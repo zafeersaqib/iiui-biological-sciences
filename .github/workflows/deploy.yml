@@ -34,8 +34,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build site with Astro & Pagefind
-        run: npm run build
+      - name: Build Astro site
+        run: npx astro build
+
+      - name: Generate search index with Pagefind
+        run: npx -y pagefind --site dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
