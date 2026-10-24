@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const staffMembers = [
+  { 
+    name: "Mr. Muhammad Muti Ur Rehman", 
+    title: "Program Coordinator", 
+    qualification: "MS Mathematics (In Progress)", 
+    office: "Room 110, Science Block, IIUI Sector H-10", 
+    phone: "051-9019739 (Intercom: 2739)", 
+    email: "muhammad.muti@iiu.edu.pk" 
+  },
+  { 
+    name: "Ms. Robina Khan Niazi", 
+    title: "Laboratory Manager (Biotechnology & Bioinformatics)", 
+    qualification: "M.Phil. Biotechnology (QAU), M.Sc. Biology (QAU)", 
+    office: "Central Life Sciences Laboratory, Science Block", 
+    phone: "+92 51 9019865 (Intercom: 2865)", 
+    email: "robina.khan@iiu.edu.pk" 
+  },
+  { 
+    name: "Ms. Sobia Rafique", 
+    title: "Assistant (Department Administration)", 
+    qualification: "M.Sc. Gender & Women Studies, M.A. Education", 
+    office: "Chairperson Secretariat, Science Block", 
+    phone: "051-9019351 / 051-9528016", 
+    email: "Sobia.rafique@iiu.edu.pk" 
+  },
+  { 
+    name: "Ms. Saba Aslam", 
+    title: "Lower Division Clerk (LDC)", 
+    qualification: "B.Sc.", 
+    office: "Student Affairs & Dispatch Desk, Science Block", 
+    phone: "051-9019351", 
+    email: "saba.aslam@iiu.edu.pk" 
+  },
+  { 
+    name: "Mr. Umar Farooq", 
+    title: "Department Support Staff", 
+    qualification: "Department Auxiliary Support", 
+    office: "Science Block, IIUI Sector H-10", 
+    phone: "IIUI Intercom", 
+    email: "biological.sciences@iiu.edu.pk" 
+  },
+];
+---
+
+<Layout 
+  title="Laboratory & Administrative Staff | Department of Biological Sciences, IIUI"
+  description="Official directory of technical laboratory managers, program coordinators, and administrative officers supporting education and research at the Department of Biological Sciences, IIUI."
+>
+  <Breadcrumb items={[{ label: 'People', href: '/people/faculty' }, { label: 'Staff' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Technical, Operational & Student Support
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Laboratory & Administrative Staff
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          Our dedicated coordinators, lab managers, and administrative personnel ensure smooth laboratory operations, manage student course records, and support research compliance.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {staffMembers.map((staff) => (
+          <div class="p-6 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-4 hover:shadow-lg transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl bg-forest-800 text-white flex items-center justify-center font-display font-bold text-sm shrink-0">
+                {staff.name.split(' ').slice(-2).map(n => n[0]).join('')}
+              </div>
+              <div>
+                <h2 class="text-base font-display font-bold text-sand-900 dark:text-sand-100">{staff.name}</h2>
+                <p class="text-xs font-semibold text-forest-700 dark:text-gold-400">{staff.title}</p>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-sand-500 font-medium">
+              {staff.qualification}
+            </p>
+
+            <div class="text-xs text-sand-600 dark:text-sand-400 space-y-1.5 pt-3 border-t border-sand-200 dark:border-night-800">
+              <p><strong>Office / Desk:</strong> {staff.office}</p>
+              <p><strong>Telephone:</strong> {staff.phone}</p>
+              <p><strong>Email:</strong> <a href={`mailto:${staff.email}`} class="text-forest-800 dark:text-gold-400 hover:underline">{staff.email}</a></p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>

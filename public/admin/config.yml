@@ -1,0 +1,98 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "faculty"
+    label: "Faculty Members"
+    folder: "src/content/faculty"
+    create: true
+    slug: "{{slug}}/index"
+    editor:
+      preview: false
+    fields:
+      - { label: "Full Name with Title", name: "name", widget: "string" }
+      - { label: "Designation", name: "designation", widget: "string" }
+      - { label: "Role / Responsibilities", name: "role", widget: "string", required: false }
+      - { label: "Profile Photo", name: "avatar", widget: "image" }
+      - { label: "Banner Image", name: "banner", widget: "image" }
+      - { label: "Email Address", name: "email", widget: "string" }
+      - { label: "Office Phone", name: "phone", widget: "string", required: false }
+      - { label: "Office Location", name: "office", widget: "string" }
+      - { label: "Display Rank Order", name: "rank_order", widget: "number", default: 10 }
+      - { label: "Research Interests", name: "research_interests", widget: "list" }
+      - { label: "One-Line Research Summary", name: "short_summary", widget: "string" }
+      - { label: "Google Scholar URL", name: "scholar_url", widget: "string", required: false }
+      - { label: "ORCID URL", name: "orcid_url", widget: "string", required: false }
+      - { label: "ResearchGate URL", name: "researchgate_url", widget: "string", required: false }
+      - { label: "LinkedIn URL", name: "linkedin_url", widget: "string", required: false }
+      - { label: "X / Twitter URL", name: "x_url", widget: "string", required: false }
+      - { label: "CV PDF Document", name: "cv_pdf", widget: "file", required: false }
+      - { label: "Narrative Biography & Research Themes", name: "body", widget: "markdown" }
+
+  - name: "news"
+    label: "Department News"
+    folder: "src/content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Article Title", name: "title", widget: "string" }
+      - { label: "Publication Date", name: "date", widget: "date" }
+      - { label: "Category", name: "category", widget: "select", options: ["Research & Grants", "Conferences & Seminars", "Admissions & Academics", "Student Achievements"] }
+      - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: false }
+      - { label: "Lead Featured Image", name: "featured_image", widget: "image" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Full Article Content", name: "body", widget: "markdown" }
+
+  - name: "events"
+    label: "Events & Seminars"
+    folder: "src/content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Event Title", name: "title", widget: "string" }
+      - { label: "Event Date", name: "date", widget: "date" }
+      - { label: "Time", name: "time", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Seminar", "Conference", "Workshop", "Viva", "Symposium"] }
+      - { label: "Distinguished Speaker", name: "speaker", widget: "string" }
+      - { label: "Speaker Title & Affiliation", name: "speaker_title", widget: "string" }
+      - { label: "Poster / Banner Image", name: "featured_image", widget: "image" }
+      - { label: "Online Registration Link", name: "registration_link", widget: "string", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Detailed Description & Schedule", name: "body", widget: "markdown" }
+
+  - name: "programs"
+    label: "Academic Programs"
+    folder: "src/content/programs"
+    create: false
+    fields:
+      - { label: "Program Name", name: "title", widget: "string" }
+      - { label: "Degree Code", name: "code", widget: "string" }
+      - { label: "Degree Level", name: "degree_level", widget: "select", options: ["Undergraduate", "Graduate", "Postgraduate"] }
+      - { label: "Duration", name: "duration", widget: "string" }
+      - { label: "Credit Hours", name: "credit_hours", widget: "string" }
+      - { label: "Overview", name: "overview", widget: "text" }
+      - { label: "Eligibility Criteria", name: "eligibility", widget: "text" }
+      - { label: "Program Learning Outcomes", name: "plos", widget: "list" }
+      - { label: "Career Prospects", name: "career_prospects", widget: "list" }
+      - { label: "Detailed Notes & Syllabi", name: "body", widget: "markdown" }
+
+  - name: "labs"
+    label: "Laboratories & Facilities"
+    folder: "src/content/labs"
+    create: true
+    fields:
+      - { label: "Laboratory Name", name: "title", widget: "string" }
+      - { label: "Lab Code", name: "code", widget: "string" }
+      - { label: "Faculty In-Charge", name: "in_charge", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Research Focus", name: "focus", widget: "text" }
+      - { label: "Lab Photo", name: "featured_image", widget: "image" }
+      - { label: "Detailed Overview", name: "body", widget: "markdown" }

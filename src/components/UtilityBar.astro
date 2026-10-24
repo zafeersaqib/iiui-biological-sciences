@@ -1,0 +1,81 @@
+---
+// Utility bar linking to parent IIUI portals
+---
+<div class="bg-forest-950 text-sand-200 text-xs border-b border-forest-900/60 font-sans tracking-wide">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center py-1.5 gap-y-1">
+    
+    <!-- Left: Quranic Quote / Signature Tagline -->
+    <div class="flex items-center space-x-2 text-[#9A6735] dark:text-[#C1E899] font-medium">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#55883B]"></span>
+      <span class="font-arabic text-sm text-[#9A6735] dark:text-[#C1E899]">قُلْ سِيرُوا فِي الْأَرْضِ فَانظُرُوا كَيْفَ بَدَأَ الْخَلْقَ ۚ</span>
+      <span class="hidden md:inline text-sand-300 text-[11px] font-normal italic">
+        — "Say: 'Travel through the earth and see how Allah did originate creation...'" (29:20)
+      </span>
+    </div>
+
+    <!-- Right: IIUI Parent Links & Theme Toggle -->
+    <div class="flex items-center space-x-3 sm:space-x-4">
+      <nav aria-label="University Portals" class="flex items-center space-x-3 text-[11px] sm:text-xs">
+        <a href="https://admission.iiu.edu.pk/" target="_blank" rel="noopener" class="hover:text-gold-300 transition-colors font-medium text-gold-400">Admission</a>
+        <span class="text-forest-800" aria-hidden="true">|</span>
+        <a href="https://dashboard.iiu.edu.pk" target="_blank" rel="noopener" class="hover:text-gold-300 transition-colors">LMS</a>
+        <span class="text-forest-800" aria-hidden="true">|</span>
+        <a href="https://cms.iiu.edu.pk" target="_blank" rel="noopener" class="hover:text-gold-300 transition-colors">CMS</a>
+        <span class="text-forest-800" aria-hidden="true">|</span>
+        <a href="https://sis.iiu.edu.pk" target="_blank" rel="noopener" class="hover:text-gold-300 transition-colors">SIS</a>
+        <span class="text-forest-800 hidden sm:inline" aria-hidden="true">|</span>
+        <a href="https://mail.google.com/a/iiu.edu.pk" target="_blank" rel="noopener" class="hover:text-gold-300 transition-colors hidden sm:inline">Webmail</a>
+        <span class="text-forest-800 hidden md:inline" aria-hidden="true">|</span>
+        <a href="https://www.iiu.edu.pk/oric/" target="_blank" rel="noopener" class="hover:text-gold-300 transition-colors hidden md:inline">ORIC</a>
+        <span class="text-forest-800" aria-hidden="true">|</span>
+        <a href="https://www.iiu.edu.pk" target="_blank" rel="noopener" class="hover:text-gold-300 transition-colors text-sand-300">IIUI Home</a>
+      </nav>
+
+      <!-- Dark Mode Switcher -->
+      <button 
+        id="theme-toggle" 
+        type="button" 
+        class="text-sand-300 hover:text-gold-300 p-1 rounded focus:outline-none focus:ring-1 focus:ring-gold-400"
+        aria-label="Toggle dark mode"
+      >
+        <svg id="theme-toggle-dark-icon" class="hidden w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Dark mode inline toggle logic
+  const themeToggle = document.getElementById('theme-toggle');
+  const darkIcon = document.getElementById('theme-toggle-dark-icon');
+  const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+  function updateIcons() {
+    if (document.documentElement.classList.contains('dark')) {
+      darkIcon?.classList.add('hidden');
+      lightIcon?.classList.remove('hidden');
+    } else {
+      lightIcon?.classList.add('hidden');
+      darkIcon?.classList.remove('hidden');
+    }
+  }
+
+  updateIcons();
+
+  themeToggle?.addEventListener('click', () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+    updateIcons();
+  });
+</script>

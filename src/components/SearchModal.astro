@@ -1,0 +1,259 @@
+---
+// Full-Screen Search Overlay with Common Questions and Pagefind integration
+---
+
+<div 
+  id="search-modal" 
+  class="fixed inset-0 z-50 hidden bg-[#0D1F0C]/98 backdrop-blur-md overflow-y-auto text-white transition-all duration-300" 
+  role="dialog" 
+  aria-modal="true" 
+  aria-labelledby="search-modal-title"
+>
+  
+  <!-- Top Bar with Close Button (✕) -->
+  <div class="max-w-6xl mx-auto px-6 py-6 sm:py-8 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="/assets/images/dept-logo.png" alt="Department Crest" class="h-10 w-auto object-contain brightness-125" />
+      <span id="search-modal-title" class="text-xs uppercase tracking-widest font-mono text-[#C1E899] font-bold">
+        Department of Biological Sciences Search
+      </span>
+    </div>
+
+    <!-- Green Square Close Button -->
+    <button 
+      id="close-search-btn" 
+      type="button" 
+      class="w-11 h-11 bg-[#55883B] hover:bg-[#436e2e] flex items-center justify-center text-white rounded transition-colors focus:outline-none focus:ring-2 focus:ring-[#C1E899]"
+      aria-label="Close search overlay"
+      title="Close Search (Esc)"
+    >
+      <svg class="w-6 h-6 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Search Input Container -->
+  <div class="max-w-4xl mx-auto px-6 pt-6 pb-12 space-y-10">
+    
+    <div class="space-y-4">
+      <label for="custom-search-input" class="block text-xs font-mono font-bold uppercase tracking-wider text-[#C1E899]">
+        Search Academic Programs, Faculty, Research & Campus Portals
+      </label>
+      <div class="relative flex items-center border-b-2 border-[#55883B] focus-within:border-[#C1E899] transition-colors pb-2">
+        <svg class="w-8 h-8 text-[#C1E899] mr-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input 
+          type="search" 
+          id="custom-search-input" 
+          placeholder="Type to search..." 
+          class="w-full bg-transparent text-2xl sm:text-4xl font-sans font-bold text-white placeholder-white/40 focus:outline-none tracking-tight"
+          autocomplete="off"
+        />
+        <button 
+          id="clear-search-btn" 
+          type="button" 
+          class="hidden text-xs uppercase tracking-wider text-[#C1E899] hover:text-white px-2 py-1 font-mono"
+        >
+          Clear
+        </button>
+      </div>
+      <p class="text-xs text-[#E6F0DC]/70">Press <kbd class="px-1.5 py-0.5 rounded bg-[#163013] border border-[#23491E] font-mono text-[11px] text-[#C1E899]">ESC</kbd> anytime to exit</p>
+    </div>
+
+    <!-- Live Search Results Container (Populated by Pagefind) -->
+    <div id="search-results-list" class="hidden space-y-3 bg-[#163013]/90 p-6 rounded-xl border border-[#23491E] max-h-96 overflow-y-auto">
+      <!-- Dynamic search items -->
+    </div>
+
+    <!-- Common Searches List (6-8 Question-Style Links) -->
+    <div id="common-searches-box" class="space-y-4 pt-4 border-t border-[#23491E]">
+      <h3 class="text-xs uppercase tracking-widest font-mono font-bold text-[#C1E899]">
+        Frequently Asked & Common Searches:
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+        <a 
+          href="/students/admissions" 
+          class="common-search-link p-3.5 rounded-lg bg-[#163013]/70 hover:bg-[#23491E] border border-[#23491E] transition-colors flex items-center justify-between text-[#E6F0DC] hover:text-white group"
+        >
+          <span>How do I apply for the BS Biotechnology or BS Biology degree?</span>
+          <span class="text-[#C1E899] group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+
+        <a 
+          href="/academics/academic-calendar" 
+          class="common-search-link p-3.5 rounded-lg bg-[#163013]/70 hover:bg-[#23491E] border border-[#23491E] transition-colors flex items-center justify-between text-[#E6F0DC] hover:text-white group"
+        >
+          <span>Where can I find the active Fall 2026 semester timetable and schedules?</span>
+          <span class="text-[#C1E899] group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+
+        <a 
+          href="/research/areas" 
+          class="common-search-link p-3.5 rounded-lg bg-[#163013]/70 hover:bg-[#23491E] border border-[#23491E] transition-colors flex items-center justify-between text-[#E6F0DC] hover:text-white group"
+        >
+          <span>What research is being conducted in Molecular Oncology & Spatial Ecology?</span>
+          <span class="text-[#C1E899] group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+
+        <a 
+          href="/people/faculty" 
+          class="common-search-link p-3.5 rounded-lg bg-[#163013]/70 hover:bg-[#23491E] border border-[#23491E] transition-colors flex items-center justify-between text-[#E6F0DC] hover:text-white group"
+        >
+          <span>How do I find a faculty member or supervisor for MS / PhD thesis?</span>
+          <span class="text-[#C1E899] group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+
+        <a 
+          href="/students/admissions#fees" 
+          class="common-search-link p-3.5 rounded-lg bg-[#163013]/70 hover:bg-[#23491E] border border-[#23491E] transition-colors flex items-center justify-between text-[#E6F0DC] hover:text-white group"
+        >
+          <span>What is the fee structure, eligibility criteria, and HEC scholarship quota?</span>
+          <span class="text-[#C1E899] group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+
+        <a 
+          href="/research/labs" 
+          class="common-search-link p-3.5 rounded-lg bg-[#163013]/70 hover:bg-[#23491E] border border-[#23491E] transition-colors flex items-center justify-between text-[#E6F0DC] hover:text-white group"
+        >
+          <span>Where are the core biotechnology laboratories located on the H-10 campus?</span>
+          <span class="text-[#C1E899] group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+
+        <a 
+          href="/students/guidelines" 
+          class="common-search-link p-3.5 rounded-lg bg-[#163013]/70 hover:bg-[#23491E] border border-[#23491E] transition-colors flex items-center justify-between text-[#E6F0DC] hover:text-white group"
+        >
+          <span>What are the synopsis submission and graduate thesis viva guidelines?</span>
+          <span class="text-[#C1E899] group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+
+        <a 
+          href="https://cms.iiu.edu.pk/" 
+          target="_blank" 
+          rel="noopener"
+          class="common-search-link p-3.5 rounded-lg bg-[#163013]/70 hover:bg-[#23491E] border border-[#23491E] transition-colors flex items-center justify-between text-[#E6F0DC] hover:text-white group"
+        >
+          <span>How do students log into the IIUI CMS and LMS digital portals?</span>
+          <span class="text-[#C1E899] group-hover:translate-x-1 transition-transform">&nearr;</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const searchModal = document.getElementById('search-modal');
+  const searchBtn = document.getElementById('search-btn');
+  const heroSearchBtn = document.getElementById('hero-search-btn');
+  const drawerSearchBtn = document.getElementById('drawer-search-btn');
+  const footerSearchBtn = document.getElementById('footer-search-btn');
+  const closeSearchBtn = document.getElementById('close-search-btn');
+  const searchInput = document.getElementById('custom-search-input') as HTMLInputElement | null;
+  const clearBtn = document.getElementById('clear-search-btn');
+  const resultsContainer = document.getElementById('search-results-list');
+  const commonSearchesBox = document.getElementById('common-searches-box');
+
+  let pagefindInstance: any = null;
+
+  async function initPagefind() {
+    if (!pagefindInstance) {
+      try {
+        const importPagefind = new Function("return import('/pagefind/pagefind.js')");
+        pagefindInstance = await importPagefind();
+        await pagefindInstance.init();
+      } catch (e) {
+        console.warn('Pagefind search index active on static builds.');
+      }
+    }
+  }
+
+  function openSearchModal() {
+    searchModal?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    searchInput?.focus();
+    initPagefind();
+  }
+
+  function closeSearchModal() {
+    searchModal?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  searchBtn?.addEventListener('click', openSearchModal);
+  heroSearchBtn?.addEventListener('click', openSearchModal);
+  drawerSearchBtn?.addEventListener('click', openSearchModal);
+  footerSearchBtn?.addEventListener('click', openSearchModal);
+  closeSearchBtn?.addEventListener('click', closeSearchModal);
+
+  clearBtn?.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      searchInput.focus();
+      if (resultsContainer) {
+        resultsContainer.innerHTML = '';
+        resultsContainer.classList.add('hidden');
+      }
+      commonSearchesBox?.classList.remove('hidden');
+      clearBtn.classList.add('hidden');
+    }
+  });
+
+  // Close on Escape key or Ctrl+K trigger
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !searchModal?.classList.contains('hidden')) {
+      closeSearchModal();
+    }
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      openSearchModal();
+    }
+  });
+
+  searchInput?.addEventListener('input', async (e) => {
+    const query = (e.target as HTMLInputElement).value.trim();
+    if (!query) {
+      if (resultsContainer) {
+        resultsContainer.innerHTML = '';
+        resultsContainer.classList.add('hidden');
+      }
+      commonSearchesBox?.classList.remove('hidden');
+      clearBtn?.classList.add('hidden');
+      return;
+    }
+
+    clearBtn?.classList.remove('hidden');
+
+    if (!pagefindInstance) {
+      await initPagefind();
+    }
+
+    if (pagefindInstance && resultsContainer) {
+      try {
+        const search = await pagefindInstance.search(query);
+        const results = await Promise.all(search.results.slice(0, 6).map((r: any) => r.data()));
+
+        if (results.length === 0) {
+          resultsContainer.innerHTML = '<div class="text-xs text-[#C1E899] py-3 text-center">No exact matches found for "' + query + '". Try a different bioscience keyword or program name.</div>';
+          resultsContainer.classList.remove('hidden');
+          commonSearchesBox?.classList.remove('hidden');
+        } else {
+          resultsContainer.innerHTML = results.map((r: any) => `
+            <a href="${r.url}" class="block p-3.5 rounded-lg bg-[#23491E]/70 hover:bg-[#55883B]/60 transition-colors border border-[#55883B]/40">
+              <div class="font-serif font-bold text-white text-base">${r.meta?.title || 'Biological Sciences Document'}</div>
+              <div class="text-xs text-[#E6F0DC]/85 mt-1 line-clamp-2">${r.excerpt}</div>
+              <div class="text-[10px] text-[#C1E899] font-mono mt-1">${r.url}</div>
+            </a>
+          `).join('');
+          resultsContainer.classList.remove('hidden');
+          commonSearchesBox?.classList.add('hidden');
+        }
+      } catch (err) {
+        console.error('Search error:', err);
+      }
+    }
+  });
+</script>

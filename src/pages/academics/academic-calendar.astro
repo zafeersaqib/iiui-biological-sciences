@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+
+<Layout 
+  title="Academic Calendar & Timetables | Department of Biological Sciences, IIUI"
+  description="Official semester dates, class commencement, midterm and final examination schedules, and course timetable downloads for the Department of Biological Sciences, IIUI."
+>
+  <Breadcrumb items={[{ label: 'Academics', href: '/academics' }, { label: 'Academic Calendar' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Semester Schedules & Timetables
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Academic Calendar & Timetables
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          Important academic dates, add/drop registration windows, examination milestones, and class schedules for undergraduate and graduate bioscience scholars.
+        </p>
+      </div>
+
+      <!-- Semester Schedule Table -->
+      <div class="border border-sand-200 dark:border-night-800 rounded-2xl overflow-hidden bg-sand-50/50 dark:bg-night-900">
+        <div class="p-6 border-b border-sand-200 dark:border-night-800 bg-sand-100/50 dark:bg-night-850 flex justify-between items-center">
+          <h2 class="text-base font-display font-bold text-sand-900 dark:text-sand-100">
+            Current Academic Session (Fall / Spring Milestones)
+          </h2>
+          <span class="text-xs px-2.5 py-1 rounded bg-forest-800 text-white font-mono">Academic Year 2024–2025</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-sand-200 dark:divide-night-800 text-left text-xs">
+            <thead class="bg-sand-50 dark:bg-night-900 text-sand-500 uppercase font-semibold text-[10px]">
+              <tr>
+                <th class="px-6 py-3">Academic Event / Milestone</th>
+                <th class="px-6 py-3">Fall Semester</th>
+                <th class="px-6 py-3">Spring Semester</th>
+                <th class="px-6 py-3">Applies To</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-sand-100 dark:divide-night-800 text-sand-800 dark:text-sand-200">
+              <tr class="hover:bg-sand-50 dark:hover:bg-night-850/50">
+                <td class="px-6 py-3.5 font-medium">Online Course Registration & Fee Submission</td>
+                <td class="px-6 py-3.5 font-mono text-sand-600 dark:text-sand-400">Sep 02 – Sep 13</td>
+                <td class="px-6 py-3.5 font-mono text-sand-600 dark:text-sand-400">Feb 03 – Feb 14</td>
+                <td class="px-6 py-3.5">All Returning Students</td>
+              </tr>
+              <tr class="hover:bg-sand-50 dark:hover:bg-night-850/50">
+                <td class="px-6 py-3.5 font-medium">Commencement of Regular Classes</td>
+                <td class="px-6 py-3.5 font-mono text-forest-700 dark:text-gold-400 font-semibold">September 16</td>
+                <td class="px-6 py-3.5 font-mono text-forest-700 dark:text-gold-400 font-semibold">February 17</td>
+                <td class="px-6 py-3.5">BS, MS, and PhD</td>
+              </tr>
+              <tr class="hover:bg-sand-50 dark:hover:bg-night-850/50">
+                <td class="px-6 py-3.5 font-medium">Midterm Examinations (Week 9)</td>
+                <td class="px-6 py-3.5 font-mono text-sand-600 dark:text-sand-400">Nov 11 – Nov 16</td>
+                <td class="px-6 py-3.5 font-mono text-sand-600 dark:text-sand-400">Apr 14 – Apr 19</td>
+                <td class="px-6 py-3.5">All Degree Programs</td>
+              </tr>
+              <tr class="hover:bg-sand-50 dark:hover:bg-night-850/50">
+                <td class="px-6 py-3.5 font-medium">MS & PhD Thesis Synopsis Defense Deadline</td>
+                <td class="px-6 py-3.5 font-mono text-sand-600 dark:text-sand-400">December 06</td>
+                <td class="px-6 py-3.5 font-mono text-sand-600 dark:text-sand-400">May 09</td>
+                <td class="px-6 py-3.5">Postgraduate Scholars</td>
+              </tr>
+              <tr class="hover:bg-sand-50 dark:hover:bg-night-850/50">
+                <td class="px-6 py-3.5 font-medium">Final Term Examinations & Lab Practicals</td>
+                <td class="px-6 py-3.5 font-mono text-sand-600 dark:text-sand-400">Jan 13 – Jan 24</td>
+                <td class="px-6 py-3.5 font-mono text-sand-600 dark:text-sand-400">Jun 16 – Jun 27</td>
+                <td class="px-6 py-3.5">All Students</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Downloadable Timetable Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-xl border border-sand-200 dark:border-night-800 bg-sand-50 dark:bg-night-900 space-y-3">
+          <h3 class="text-base font-display font-bold text-sand-900 dark:text-sand-100">Male Campus Timetables</h3>
+          <p class="text-xs text-sand-600 dark:text-sand-400">Download current class and laboratory timetable sheets for Male Wing lectures in Science Block.</p>
+          <a href="/downloads/timetables-male.pdf" class="inline-flex items-center gap-1.5 text-xs font-semibold text-forest-800 dark:text-gold-400 hover:underline">
+            <span>Download PDF Timetable (Male Wing) &rarr;</span>
+          </a>
+        </div>
+        <div class="p-6 rounded-xl border border-sand-200 dark:border-night-800 bg-sand-50 dark:bg-night-900 space-y-3">
+          <h3 class="text-base font-display font-bold text-sand-900 dark:text-sand-100">Female Campus Timetables</h3>
+          <p class="text-xs text-sand-600 dark:text-sand-400">Download current class and laboratory timetable sheets for Female Wing lectures in Science Block.</p>
+          <a href="/downloads/timetables-female.pdf" class="inline-flex items-center gap-1.5 text-xs font-semibold text-forest-800 dark:text-gold-400 hover:underline">
+            <span>Download PDF Timetable (Female Wing) &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>

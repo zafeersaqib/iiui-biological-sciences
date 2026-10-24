@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//IIUI Department of Biological Sciences//NONSGML Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:international-biosciences-conference@science.iiu.edu.pk
+DTSTAMP:20241212T083000Z
+DTSTART:20241212T083000Z
+DTEND:20241212T170000Z
+SUMMARY:International Conference on Advances in Molecular Biosciences & Biotechnology (ICAMBB)
+DESCRIPTION:A premier international gathering bringing together academic scientists, researchers, clinicians, and industrial innovators.
+LOCATION:Audience Hall, Faisal Masjid Campus & Science Block H-10, IIUI
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

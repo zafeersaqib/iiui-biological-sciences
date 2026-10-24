@@ -1,0 +1,65 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article' | 'profile';
+  jsonLd?: object;
+}
+
+const {
+  title = "Department of Biological Sciences | Faculty of Sciences, IIUI",
+  description = "Official portal of the Department of Biological Sciences, Faculty of Sciences, International Islamic University Islamabad. Offering BS Biology, BS Biotechnology, MS, and PhD degrees.",
+  image = "/assets/images/bio_home.png",
+  canonicalURL = Astro.url.href,
+  type = 'website',
+  jsonLd,
+} = Astro.props;
+
+const siteTitle = title.includes("IIUI") ? title : `${title} | Biological Sciences IIUI`;
+
+const defaultJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollegeOrUniversity",
+  "name": "Department of Biological Sciences, International Islamic University Islamabad",
+  "alternateName": "IIUI Biological Sciences",
+  "url": "https://science.iiu.edu.pk/biological-sciences",
+  "logo": "https://science.iiu.edu.pk/assets/images/iiui-logo.png",
+  "parentOrganization": {
+    "@type": "EducationalOrganization",
+    "name": "International Islamic University Islamabad",
+    "url": "https://www.iiu.edu.pk"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Faculty of Sciences, Sector H-10",
+    "addressLocality": "Islamabad",
+    "postalCode": "44000",
+    "addressCountry": "PK"
+  },
+  "telephone": "+92-51-9019837",
+  "email": "biological.sciences@iiu.edu.pk"
+};
+---
+
+<title>{siteTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={siteTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:site_name" content="Department of Biological Sciences, IIUI" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={siteTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd || defaultJsonLd)} />

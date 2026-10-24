@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+const programs = await getCollection('programs');
+const sortedPrograms = programs.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout 
+  title="Academic Degree Programs | Department of Biological Sciences, IIUI"
+  description="Explore the BS Biology, BS Biotechnology, MS Biotechnology, and PhD Biotechnology academic programs offered by the Faculty of Sciences at International Islamic University Islamabad."
+>
+  <Breadcrumb items={[{ label: 'Academics' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Curriculum & Degree Pathways
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Academic Programs
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          The Department of Biological Sciences offers rigorous undergraduate, master's, and doctoral degrees designed inline with HEC benchmarks and international bioscience curricula.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {sortedPrograms.map((prog) => (
+          <div class="p-8 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 flex flex-col justify-between hover:shadow-xl transition-all group">
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="px-3 py-1 rounded font-mono text-xs font-bold bg-forest-100 text-forest-800 dark:bg-forest-950 dark:text-forest-400">
+                  {prog.data.code}
+                </span>
+                <span class="text-xs font-medium text-gold-600 dark:text-gold-400">{prog.data.degree_level}</span>
+              </div>
+
+              <h2 class="text-2xl font-display font-bold text-sand-900 dark:text-sand-100 group-hover:text-forest-800 dark:group-hover:text-gold-400 transition-colors">
+                <a href={`/academics/programs/${prog.slug}`}>{prog.data.title}</a>
+              </h2>
+
+              <p class="text-xs sm:text-sm text-sand-600 dark:text-sand-400 leading-relaxed">
+                {prog.data.overview}
+              </p>
+
+              <div class="grid grid-cols-2 gap-4 pt-3 border-t border-sand-200 dark:border-night-800 text-xs text-sand-600 dark:text-sand-400">
+                <div><strong>Duration:</strong> {prog.data.duration}</div>
+                <div><strong>Credit Hours:</strong> {prog.data.credit_hours}</div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-sand-200 dark:border-night-800 flex flex-wrap items-center justify-between gap-4">
+              <a 
+                href={`/academics/programs/${prog.slug}`} 
+                class="text-xs font-bold text-forest-800 dark:text-gold-400 hover:underline flex items-center gap-1"
+              >
+                <span>Scheme of Studies & Syllabi</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+              <a 
+                href="https://admission.iiu.edu.pk/" 
+                target="_blank" 
+                rel="noopener"
+                class="px-4 py-2 rounded bg-forest-800 text-white hover:bg-forest-900 text-xs font-semibold"
+              >
+                Apply Online &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Academic Resources Links Banner -->
+      <div class="p-8 rounded-2xl bg-forest-900 text-white flex flex-col md:flex-row justify-between items-center gap-6">
+        <div>
+          <h3 class="text-xl font-display font-bold text-white">Academic Calendar, Schedules & Outlines</h3>
+          <p class="text-xs text-sand-200 mt-1">Review examination schedules, semester registration dates, and course guidelines.</p>
+        </div>
+        <a href="/academics/academic-calendar" class="px-5 py-2.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-forest-950 font-bold text-xs uppercase tracking-wider shrink-0 transition-colors">
+          View Academic Calendar &rarr;
+        </a>
+      </div>
+
+    </div>
+  </section>
+</Layout>

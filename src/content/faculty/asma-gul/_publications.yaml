@@ -1,0 +1,46 @@
+- title: "Identification of novel pathogenic sequence variants in consanguineous Pakistani families with hereditary breast cancer"
+  authors: "Gul, A., [Co-Author Name], [Co-Author Name]"
+  journal: "Journal of Human Genetics"
+  year: 2024
+  type: "journal"
+  volume: "69"
+  pages: "145-156"
+  doi: "https://doi.org/10.1038/s10038-024-placeholder1"
+  abstract: "Utilizing whole-exome sequencing, this study delineates novel recurrent pathogenic mutations in breast cancer susceptibility genes in a clinical cohort from Northern Pakistan."
+
+- title: "Chitosan-coated zinc oxide nanoparticles as dual antimicrobial and anti-cancer delivery vehicles: In vitro cytotoxic evaluation"
+  authors: "Gul, A., [Co-Author Name], [Co-Author Name]"
+  journal: "Nanomedicine: Nanotechnology, Biology and Medicine"
+  year: 2023
+  type: "journal"
+  volume: "48"
+  pages: "102634"
+  doi: "https://doi.org/10.1016/j.nano.2023.placeholder2"
+  abstract: "Engineered biopolymer nanocomposites demonstrating selective cytotoxicity against breast and colorectal adenocarcinoma cell lines."
+
+- title: "Circulating pro-inflammatory cytokines and epigenetic alterations in chronic stress disorders"
+  authors: "Gul, A., [Co-Author Name]"
+  journal: "Brain, Behavior, and Immunity"
+  year: 2022
+  type: "journal"
+  volume: "102"
+  pages: "89-99"
+  doi: "https://doi.org/10.1016/j.bbi.2022.placeholder3"
+  abstract: "An empirical examination of peripheral cytokine expression profiles and glucocorticoid receptor methylation in clinical cohorts."
+
+- title: "Next-Generation Sequencing Applications in Monogenic Disorders"
+  authors: "Gul, A."
+  book_title: "Advances in Genomic Medicine in South Asia"
+  publisher: "Springer Nature"
+  year: 2021
+  type: "book_chapter"
+  pages: "210-234"
+  doi: "https://doi.org/10.1007/978-placeholder4"
+
+- title: "Targeted capture sequencing for clinical diagnostics in underserved populations"
+  authors: "Gul, A., [Co-Author Name]"
+  conference: "Proceedings of the International Conference on Life Sciences & Precision Medicine"
+  year: 2020
+  type: "conference"
+  pages: "45-52"
+  doi: "https://doi.org/10.1109/placeholder5"

@@ -1,0 +1,971 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const programs = await getCollection('programs');
+const sortedPrograms = programs.sort((a, b) => a.data.order - b.data.order);
+
+const faculty = await getCollection('faculty');
+const sortedFaculty = faculty.sort((a, b) => (a.data.rank_order || 99) - (b.data.rank_order || 99));
+
+const news = await getCollection('news');
+const latestNews = news.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()).slice(0, 4);
+---
+
+<Layout 
+  title="Department of Biological Sciences | International Islamic University Islamabad"
+  description="Official homepage of the Department of Biological Sciences, Faculty of Sciences, IIUI. World-class life sciences education, genomic research, and academic degrees."
+>
+
+  <!-- 1. FROZEN HERO SLIDESHOW VIEWPORT (Sticky under top bar, covered by curtain on scroll) -->
+  <section id="hero-slideshow" class="sticky top-[41px] sm:top-[45px] h-[calc(100vh-45px)] w-full z-0 flex items-center justify-center overflow-hidden bg-[#0D1F0C] text-white">
+    
+    <!-- Slides Container -->
+    <div id="slides-wrapper" class="absolute inset-0 z-0">
+      
+      <!-- Slide 1 -->
+      <div class="hero-slide active absolute inset-0 transition-opacity duration-1000 opacity-100" data-caption="Advanced Molecular Biology & Genomic Investigation in Faculty Block I">
+        <img 
+          src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1920&q=80" 
+          alt="Advanced Molecular Biology & Genomic Investigation in Faculty Block I" 
+          class="w-full h-full object-cover object-center brightness-75 scale-105 transition-transform duration-7000"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0D1F0C] via-[#163013]/40 to-transparent"></div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0" data-caption="Cultivating Stress-Tolerant Indigenous Crops & Bioactive Metabolites">
+        <img 
+          src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1920&q=80" 
+          alt="Plant Biotechnology & Tissue Culture Suite" 
+          class="w-full h-full object-cover object-center brightness-75 scale-105 transition-transform duration-7000"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0D1F0C] via-[#163013]/40 to-transparent"></div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0" data-caption="Satellite Remote Sensing & Biodiversity Conservation Across Margalla Reserves">
+        <img 
+          src="https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1920&q=80" 
+          alt="Spatial Ecology & Remote Sensing Lab" 
+          class="w-full h-full object-cover object-center brightness-75 scale-105 transition-transform duration-7000"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0D1F0C] via-[#163013]/40 to-transparent"></div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0" data-caption="Combating Antimicrobial Resistance (AMR) & Discovering Novel Therapeutics">
+        <img 
+          src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80" 
+          alt="Microbiology and Biofilm Inhibition Research" 
+          class="w-full h-full object-cover object-center brightness-75 scale-105 transition-transform duration-7000"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0D1F0C] via-[#163013]/40 to-transparent"></div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0" data-caption="A Center of Higher Learning and Islamic Ethics in Islamabad (Sector H-10)">
+        <img 
+          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80" 
+          alt="IIUI Academic Campus" 
+          class="w-full h-full object-cover object-center brightness-75 scale-105 transition-transform duration-7000"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0D1F0C] via-[#163013]/40 to-transparent"></div>
+      </div>
+
+    </div>
+
+    <!-- Center Monumental Lockup (Matching Hopkins 150 In Middle of Slideshow) -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center space-y-6">
+      
+      <!-- Transparent Department Emblem in Center -->
+      <div class="flex justify-center">
+        <img 
+          src="/assets/images/dept-logo.png" 
+          alt="Department of Biological Sciences Crest" 
+          class="h-32 sm:h-44 md:h-52 w-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] filter brightness-110 animate-fade-in"
+        />
+      </div>
+
+      <!-- University & Department Titles in Work Sans -->
+      <div class="space-y-2">
+        <div class="text-xs sm:text-sm font-sans font-bold uppercase tracking-[0.3em] text-[#C1E899] drop-shadow-md">
+          International Islamic University Islamabad
+        </div>
+        <h1 class="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-sans font-black tracking-tight text-white leading-none uppercase drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]">
+          Department of<br class="hidden sm:inline" /> Biological Sciences
+        </h1>
+        <div class="text-sm sm:text-base md:text-lg font-serif italic text-[#E6F0DC] font-medium drop-shadow-md">
+          Faculty of Sciences &middot; Sector H-10 Campus
+        </div>
+      </div>
+
+      <!-- Quranic Tagline (Surah Al-Ankabut 29:20) -->
+      <div class="pt-2 inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-6 py-2.5 rounded-full bg-[#0D1F0C]/85 border border-[#C1E899]/60 backdrop-blur-md shadow-2xl">
+        <span class="font-arabic text-[#C1E899] text-base sm:text-lg font-bold">قُلْ سِيرُوا فِي الْأَرْضِ فَانظُرُوا كَيْفَ بَدَأَ الْخَلْقَ ۚ</span>
+        <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#9A6735]"></span>
+        <span class="text-xs sm:text-sm font-sans font-medium text-white">
+          "Say: 'Travel through the earth and see how Allah did originate creation...'" <span class="text-[#C1E899] font-bold">(29:20)</span>
+        </span>
+      </div>
+
+    </div>
+
+    <!-- Hero Bottom Bar: Slide Controls & Dynamic Caption (Bottom-Left) -->
+    <div class="absolute bottom-6 left-6 sm:left-12 right-6 sm:right-12 z-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      
+      <!-- Left: Pause Button + Caption -->
+      <div class="flex items-center gap-3">
+        <!-- Pause/Play Circular Button -->
+        <button 
+          id="slideshow-pause-btn" 
+          type="button" 
+          class="w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 text-white border border-white/40 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#C1E899]"
+          aria-label="Pause background slideshow"
+          title="Pause Slideshow"
+        >
+          <svg id="pause-icon" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+          <svg id="play-icon" class="w-4 h-4 fill-current hidden" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+
+        <!-- Dynamic Caption Text -->
+        <span id="hero-caption" class="text-xs sm:text-sm font-sans text-[#E6F0DC] drop-shadow max-w-lg">
+          Advanced Molecular Biology & Genomic Investigation in Faculty Block I
+        </span>
+      </div>
+
+      <!-- Right: Slide Number Indicators -->
+      <div class="flex items-center space-x-2">
+        <button class="slide-indicator active w-3 h-3 rounded-full bg-[#C1E899] border border-[#C1E899] transition-all" data-index="0" aria-label="Go to slide 1"></button>
+        <button class="slide-indicator w-3 h-3 rounded-full bg-white/40 hover:bg-[#C1E899] border border-white/60 transition-all" data-index="1" aria-label="Go to slide 2"></button>
+        <button class="slide-indicator w-3 h-3 rounded-full bg-white/40 hover:bg-[#C1E899] border border-white/60 transition-all" data-index="2" aria-label="Go to slide 3"></button>
+        <button class="slide-indicator w-3 h-3 rounded-full bg-white/40 hover:bg-[#C1E899] border border-white/60 transition-all" data-index="3" aria-label="Go to slide 4"></button>
+        <button class="slide-indicator w-3 h-3 rounded-full bg-white/40 hover:bg-[#C1E899] border border-white/60 transition-all" data-index="4" aria-label="Go to slide 5"></button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- 2. ROLLING CURTAIN CONTAINER: Covers the frozen hero on scroll with torn paper deckle edge -->
+  <div id="curtain-container" class="relative z-10 bg-[#23491E] shadow-[0_-25px_50px_rgba(0,0,0,0.6)]">
+    
+    <!-- TORN PAPER DECKLE EDGE (Authentic White Ripped Fiber Line Over Section Top) -->
+    <div class="absolute -top-11 sm:-top-15 md:-top-18 left-0 right-0 w-full overflow-hidden pointer-events-none z-30 select-none">
+      <img 
+        src="/assets/images/torn-paper-edge.svg" 
+        alt="" 
+        class="w-full h-12 sm:h-16 md:h-20 object-cover object-bottom" 
+      />
+    </div>
+
+    <!-- a) BOLD STATEMENT BANNER: SCIENCE SERVES LIFE (Forest Green with #C1E899 Sprout Highlight) -->
+    <section class="relative bg-[#23491E] text-white pt-24 pb-24 sm:pt-32 sm:pb-32 overflow-hidden">
+    
+    <!-- Ragged Header Texture -->
+    <div class="absolute top-0 inset-x-0 h-4 bg-repeat-x opacity-30" style="background-image: radial-gradient(circle at 10px 0, transparent 0, transparent 8px, #23491E 8px); background-size: 20px 20px;"></div>
+
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Large Two-Tone Headline in Work Sans Ultra-Bold -->
+        <div class="lg:col-span-7 space-y-1">
+          <div class="text-6xl sm:text-7xl lg:text-8xl font-black font-sans tracking-tight text-white uppercase leading-none">
+            Science
+          </div>
+          <div class="text-6xl sm:text-7xl lg:text-8xl font-black font-sans tracking-tight text-[#C1E899] uppercase leading-none">
+            Serves Life.
+          </div>
+        </div>
+
+        <!-- Narrative Paragraph + Button (Right Column) -->
+        <div class="lg:col-span-5 space-y-6">
+          <p class="text-base sm:text-lg text-[#E6F0DC] font-sans leading-relaxed">
+            Without bioscience research—at the International Islamic University Islamabad and across leading academic centers—advancements in disease therapeutics, agricultural resilience, and environmental sustainability slow down. Our laboratories drive the discoveries of tomorrow.
+          </p>
+          <div>
+            <a 
+              href="/research/areas" 
+              class="inline-block px-7 py-3.5 border-2 border-white text-white font-sans font-extrabold text-xs uppercase tracking-widest hover:bg-white hover:text-[#23491E] transition-colors shadow-md rounded-sm"
+            >
+              MORE ABOUT OUR RESEARCH
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- b) "DISCOVER" SHORT LINK LIST (#E6F0DC Pastel Sage Canvas) -->
+  <section class="bg-[#E6F0DC] dark:bg-[#163013] border-b border-[#D0DEC0] dark:border-[#2D5724] py-12">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      
+      <!-- Centered DISCOVER Tag in Oswald Condensed -->
+      <div class="flex justify-center mb-8">
+        <span class="border-2 border-[#55883B] dark:border-[#C1E899] px-6 py-1.5 text-xs badge-oswald text-[#23491E] dark:text-[#C1E899] uppercase bg-white/70 dark:bg-[#0D1F0C]/60 rounded-sm">
+          DISCOVER
+        </span>
+      </div>
+
+      <!-- 4 Horizontal Short Links with Dividers -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:divide-x divide-[#D0DEC0] dark:divide-[#2D5724]">
+        
+        <div class="px-3 text-center sm:text-left space-y-1 group">
+          <a href="/academics/programs/bs-biotechnology" class="block font-sans font-bold text-base text-[#23491E] dark:text-white group-hover:text-[#55883B] dark:group-hover:text-[#C1E899] transition-colors">
+            Undergraduate Research Opportunities
+          </a>
+          <p class="text-xs text-[#5F724C] dark:text-[#B8CBB0] font-sans">Direct wet-lab immersion for BS Biology & Biotechnology scholars.</p>
+        </div>
+
+        <div class="px-3 text-center sm:text-left space-y-1 group">
+          <a href="/research/projects" class="block font-sans font-bold text-base text-[#23491E] dark:text-white group-hover:text-[#55883B] dark:group-hover:text-[#C1E899] transition-colors">
+            Provost & Chairperson Research Awards
+          </a>
+          <p class="text-xs text-[#5F724C] dark:text-[#B8CBB0] font-sans">Competitive seed funding for high-impact postgraduate theses.</p>
+        </div>
+
+        <div class="px-3 text-center sm:text-left space-y-1 group">
+          <a href="/research/labs" class="block font-sans font-bold text-base text-[#23491E] dark:text-white group-hover:text-[#55883B] dark:group-hover:text-[#C1E899] transition-colors">
+            Genomics & Molecular Diagnostic Core
+          </a>
+          <p class="text-xs text-[#5F724C] dark:text-[#B8CBB0] font-sans">Specialized instrumentation, thermal cyclers, and bioreactors.</p>
+        </div>
+
+        <div class="px-3 text-center sm:text-left space-y-1 group">
+          <a href="/academics/programs/phd-biotechnology" class="block font-sans font-bold text-base text-[#23491E] dark:text-white group-hover:text-[#55883B] dark:group-hover:text-[#C1E899] transition-colors">
+            Doctoral Fellowship Program
+          </a>
+          <p class="text-xs text-[#5F724C] dark:text-[#B8CBB0] font-sans">PhD assistantships mentored by senior tenured professors.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- c) STORIES OF IMPACT / 4 NEWS CARDS (JHU .stories in Forest Green) -->
+  <section class="py-24 bg-white dark:bg-[#0D1F0C] border-b border-[#D0DEC0] dark:border-[#2D5724]">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-12">
+      
+      <!-- Section Intro Header in Work Sans -->
+      <div class="max-w-2xl space-y-3">
+        <span class="badge-oswald text-xs text-[#55883B] dark:text-[#C1E899]">
+          Stories of Impact
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-sans font-bold text-[#23491E] dark:text-white tracking-tight">
+          Pioneering Research Across Disciplines
+        </h2>
+        <p class="text-sm sm:text-base text-[#5F724C] dark:text-[#B8CBB0] font-sans">
+          Select a story below to see how our faculty and doctoral scholars lay the groundwork for breakthroughs in diagnostics, sustainable agriculture, and cellular therapeutics.
+        </p>
+      </div>
+
+      <!-- Top News Grid: 1 Large Lead Feature + 3 Cards -->
+      <div class="space-y-10">
+        
+        <!-- Large Featured Story (Top) with Rounded 3xl & Forest Glassmorphism Container -->
+        <article class="relative rounded-3xl overflow-hidden bg-[#F4F8EE] dark:bg-[#163013] border border-[#D0DEC0] dark:border-[#2D5724] shadow-lg hover:shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-0 group">
+          <div class="lg:col-span-7 h-80 sm:h-96 lg:h-full min-h-[380px] overflow-hidden relative">
+            <img 
+              src="https://images.unsplash.com/photo-1579165466791-788226ab77b6?auto=format&fit=crop&w=1200&q=80" 
+              alt="Public Health Diagnostic Research at IIUI" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <!-- Circular Action Arrow Button (Green Accent) -->
+            <a 
+              href="/news" 
+              class="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-[#55883B] hover:bg-[#23491E] text-white flex items-center justify-center transition-all shadow-xl group-hover:scale-110"
+              aria-label="Read full story"
+            >
+              <svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between space-y-4 bg-white dark:bg-[#163013]">
+            <div class="space-y-3">
+              <span class="badge-oswald text-xs text-[#55883B] dark:text-[#C1E899]">
+                PUBLIC HEALTH & DIAGNOSTICS
+              </span>
+              <h3 class="text-2xl sm:text-3xl font-sans font-bold text-[#23491E] dark:text-white leading-tight">
+                The Diagnostic Vanguard: Rapid Molecular Panels for Clinical Pathogens
+              </h3>
+              <div class="text-xs text-[#75866E] font-sans font-medium">
+                Fall 2026 &middot; IIUI Biosciences Research Desk
+              </div>
+              <p class="text-sm text-[#4B5E44] dark:text-[#B8CBB0] font-sans leading-relaxed">
+                At the Applied Molecular Biology Laboratory, faculty and doctoral researchers are engineering high-specificity isothermal PCR assays to detect resistant bacterial strains and viral vectors in clinical cohorts across Islamabad and Rawalpindi.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-[#D0DEC0] dark:border-[#2D5724]">
+              <a href="/news" class="font-sans font-bold text-xs uppercase tracking-wider text-[#55883B] dark:text-[#C1E899] hover:underline flex items-center gap-1.5">
+                <span>View Story of Impact</span>
+                <span class="text-sm">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 Secondary Grid Cards Below -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Card 1: Agricultural Plant Biotechnology -->
+          <article class="relative flex flex-col group">
+            <div class="relative w-full aspect-square rounded-3xl overflow-hidden shadow-md">
+              <img 
+                src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=600&q=80" 
+                alt="Agricultural Plant Biotechnology" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <a 
+                href="/news" 
+                class="absolute bottom-10 right-4 w-10 h-10 rounded-full bg-[#55883B] hover:bg-[#23491E] text-white flex items-center justify-center transition-all shadow-lg group-hover:scale-110 z-10"
+                aria-label="Read story"
+              >
+                <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+            <div class="jhu-glass-card p-6 -mt-8 mx-3 relative z-0 text-white space-y-2">
+              <span class="badge-oswald text-[11px] text-[#C1E899]">
+                MOLECULAR BIOLOGY
+              </span>
+              <h4 class="text-base font-sans font-bold text-white leading-snug">
+                <a href="/news" class="hover:underline">Engineering Drought-Tolerant Crops for Arid Ecosystems</a>
+              </h4>
+              <div class="text-[11px] text-[#D5ECC0] font-sans">Oct 20, 2026</div>
+              <p class="text-xs text-[#E6F0DC] font-sans line-clamp-2">
+                Novel transformation vectors express protective chaperones to enhance crop productivity under severe drought conditions.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 2: Faculty Keynote / Landscape Ecology -->
+          <article class="relative flex flex-col group">
+            <div class="relative w-full aspect-square rounded-3xl overflow-hidden shadow-md">
+              <img 
+                src="/assets/images/zafeer_saqib.jpg" 
+                alt="Prof. Dr. Zafeer Saqib" 
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+              <a 
+                href="/people/faculty/zafeer-saqib" 
+                class="absolute bottom-10 right-4 w-10 h-10 rounded-full bg-[#55883B] hover:bg-[#23491E] text-white flex items-center justify-center transition-all shadow-lg group-hover:scale-110 z-10"
+                aria-label="View profile"
+              >
+                <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+            <div class="jhu-glass-card p-6 -mt-8 mx-3 relative z-0 text-white space-y-2">
+              <span class="badge-oswald text-[11px] text-[#C1E899]">
+                FACULTY HONORS
+              </span>
+              <h4 class="text-base font-sans font-bold text-white leading-snug">
+                <a href="/people/faculty/zafeer-saqib" class="hover:underline">Prof. Dr. Zafeer Saqib Delivers Keynote on Landscape Ecology</a>
+              </h4>
+              <div class="text-[11px] text-[#D5ECC0] font-sans">Oct 16, 2026</div>
+              <p class="text-xs text-[#E6F0DC] font-sans line-clamp-2">
+                Highlighting satellite remote sensing models and multi-decadal vegetation fragmentation at the National Ecological Assembly.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 3: Cancer Oncology Research -->
+          <article class="relative flex flex-col group">
+            <div class="relative w-full aspect-square rounded-3xl overflow-hidden shadow-md">
+              <img 
+                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" 
+                alt="Cancer Biology Research" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <a 
+                href="/people/faculty/sobia-tabassum" 
+                class="absolute bottom-10 right-4 w-10 h-10 rounded-full bg-[#55883B] hover:bg-[#23491E] text-white flex items-center justify-center transition-all shadow-lg group-hover:scale-110 z-10"
+                aria-label="Read dispatch"
+              >
+                <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+            <div class="jhu-glass-card p-6 -mt-8 mx-3 relative z-0 text-white space-y-2">
+              <span class="badge-oswald text-[11px] text-[#C1E899]">
+                CANCER THERAPEUTICS
+              </span>
+              <h4 class="text-base font-sans font-bold text-white leading-snug">
+                <a href="/people/faculty/sobia-tabassum" class="hover:underline">Prof. Dr. Sobia Tabassum Publishes on 3D Tumor Spheroids</a>
+              </h4>
+              <div class="text-[11px] text-[#D5ECC0] font-sans">Oct 10, 2026</div>
+              <p class="text-xs text-[#E6F0DC] font-sans line-clamp-2">
+                Groundbreaking findings on therapeutic delivery in drug-resistant solid tumors published in premier oncology journal.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+      <!-- Button Bottom Right: MORE FROM THE NEWS HUB -->
+      <div class="flex justify-end pt-4">
+        <a 
+          href="/news" 
+          class="px-8 py-3.5 bg-[#23491E] hover:bg-[#163013] text-white font-sans font-extrabold text-xs uppercase tracking-widest rounded border border-[#55883B] shadow-md transition-colors"
+        >
+          MORE FROM THE NEWS HUB
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- d) PHOTO GRID (6 Square Images Linking to Social Posts) -->
+  <section class="bg-white dark:bg-[#0D1F0C] py-12 border-b border-[#D0DEC0] dark:border-[#2D5724]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- 6-Square Image Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
+        
+        <a href="https://www.instagram.com/iiui_official" target="_blank" rel="noopener" class="group relative aspect-square overflow-hidden rounded-lg bg-[#E6F0DC]">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80" alt="Students conducting bioscience lab work" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+          <div class="absolute bottom-2.5 left-2.5 w-7 h-7 rounded-full bg-white/95 text-[#23491E] flex items-center justify-center shadow">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </a>
+
+        <a href="https://www.facebook.com/iiu.isbpk" target="_blank" rel="noopener" class="group relative aspect-square overflow-hidden rounded-lg bg-[#E6F0DC]">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=80" alt="Students walking on IIUI central campus lawn" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+          <div class="absolute bottom-2.5 left-2.5 w-7 h-7 rounded-full bg-white/95 text-[#23491E] flex items-center justify-center shadow">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/iiui_official" target="_blank" rel="noopener" class="group relative aspect-square overflow-hidden rounded-lg bg-[#E6F0DC]">
+          <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=500&q=80" alt="Student researchers at scientific poster symposium" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+          <div class="absolute bottom-2.5 left-2.5 w-7 h-7 rounded-full bg-white/95 text-[#23491E] flex items-center justify-center shadow">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/school/international-islamic-university-islamabad/" target="_blank" rel="noopener" class="group relative aspect-square overflow-hidden rounded-lg bg-[#E6F0DC]">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=500&q=80" alt="Molecular diagnostics lab equipment analysis" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+          <div class="absolute bottom-2.5 left-2.5 w-7 h-7 rounded-full bg-white/95 text-[#23491E] flex items-center justify-center shadow">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/iiui_official" target="_blank" rel="noopener" class="group relative aspect-square overflow-hidden rounded-lg bg-[#E6F0DC]">
+          <img src="https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=500&q=80" alt="Field ecology survey in Margalla Hills" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+          <div class="absolute bottom-2.5 left-2.5 w-7 h-7 rounded-full bg-white/95 text-[#23491E] flex items-center justify-center shadow">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </a>
+
+        <a href="https://www.youtube.com/@iiuiofficial" target="_blank" rel="noopener" class="group relative aspect-square overflow-hidden rounded-lg bg-[#E6F0DC]">
+          <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" alt="Biotechnology Society annual conference" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+          <div class="absolute bottom-2.5 left-2.5 w-7 h-7 rounded-full bg-white/95 text-[#23491E] flex items-center justify-center shadow">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Social Links Row Centered Below Grid -->
+      <div class="flex items-center justify-center space-x-6 pt-6 text-xs text-[#23491E] dark:text-[#C1E899] font-sans">
+        <a href="https://twitter.com/iiui_official" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1 font-bold"><span>X</span></a>
+        <span>&middot;</span>
+        <a href="https://www.facebook.com/iiu.isbpk" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1 font-bold"><span>Facebook</span></a>
+        <span>&middot;</span>
+        <a href="https://www.linkedin.com/school/international-islamic-university-islamabad/" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1 font-bold"><span>LinkedIn</span></a>
+        <span>&middot;</span>
+        <a href="https://www.youtube.com/@iiuiofficial" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1 font-bold"><span>YouTube</span></a>
+        <span>&middot;</span>
+        <a href="https://www.instagram.com/iiui_official" target="_blank" rel="noopener" class="hover:underline flex items-center gap-1 font-bold"><span>Instagram</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- e) "MEET OUR PEOPLE": LARGE FEATURED QUOTE + ROW OF 8 SMALL CIRCULAR THUMBNAILS -->
+  <section id="meet-our-people" class="py-24 bg-[#E6F0DC]/60 dark:bg-[#163013] border-b border-[#D0DEC0] dark:border-[#2D5724] relative overflow-hidden">
+    
+    <!-- Subtle Blueprint / Grid Background Overlay -->
+    <div class="absolute inset-0 bg-bio-grid opacity-25"></div>
+
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 relative z-10 space-y-12">
+      
+      <div class="text-center space-y-2">
+        <span class="badge-oswald text-xs text-[#55883B] dark:text-[#C1E899]">
+          Faculty & Scholar Voices
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-sans font-bold text-[#23491E] dark:text-white tracking-tight">
+          Meet Our People
+        </h2>
+      </div>
+
+      <!-- Main Featured Quote Stage -->
+      <div class="bg-white dark:bg-[#0D1F0C] rounded-3xl border border-[#D0DEC0] dark:border-[#2D5724] p-8 sm:p-12 shadow-xl grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        
+        <!-- Large Featured Portrait Photo with Ring (Left 4 cols) -->
+        <div class="md:col-span-4 flex justify-center">
+          <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full p-2 border-4 border-[#55883B] dark:border-[#C1E899] shadow-2xl relative overflow-hidden bg-[#E6F0DC]">
+            <img 
+              id="featured-person-img" 
+              src="/assets/images/zafeer_saqib.jpg" 
+              alt="Prof. Dr. Zafeer Saqib" 
+              class="w-full h-full object-cover object-top rounded-full transition-all duration-300"
+            />
+          </div>
+        </div>
+
+        <!-- Featured Pull Quote & Attribution in Source Serif 4 (Right 8 cols) -->
+        <div class="md:col-span-8 space-y-4">
+          <div class="text-5xl sm:text-6xl font-serif text-[#9A6735] dark:text-[#C1E899] leading-none">“</div>
+          <blockquote id="featured-person-quote" class="text-lg sm:text-2xl font-serif italic text-[#1B2B16] dark:text-[#F1F8EE] leading-snug">
+            The academic research community in Islamabad is deeply committed to biodiversity conservation and sustainable biotechnology. There is tremendous potential to harness Pakistan's biological wealth for societal advancement.
+          </blockquote>
+          
+          <div class="pt-4 border-t border-[#D0DEC0] dark:border-[#2D5724] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+            <div>
+              <div id="featured-person-name" class="font-sans font-bold text-lg text-[#23491E] dark:text-[#C1E899]">
+                Prof. Dr. Zafeer Saqib
+              </div>
+              <div id="featured-person-title" class="text-xs text-[#5F724C] dark:text-[#B8CBB0] font-sans">
+                Professor & Academic Lead &middot; Ph.D. Environmental Biology & Landscape Ecology
+              </div>
+            </div>
+
+            <a 
+              id="featured-person-link" 
+              href="/people/faculty/zafeer-saqib" 
+              class="font-sans font-bold text-xs uppercase tracking-wider text-[#55883B] hover:text-[#23491E] dark:text-[#C1E899] hover:underline"
+            >
+              View Scholar Profile &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row of 8 Small Circular Thumbnails (Click to Swap Quote) -->
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-4">
+        
+        <!-- Person 1: Prof. Dr. Zafeer Saqib -->
+        <button 
+          class="person-thumb active w-14 h-14 sm:w-16 sm:h-16 rounded-full border-3 border-[#55883B] dark:border-[#C1E899] ring-2 ring-[#C1E899] p-0.5 overflow-hidden transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#55883B] shadow-md"
+          data-name="Prof. Dr. Zafeer Saqib"
+          data-title="Professor & Academic Lead &middot; Ph.D. Environmental Biology & Landscape Ecology"
+          data-quote="The academic research community in Islamabad is deeply committed to biodiversity conservation and sustainable biotechnology. There is tremendous potential to harness Pakistan's biological wealth for societal advancement."
+          data-img="/assets/images/zafeer_saqib.jpg"
+          data-link="/people/faculty/zafeer-saqib"
+          title="Prof. Dr. Zafeer Saqib"
+        >
+          <img src="/assets/images/zafeer_saqib.jpg" alt="Prof. Dr. Zafeer Saqib" class="w-full h-full object-cover rounded-full" />
+        </button>
+
+        <!-- Person 2: Prof. Dr. Asma Gul -->
+        <button 
+          class="person-thumb w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#D0DEC0] dark:border-[#2D5724] p-0.5 overflow-hidden transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#55883B] shadow-sm"
+          data-name="Prof. Dr. Asma Gul"
+          data-title="Chairperson & Tenured Professor &middot; Postdoc Cambridge UK, Ph.D. QAU"
+          data-quote="Our departmental vision bridges fundamental molecular discovery with clinical translational diagnostics, equipping the next generation of Muslim bioscientists with uncompromising ethical standards."
+          data-img="/assets/images/faculty-placeholder.svg"
+          data-link="/people/faculty/asma-gul"
+          title="Prof. Dr. Asma Gul"
+        >
+          <img src="/assets/images/faculty-placeholder.svg" alt="Prof. Dr. Asma Gul" class="w-full h-full object-cover rounded-full bg-[#163013] p-1" />
+        </button>
+
+        <!-- Person 3: Prof. Dr. Asif Mir -->
+        <button 
+          class="person-thumb w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#D0DEC0] dark:border-[#2D5724] p-0.5 overflow-hidden transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#55883B] shadow-sm"
+          data-name="Prof. Dr. Asif Mir"
+          data-title="Tenured Professor &middot; Ph.D. Human Molecular Genetics"
+          data-quote="Deciphering the genetic landscape of inherited consanguineous disorders in Pakistani families allows us to provide actionable genomic insights and genetic counseling to communities in need."
+          data-img="/assets/images/faculty-placeholder.svg"
+          data-link="/people/faculty/asif-mir"
+          title="Prof. Dr. Asif Mir"
+        >
+          <img src="/assets/images/faculty-placeholder.svg" alt="Prof. Dr. Asif Mir" class="w-full h-full object-cover rounded-full bg-[#23491E] p-1" />
+        </button>
+
+        <!-- Person 4: Prof. Dr. Sobia Tabassum -->
+        <button 
+          class="person-thumb w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#D0DEC0] dark:border-[#2D5724] p-0.5 overflow-hidden transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#55883B] shadow-sm"
+          data-name="Prof. Dr. Sobia Tabassum"
+          data-title="Tenured Professor &middot; Postdoc Oxford UK, EACR Fellow"
+          data-quote="3D cellular spheroids provide a physiological window into tumor microenvironments. By marrying molecular oncology with nanomedicine, we are formulating smarter drug therapies."
+          data-img="/assets/images/faculty-placeholder.svg"
+          data-link="/people/faculty/sobia-tabassum"
+          title="Prof. Dr. Sobia Tabassum"
+        >
+          <img src="/assets/images/faculty-placeholder.svg" alt="Prof. Dr. Sobia Tabassum" class="w-full h-full object-cover rounded-full bg-[#3D6F28] p-1" />
+        </button>
+
+        <!-- Person 5: Prof. Dr. Haleema Sadia -->
+        <button 
+          class="person-thumb w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#D0DEC0] dark:border-[#2D5724] p-0.5 overflow-hidden transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#55883B] shadow-sm"
+          data-name="Prof. Dr. Haleema Sadia"
+          data-title="Professor &middot; Ph.D. UVAS / Cambridge Visiting Fellow"
+          data-quote="Stem cell biology and regenerative medicine represent the future of therapeutic medicine. Training students in gene expression and cell culture is our foremost passion."
+          data-img="/assets/images/faculty-placeholder.svg"
+          data-link="/people/faculty/haleema-sadia"
+          title="Prof. Dr. Haleema Sadia"
+        >
+          <img src="/assets/images/faculty-placeholder.svg" alt="Prof. Dr. Haleema Sadia" class="w-full h-full object-cover rounded-full bg-[#2D5724] p-1" />
+        </button>
+
+        <!-- Person 6: Prof. Dr. Naveeda Riaz -->
+        <button 
+          class="person-thumb w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#D0DEC0] dark:border-[#2D5724] p-0.5 overflow-hidden transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#55883B] shadow-sm"
+          data-name="Prof. Dr. Naveeda Riaz"
+          data-title="Tenured Professor &middot; Ph.D. CEMB, NIH USA Postdoctoral Fellow"
+          data-quote="Investigating the molecular epidemiology of hereditary hearing loss at IIUI has connected our laboratory directly with regional hospitals and families across Pakistan."
+          data-img="/assets/images/faculty-placeholder.svg"
+          data-link="/people/faculty/naveeda-riaz"
+          title="Prof. Dr. Naveeda Riaz"
+        >
+          <img src="/assets/images/faculty-placeholder.svg" alt="Prof. Dr. Naveeda Riaz" class="w-full h-full object-cover rounded-full bg-[#1C3B18] p-1" />
+        </button>
+
+        <!-- Person 7: Dr. Shaheen Shahzad -->
+        <button 
+          class="person-thumb w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#D0DEC0] dark:border-[#2D5724] p-0.5 overflow-hidden transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#55883B] shadow-sm"
+          data-name="Dr. Shaheen Shahzad"
+          data-title="Associate Professor / Incharge &middot; Ph.D. QAU"
+          data-quote="The department provides an intellectually demanding yet supportive space where undergraduate students transform into capable analytical researchers."
+          data-img="/assets/images/faculty-placeholder.svg"
+          data-link="/people/faculty/shaheen-shahzad"
+          title="Dr. Shaheen Shahzad"
+        >
+          <img src="/assets/images/faculty-placeholder.svg" alt="Dr. Shaheen Shahzad" class="w-full h-full object-cover rounded-full bg-[#23491E] p-1" />
+        </button>
+
+        <!-- Person 8: Dr. Bashir Ahmad -->
+        <button 
+          class="person-thumb w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#D0DEC0] dark:border-[#2D5724] p-0.5 overflow-hidden transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#55883B] shadow-sm"
+          data-name="Dr. Bashir Ahmad"
+          data-title="Associate Professor / Director Graduate Studies &middot; Ph.D. QAU"
+          data-quote="Microbial biotechnology holds the keys to bio-fertilizers, industrial enzyme production, and green energy solutions essential for Pakistan's bio-economy."
+          data-img="/assets/images/faculty-placeholder.svg"
+          data-link="/people/faculty/bashir-ahmad"
+          title="Dr. Bashir Ahmad"
+        >
+          <img src="/assets/images/faculty-placeholder.svg" alt="Dr. Bashir Ahmad" class="w-full h-full object-cover rounded-full bg-[#163013] p-1" />
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- f) PROGRAM SEARCH BOX + TWO-COLUMN LIST OF PROGRAMS (BS/MS/PhD) -->
+  <section class="py-24 bg-[#0D1F0C] text-white relative overflow-hidden border-t-4 border-[#55883B]">
+    
+    <!-- Background Texture -->
+    <div class="absolute inset-0 bg-bio-grid opacity-20"></div>
+
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 relative z-10 space-y-12">
+      
+      <!-- Big Program Search Bar -->
+      <div class="max-w-2xl mx-auto space-y-3">
+        <div class="flex items-center bg-white rounded-md shadow-2xl overflow-hidden p-1 border-2 border-[#55883B]">
+          <input 
+            type="text" 
+            id="program-search-input" 
+            placeholder="Search programs by degree or keyword..." 
+            class="w-full px-4 py-3 text-[#1B2B16] text-sm font-sans focus:outline-none"
+          />
+          <button 
+            type="button" 
+            class="px-6 py-3 bg-[#55883B] hover:bg-[#3D6F28] text-white font-sans font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-colors shrink-0 rounded-sm"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <span class="hidden sm:inline">SEARCH PROGRAMS</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Banner Statement Box in Oswald -->
+      <div class="text-center">
+        <span class="border border-[#75A857]/50 bg-[#163013]/90 px-6 py-2 rounded text-xs badge-oswald text-[#C1E899]">
+          OUR DEGREE PROGRAMS PREPARE STUDENTS TO EXCEL IN TODAY'S WORLD
+        </span>
+      </div>
+
+      <!-- Two-Column List of Programs (BS / MS / PhD) -->
+      <div id="programs-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+        
+        <!-- Column 1: Undergraduate -->
+        <div class="space-y-4">
+          <div class="badge-oswald text-xs text-[#C1E899] border-b border-[#2D5724] pb-2">
+            Undergraduate Pathways (BS)
+          </div>
+
+          <div class="program-item bg-[#163013]/80 border border-[#2D5724] p-6 rounded-2xl space-y-2 hover:border-[#C1E899] transition-colors shadow-md">
+            <div class="flex justify-between items-start">
+              <span class="px-2.5 py-0.5 rounded text-[11px] badge-oswald bg-[#23491E] text-[#C1E899]">BSBIO</span>
+              <span class="text-xs text-[#D5ECC0] font-sans">4-Year Degree &middot; 130 Credits</span>
+            </div>
+            <h3 class="text-xl font-sans font-bold text-white">
+              <a href="/academics/programs/bs-biology" class="hover:text-[#C1E899]">BS Biology</a>
+            </h3>
+            <p class="text-xs text-[#E6F0DC]/90 font-sans leading-relaxed">
+              Classical and contemporary organismal biology, ecology, animal and plant physiology, genetics, and biodiversity conservation.
+            </p>
+            <div class="pt-2 flex justify-between items-center text-xs font-sans">
+              <span class="text-[#D0DEC0]">Pre-Medical Eligibility &ge; 50%</span>
+              <a href="/academics/programs/bs-biology" class="font-bold text-[#C1E899] hover:underline">Curriculum &rarr;</a>
+            </div>
+          </div>
+
+          <div class="program-item bg-[#163013]/80 border border-[#2D5724] p-6 rounded-2xl space-y-2 hover:border-[#C1E899] transition-colors shadow-md">
+            <div class="flex justify-between items-start">
+              <span class="px-2.5 py-0.5 rounded text-[11px] badge-oswald bg-[#23491E] text-[#C1E899]">BSBT</span>
+              <span class="text-xs text-[#D5ECC0] font-sans">4-Year Degree &middot; 136 Credits</span>
+            </div>
+            <h3 class="text-xl font-sans font-bold text-white">
+              <a href="/academics/programs/bs-biotechnology" class="hover:text-[#C1E899]">BS Biotechnology</a>
+            </h3>
+            <p class="text-xs text-[#E6F0DC]/90 font-sans leading-relaxed">
+              Applied molecular biology, genetic engineering, industrial fermentation, bioprocessing, nanobiotechnology, and diagnostic techniques.
+            </p>
+            <div class="pt-2 flex justify-between items-center text-xs font-sans">
+              <span class="text-[#D0DEC0]">Pre-Medical Eligibility &ge; 50%</span>
+              <a href="/academics/programs/bs-biotechnology" class="font-bold text-[#C1E899] hover:underline">Curriculum &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Graduate & Doctoral -->
+        <div class="space-y-4">
+          <div class="badge-oswald text-xs text-[#C1E899] border-b border-[#2D5724] pb-2">
+            Graduate & Doctoral Pathways (MS / PhD)
+          </div>
+
+          <div class="program-item bg-[#163013]/80 border border-[#2D5724] p-6 rounded-2xl space-y-2 hover:border-[#C1E899] transition-colors shadow-md">
+            <div class="flex justify-between items-start">
+              <span class="px-2.5 py-0.5 rounded text-[11px] badge-oswald bg-[#23491E] text-[#C1E899]">MSBT</span>
+              <span class="text-xs text-[#D5ECC0] font-sans">2-Year Degree &middot; 30 Credits</span>
+            </div>
+            <h3 class="text-xl font-sans font-bold text-white">
+              <a href="/academics/programs/ms-biotechnology" class="hover:text-[#C1E899]">MS Biotechnology</a>
+            </h3>
+            <p class="text-xs text-[#E6F0DC]/90 font-sans leading-relaxed">
+              Advanced graduate coursework followed by an intensive one-year independent laboratory research dissertation and defense.
+            </p>
+            <div class="pt-2 flex justify-between items-center text-xs font-sans">
+              <span class="text-[#D0DEC0]">BS 4-Year in Relevant Discipline</span>
+              <a href="/academics/programs/ms-biotechnology" class="font-bold text-[#C1E899] hover:underline">Curriculum &rarr;</a>
+            </div>
+          </div>
+
+          <div class="program-item bg-[#163013]/80 border border-[#2D5724] p-6 rounded-2xl space-y-2 hover:border-[#C1E899] transition-colors shadow-md">
+            <div class="flex justify-between items-start">
+              <span class="px-2.5 py-0.5 rounded text-[11px] badge-oswald bg-[#23491E] text-[#C1E899]">PhDBT</span>
+              <span class="text-xs text-[#D5ECC0] font-sans">3–5 Years &middot; Doctoral Dissertation</span>
+            </div>
+            <h3 class="text-xl font-sans font-bold text-white">
+              <a href="/academics/programs/phd-biotechnology" class="hover:text-[#C1E899]">PhD Biotechnology</a>
+            </h3>
+            <p class="text-xs text-[#E6F0DC]/90 font-sans leading-relaxed">
+              Original doctoral research contributing novel findings in genomics, environmental biology, plant sciences, and biomedical therapies.
+            </p>
+            <div class="pt-2 flex justify-between items-center text-xs font-sans">
+              <span class="text-[#D0DEC0]">MS/MPhil CGPA &ge; 3.00 & Subject Test</span>
+              <a href="/academics/programs/phd-biotechnology" class="font-bold text-[#C1E899] hover:underline">Curriculum &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- g) "ISLAMABAD / OUR CAMPUS" SECTION -->
+  <section class="relative py-32 bg-cover bg-center text-white overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80');">
+    
+    <!-- Dark Vignette Overlay in Forest Night -->
+    <div class="absolute inset-0 bg-[#0D1F0C]/85 backdrop-blur-xs"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 space-y-8">
+      
+      <div class="space-y-4 max-w-3xl">
+        <h2 class="text-4xl sm:text-6xl md:text-7xl font-sans font-extrabold leading-tight tracking-tight text-white drop-shadow">
+          Islamabad is more than just our home—
+        </h2>
+        <p class="text-lg sm:text-2xl text-[#E6F0DC] font-serif italic leading-relaxed drop-shadow">
+          it's an extension of our campus, offering rich ecosystems, national research centers, and cultural opportunities that will complement your university experience.
+        </p>
+      </div>
+
+      <div>
+        <a 
+          href="/about#facilities" 
+          class="inline-block px-8 py-4 border-2 border-white text-white font-sans font-extrabold text-xs uppercase tracking-widest hover:bg-white hover:text-[#23491E] transition-colors shadow-2xl rounded-sm"
+        >
+          MORE ABOUT ISLAMABAD & OUR CAMPUS
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  </div> <!-- End of curtain-container -->
+
+</Layout>
+
+<script>
+  // Hero Floating Side Rail Scroll Dissolve
+  const heroSideRail = document.getElementById('hero-side-rail');
+  window.addEventListener('scroll', () => {
+    const drawer = document.getElementById('side-menu-drawer');
+    const isDrawerOpen = drawer && !drawer.classList.contains('translate-x-full');
+    if (window.scrollY > 100 && !isDrawerOpen) {
+      heroSideRail?.classList.add('opacity-0', 'pointer-events-none', 'translate-x-6');
+    } else {
+      heroSideRail?.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-6');
+    }
+  }, { passive: true });
+  // 1. Hero Slideshow Auto-Rotation & Controls
+  const slides = document.querySelectorAll('.hero-slide');
+  const captionEl = document.getElementById('hero-caption');
+  const pauseBtn = document.getElementById('slideshow-pause-btn');
+  const pauseIcon = document.getElementById('pause-icon');
+  const playIcon = document.getElementById('play-icon');
+  const indicators = document.querySelectorAll('.slide-indicator');
+
+  let currentSlide = 0;
+  let isPaused = false;
+  let slideTimer: any = null;
+
+  function showSlide(index: number) {
+    slides.forEach((s, idx) => {
+      if (idx === index) {
+        s.classList.add('opacity-100', 'active');
+        s.classList.remove('opacity-0');
+        const caption = s.getAttribute('data-caption');
+        if (captionEl && caption) captionEl.textContent = caption;
+      } else {
+        s.classList.remove('opacity-100', 'active');
+        s.classList.add('opacity-0');
+      }
+    });
+
+    indicators.forEach((ind, idx) => {
+      if (idx === index) {
+        ind.classList.add('bg-[#C1E899]');
+        ind.classList.remove('bg-white/40');
+      } else {
+        ind.classList.remove('bg-[#C1E899]');
+        ind.classList.add('bg-white/40');
+      }
+    });
+
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    const next = (currentSlide + 1) % slides.length;
+    showSlide(next);
+  }
+
+  function startTimer() {
+    clearInterval(slideTimer);
+    slideTimer = setInterval(() => {
+      if (!isPaused) nextSlide();
+    }, 6000);
+  }
+
+  pauseBtn?.addEventListener('click', () => {
+    isPaused = !isPaused;
+    if (isPaused) {
+      pauseIcon?.classList.add('hidden');
+      playIcon?.classList.remove('hidden');
+      pauseBtn.setAttribute('title', 'Play Slideshow');
+    } else {
+      playIcon?.classList.add('hidden');
+      pauseIcon?.classList.remove('hidden');
+      pauseBtn.setAttribute('title', 'Pause Slideshow');
+    }
+  });
+
+  indicators.forEach(ind => {
+    ind.addEventListener('click', () => {
+      const idx = parseInt(ind.getAttribute('data-index') || '0', 10);
+      showSlide(idx);
+      startTimer();
+    });
+  });
+
+  startTimer();
+
+  // 2. Meet Our People Quote Swapper
+  const personThumbs = document.querySelectorAll('.person-thumb');
+  const featuredQuote = document.getElementById('featured-person-quote');
+  const featuredName = document.getElementById('featured-person-name');
+  const featuredTitle = document.getElementById('featured-person-title');
+  const featuredImg = document.getElementById('featured-person-img') as HTMLImageElement | null;
+  const featuredLink = document.getElementById('featured-person-link') as HTMLAnchorElement | null;
+
+  personThumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      personThumbs.forEach(t => {
+        t.classList.remove('active', 'border-[#55883B]', 'dark:border-[#C1E899]', 'border-3', 'ring-2', 'ring-[#C1E899]');
+        t.classList.add('border-[#D0DEC0]', 'dark:border-[#2D5724]', 'border-2');
+      });
+
+      thumb.classList.add('active', 'border-[#55883B]', 'dark:border-[#C1E899]', 'border-3', 'ring-2', 'ring-[#C1E899]');
+      thumb.classList.remove('border-[#D0DEC0]', 'dark:border-[#2D5724]', 'border-2');
+
+      const name = thumb.getAttribute('data-name');
+      const title = thumb.getAttribute('data-title');
+      const quote = thumb.getAttribute('data-quote');
+      const img = thumb.getAttribute('data-img');
+      const link = thumb.getAttribute('data-link');
+
+      if (featuredName && name) featuredName.textContent = name;
+      if (featuredTitle && title) featuredTitle.textContent = title;
+      if (featuredQuote && quote) featuredQuote.textContent = quote;
+      if (featuredImg && img) {
+        featuredImg.src = img;
+        featuredImg.alt = name || 'Faculty Member';
+      }
+      if (featuredLink && link) featuredLink.href = link;
+    });
+  });
+
+  // 3. Program Search Filtering
+  const programSearchInput = document.getElementById('program-search-input') as HTMLInputElement | null;
+  const programItems = document.querySelectorAll('.program-item');
+
+  programSearchInput?.addEventListener('input', () => {
+    const q = (programSearchInput.value || '').toLowerCase().trim();
+    programItems.forEach(item => {
+      const text = item.textContent?.toLowerCase() || '';
+      if (!q || text.includes(q)) {
+        (item as HTMLElement).style.display = 'block';
+      } else {
+        (item as HTMLElement).style.display = 'none';
+      }
+    });
+  });
+</script>

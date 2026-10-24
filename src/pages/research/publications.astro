@@ -1,0 +1,250 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+const facultyMembers = await getCollection('faculty');
+
+// Automatically aggregate publications from all faculty folders
+interface AggregatedPublication {
+  title: string;
+  authors: string;
+  journal?: string;
+  book_title?: string;
+  conference?: string;
+  year: number;
+  type?: string;
+  volume?: string;
+  pages?: string;
+  doi?: string;
+  abstract?: string;
+  facultyName: string;
+  facultySlug: string;
+}
+
+const allPublications: AggregatedPublication[] = [];
+
+for (const fac of facultyMembers) {
+  const cleanSlug = fac.slug.replace(/\/index$/, '');
+  const p1 = path.resolve(`src/content/faculty/${cleanSlug}/publications.yaml`);
+  const p2 = path.resolve(`src/content/faculty/${cleanSlug}/_publications.yaml`);
+  const pubPath = fs.existsSync(p1) ? p1 : fs.existsSync(p2) ? p2 : null;
+  if (pubPath) {
+    try {
+      const parsed = (yaml.load(fs.readFileSync(pubPath, 'utf8')) as any[]) || [];
+      for (const p of parsed) {
+        allPublications.push({
+          ...p,
+          year: p.year || 2024,
+          facultyName: fac.data.name,
+          facultySlug: cleanSlug,
+        });
+      }
+    } catch (e) {
+      console.error('Error reading publications for', cleanSlug, e);
+    }
+  }
+}
+
+// Sort reverse chronological
+allPublications.sort((a, b) => b.year - a.year);
+
+// Unique years and faculty names for filters
+const uniqueYears = Array.from(new Set(allPublications.map(p => p.year))).sort((a, b) => b - a);
+const uniqueFaculty = Array.from(new Set(allPublications.map(p => p.facultyName)));
+---
+
+<Layout 
+  title="Department Publications Database | Department of Biological Sciences, IIUI"
+  description="Comprehensive aggregated publications repository of peer-reviewed journal articles, book chapters, and conference proceedings authored by scholars at the Department of Biological Sciences, IIUI."
+>
+  <Breadcrumb items={[{ label: 'Research', href: '/research/areas' }, { label: 'Publications Database' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Central Scholarly Repository
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Department Publications Database
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          Aggregated in real-time from our faculty laboratories. Search and filter peer-reviewed articles, books, and proceedings by publication year, category, and investigator.
+        </p>
+      </div>
+
+      <!-- Live Search & Filtering Controls -->
+      <div class="p-6 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+          
+          <!-- Keyword Filter -->
+          <div class="md:col-span-6">
+            <label for="pub-search" class="block text-xs font-semibold uppercase tracking-wider text-sand-500 mb-1">Search Database</label>
+            <input 
+              type="text" 
+              id="pub-search" 
+              placeholder="Search by title, author name, or journal..." 
+              class="w-full px-4 py-2.5 rounded-lg border border-sand-300 dark:border-night-700 bg-white dark:bg-night-950 text-sand-900 dark:text-sand-100 text-sm focus:outline-none focus:ring-2 focus:ring-forest-700"
+            />
+          </div>
+
+          <!-- Year Filter -->
+          <div class="md:col-span-3">
+            <label for="year-select" class="block text-xs font-semibold uppercase tracking-wider text-sand-500 mb-1">Year</label>
+            <select 
+              id="year-select" 
+              class="w-full px-3 py-2.5 rounded-lg border border-sand-300 dark:border-night-700 bg-white dark:bg-night-950 text-sand-900 dark:text-sand-100 text-sm focus:outline-none focus:ring-2 focus:ring-forest-700"
+            >
+              <option value="all">All Years</option>
+              {uniqueYears.map((yr) => (
+                <option value={String(yr)}>{yr}</option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Faculty Filter -->
+          <div class="md:col-span-3">
+            <label for="faculty-select" class="block text-xs font-semibold uppercase tracking-wider text-sand-500 mb-1">Principal Investigator</label>
+            <select 
+              id="faculty-select" 
+              class="w-full px-3 py-2.5 rounded-lg border border-sand-300 dark:border-night-700 bg-white dark:bg-night-950 text-sand-900 dark:text-sand-100 text-sm focus:outline-none focus:ring-2 focus:ring-forest-700"
+            >
+              <option value="all">All Faculty Members</option>
+              {uniqueFaculty.map((fac) => (
+                <option value={fac}>{fac}</option>
+              ))}
+            </select>
+          </div>
+
+        </div>
+
+        <div class="pt-2 flex flex-wrap gap-2 text-xs">
+          <span class="text-sand-500 self-center mr-1">Publication type:</span>
+          <button class="pub-type-btn active px-3 py-1 rounded-full bg-forest-800 text-white font-medium" data-type="all">All ({allPublications.length})</button>
+          <button class="pub-type-btn px-3 py-1 rounded-full bg-sand-200 dark:bg-night-800 text-sand-700 dark:text-sand-300" data-type="journal">Journals</button>
+          <button class="pub-type-btn px-3 py-1 rounded-full bg-sand-200 dark:bg-night-800 text-sand-700 dark:text-sand-300" data-type="book_chapter">Book Chapters</button>
+          <button class="pub-type-btn px-3 py-1 rounded-full bg-sand-200 dark:bg-night-800 text-sand-700 dark:text-sand-300" data-type="conference">Conferences</button>
+        </div>
+      </div>
+
+      <!-- Publication Items List -->
+      <div id="publications-list" class="space-y-4">
+        {allPublications.map((pub) => (
+          <article 
+            class="pub-card p-6 rounded-2xl border border-sand-200 dark:border-night-800 bg-white dark:bg-night-900 hover:border-forest-700 dark:hover:border-gold-500/50 transition-colors shadow-sm space-y-3"
+            data-title={pub.title.toLowerCase()}
+            data-authors={pub.authors.toLowerCase()}
+            data-faculty={pub.facultyName}
+            data-year={String(pub.year)}
+            data-type={pub.type || 'journal'}
+          >
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-forest-100 text-forest-800 dark:bg-forest-950 dark:text-forest-400">
+                  {pub.type?.replace('_', ' ') || 'Journal'}
+                </span>
+                <span class="font-mono text-xs font-semibold text-gold-600 dark:text-gold-400">{pub.year}</span>
+              </div>
+              <a href={`/people/faculty/${pub.facultySlug}`} class="text-xs text-forest-800 dark:text-gold-400 hover:underline">
+                Author: {pub.facultyName} &rarr;
+              </a>
+            </div>
+
+            <h2 class="text-base sm:text-lg font-semibold text-sand-900 dark:text-sand-100 leading-snug">
+              {pub.title}
+            </h2>
+
+            <div class="text-xs text-sand-600 dark:text-sand-400">
+              <span class="font-medium text-sand-800 dark:text-sand-200">{pub.authors}</span> &bull; 
+              <span class="italic font-display">{pub.journal || pub.book_title || pub.conference}</span>
+              {pub.volume && ` (${pub.volume})`}
+              {pub.pages && `: pp. ${pub.pages}`}
+            </div>
+
+            {pub.abstract && (
+              <p class="text-xs text-sand-600 dark:text-sand-400 line-clamp-2 leading-relaxed">
+                {pub.abstract}
+              </p>
+            )}
+
+            {pub.doi && (
+              <div class="pt-2 border-t border-sand-100 dark:border-night-800 flex justify-end">
+                <a 
+                  href={pub.doi} 
+                  target="_blank" 
+                  rel="noopener"
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-sand-100 dark:bg-night-800 hover:bg-forest-800 hover:text-white dark:hover:bg-gold-500 dark:hover:text-night-950 text-xs font-semibold transition-colors"
+                >
+                  <span>Access via DOI / Publisher</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                </a>
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const searchInput = document.getElementById('pub-search') as HTMLInputElement | null;
+  const yearSelect = document.getElementById('year-select') as HTMLSelectElement | null;
+  const facultySelect = document.getElementById('faculty-select') as HTMLSelectElement | null;
+  const typeButtons = document.querySelectorAll('.pub-type-btn');
+  const pubCards = document.querySelectorAll('.pub-card');
+
+  let activeType = 'all';
+
+  function filterPublications() {
+    const query = searchInput?.value.toLowerCase().trim() || '';
+    const selectedYear = yearSelect?.value || 'all';
+    const selectedFaculty = facultySelect?.value || 'all';
+
+    pubCards.forEach(card => {
+      const title = card.getAttribute('data-title') || '';
+      const authors = card.getAttribute('data-authors') || '';
+      const faculty = card.getAttribute('data-faculty') || '';
+      const year = card.getAttribute('data-year') || '';
+      const type = card.getAttribute('data-type') || '';
+
+      const matchesQuery = !query || title.includes(query) || authors.includes(query);
+      const matchesYear = selectedYear === 'all' || year === selectedYear;
+      const matchesFaculty = selectedFaculty === 'all' || faculty === selectedFaculty;
+      const matchesType = activeType === 'all' || type === activeType;
+
+      if (matchesQuery && matchesYear && matchesFaculty && matchesType) {
+        (card as HTMLElement).style.display = 'block';
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+  }
+
+  searchInput?.addEventListener('input', filterPublications);
+  yearSelect?.addEventListener('change', filterPublications);
+  facultySelect?.addEventListener('change', filterPublications);
+
+  typeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      typeButtons.forEach(b => {
+        b.classList.remove('bg-forest-800', 'text-white');
+        b.classList.add('bg-sand-200', 'text-sand-700', 'dark:bg-night-800', 'dark:text-sand-300');
+      });
+      btn.classList.add('bg-forest-800', 'text-white');
+      btn.classList.remove('bg-sand-200', 'text-sand-700', 'dark:bg-night-800', 'dark:text-sand-300');
+
+      activeType = btn.getAttribute('data-type') || 'all';
+      filterPublications();
+    });
+  });
+</script>

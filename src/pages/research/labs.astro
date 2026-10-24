@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+const labs = await getCollection('labs');
+---
+
+<Layout 
+  title="Laboratories & Core Instrumentation | Department of Biological Sciences, IIUI"
+  description="Discover the specialized research laboratories, core facilities, and analytical bio-instrumentation inventory available at the Department of Biological Sciences, IIUI."
+>
+  <Breadcrumb items={[{ label: 'Research', href: '/research/areas' }, { label: 'Laboratories & Facilities' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Page Header -->
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Core Research Infrastructure (ASAB / CEMB Style)
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Laboratories & Analytical Instrumentation
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          The Department houses specialized wet-bench and instrumentation laboratories supporting high-impact postgraduate theses, funded HEC projects, and industrial biotechnology development.
+        </p>
+      </div>
+
+      <!-- Labs List -->
+      <div class="space-y-12">
+        {labs.map((lab) => (
+          <div class="rounded-2xl border border-sand-200 dark:border-night-800 bg-sand-50/50 dark:bg-night-900 overflow-hidden shadow-lg space-y-6 p-6 sm:p-10">
+            
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 pb-6 border-b border-sand-200 dark:border-night-800">
+              <div class="space-y-1">
+                <div class="flex items-center gap-3">
+                  <span class="px-2.5 py-1 rounded font-mono text-xs font-bold bg-forest-800 text-white">
+                    {lab.data.code}
+                  </span>
+                  <span class="text-xs font-semibold text-gold-600 dark:text-gold-400">
+                    Faculty In-Charge: {lab.data.in_charge}
+                  </span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-sand-900 dark:text-sand-100">
+                  {lab.data.title}
+                </h2>
+                <p class="text-xs text-sand-500 font-medium">Location: {lab.data.location}</p>
+              </div>
+
+              <div class="text-xs text-sand-600 dark:text-sand-400 max-w-md">
+                <strong>Primary Focus:</strong> {lab.data.focus}
+              </div>
+            </div>
+
+            <!-- Analytical Bio-Instrumentation Inventory Table (CEMB/ASAB peer style) -->
+            <div class="space-y-4">
+              <h3 class="text-sm font-display font-bold uppercase tracking-wider text-forest-800 dark:text-gold-400">
+                Analytical Instrumentation & Major Equipment Inventory
+              </h3>
+
+              <div class="border border-sand-200 dark:border-night-800 rounded-xl overflow-hidden bg-white dark:bg-night-850">
+                <div class="overflow-x-auto">
+                  <table class="min-w-full divide-y divide-sand-200 dark:divide-night-800 text-left text-xs">
+                    <thead class="bg-sand-50 dark:bg-night-900 text-sand-500 uppercase text-[10px] font-semibold">
+                      <tr>
+                        <th class="px-6 py-3">Equipment Specification</th>
+                        <th class="px-6 py-3">Model & Configuration</th>
+                        <th class="px-6 py-3">Manufacturer</th>
+                        <th class="px-6 py-3">Scientific Purpose & Applications</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-sand-100 dark:divide-night-800 text-sand-800 dark:text-sand-200">
+                      {lab.data.equipment.map((eq) => (
+                        <tr class="hover:bg-sand-50/70 dark:hover:bg-night-800/50 transition-colors">
+                          <td class="px-6 py-3.5 font-semibold text-forest-900 dark:text-sand-100">{eq.name}</td>
+                          <td class="px-6 py-3.5 font-mono text-sand-600 dark:text-sand-400">{eq.model}</td>
+                          <td class="px-6 py-3.5">{eq.manufacturer || 'International Standard'}</td>
+                          <td class="px-6 py-3.5 text-sand-600 dark:text-sand-400 leading-relaxed">{eq.purpose}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+      <!-- Shared Core Central Instrumentation Unit Note -->
+      <div class="p-8 rounded-2xl bg-forest-900 text-white space-y-3">
+        <h3 class="text-xl font-display font-bold text-white">Central Instrumentation & Cross-Faculty Usage</h3>
+        <p class="text-xs sm:text-sm text-sand-200 leading-relaxed max-w-4xl">
+          The Department of Biological Sciences collaborates with the Central Instrumentation Laboratory of the Faculty of Sciences and the SA-Centre for Interdisciplinary Research in Basic Sciences (SA-CIRBS) to provide access to high-resolution Mass Spectrometry (GC-MS, LC-MS), Confocal Microscopy, and Nuclear Magnetic Resonance (NMR) spectroscopy.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</Layout>

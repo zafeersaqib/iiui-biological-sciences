@@ -1,0 +1,38 @@
+- title: "Association of single nucleotide polymorphisms in the TCF7L2 and FTO genes with susceptibility to Type 2 Diabetes in a Pakistani cohort"
+  authors: "Shahzad, S., [Co-Author Name], [Co-Author Name]"
+  journal: "Gene"
+  year: 2024
+  type: "journal"
+  volume: "892"
+  pages: "147820"
+  doi: "https://doi.org/10.1016/j.gene.2024.placeholder1"
+  abstract: "Investigating the odds ratios and allele frequencies of common metabolic risk variants among diabetic patients in Northern Pakistan."
+
+- title: "Genetic screening of PCSK9 gene variations and their association with dyslipidemia in premature coronary artery disease"
+  authors: "Shahzad, S., [Co-Author Name]"
+  journal: "Lipids in Health and Disease"
+  year: 2023
+  type: "journal"
+  volume: "22"
+  pages: "112"
+  doi: "https://doi.org/10.1186/s12944-023-placeholder2"
+  abstract: "Identified distinct genetic markers predisposing young adults to severe hypercholesterolemia and vascular events."
+
+- title: "Evaluation of oxidative stress biomarkers and antioxidant enzyme polymorphisms in metabolic syndrome"
+  authors: "Shahzad, S., [Co-Author Name]"
+  journal: "Metabolic Syndrome and Related Disorders"
+  year: 2021
+  type: "journal"
+  volume: "19"
+  pages: "302-311"
+  doi: "https://doi.org/10.1089/met.2021.placeholder3"
+  abstract: "Correlating glutathione S-transferase polymorphisms with lipid peroxidation indicators."
+
+- title: "Principles of Genotyping and Primer Design for Polymorphism Detection"
+  authors: "Shahzad, S."
+  book_title: "Laboratory Manual in Human Molecular Genetics"
+  publisher: "Higher Education Publishing"
+  year: 2020
+  type: "book_chapter"
+  pages: "85-104"
+  doi: "https://doi.org/10.1007/978-manual-placeholder"

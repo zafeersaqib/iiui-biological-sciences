@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+const areas = await getCollection('research-areas');
+const sortedAreas = areas.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout 
+  title="Research Areas & Clusters | Department of Biological Sciences, IIUI"
+  description="Explore the 6 core research clusters in molecular biology, cancer genomics, industrial microbiology, plant biotechnology, computational bioinformatics, and ecological conservation at IIUI."
+>
+  <Breadcrumb items={[{ label: 'Research', href: '/research/areas' }, { label: 'Research Areas' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Scientific Domains & Discoveries
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Core Research Clusters
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          The Department conducts multidisciplinary, translational life-sciences research aimed at solving critical national and global problems in health, sustainable agriculture, and the environment.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedAreas.map((area) => (
+          <article class="p-8 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div class="space-y-4">
+              <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold-100 dark:bg-gold-950 text-gold-800 dark:text-gold-400">
+                Cluster 0{area.data.order}
+              </span>
+
+              <h2 class="text-xl font-display font-bold text-sand-900 dark:text-sand-100 group-hover:text-forest-800 dark:group-hover:text-gold-400 transition-colors">
+                {area.data.title}
+              </h2>
+
+              <p class="text-xs sm:text-sm text-sand-600 dark:text-sand-400 leading-relaxed">
+                {area.data.summary}
+              </p>
+
+              <div class="pt-3 border-t border-sand-200 dark:border-night-800 text-xs text-sand-600 dark:text-sand-400">
+                <span class="font-semibold text-sand-800 dark:text-sand-200">Lead Investigators:</span>
+                <p class="mt-0.5">{area.data.lead_faculty.join(', ')}</p>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-sand-100 dark:border-night-800 flex items-center justify-between">
+              <a href="/research/labs" class="text-xs font-bold text-forest-800 dark:text-gold-400 hover:underline">
+                View Associated Labs &rarr;
+              </a>
+              <a href="/research/publications" class="text-xs text-sand-500 hover:text-forest-800">
+                Related Papers &rarr;
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>

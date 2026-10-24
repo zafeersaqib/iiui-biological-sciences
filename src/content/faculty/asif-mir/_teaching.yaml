@@ -1,0 +1,16 @@
+- code: "BIO-301"
+  title: "Molecular Biology"
+  level: "Undergraduate (BS)"
+  semester: "Fall"
+  credits: "3 (2+1)"
+  link: "/academics/programs/bs-biology"
+  description: "Core principles of nucleic acid biochemistry and regulation."
+
+
+- code: "MS-BT-701"
+  title: "Advanced Molecular Biology"
+  level: "Graduate (MS)"
+  semester: "Fall"
+  credits: "3 (3+0)"
+  link: "/academics/programs/ms-biotechnology"
+  description: "Advanced mechanisms of gene expression and epigenetics."

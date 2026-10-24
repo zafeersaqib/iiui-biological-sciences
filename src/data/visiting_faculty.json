@@ -1,0 +1,2034 @@
+[
+  {
+    "name": "Dr. Alia Khanum",
+    "id": "tch_dr_alia_khanum",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "INT-399",
+        "name": "Field Experience/Internship",
+        "class": "BT F24 Sem 5 (BSBT-19A)",
+        "day": "Thursday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-01"
+      },
+      {
+        "code": "FST-151",
+        "name": "Introduction to Food Science & Technology",
+        "class": "FS F26 Sem 1 (BSFS-F26)",
+        "day": "Thursday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "SF-04"
+      },
+      {
+        "code": "FST-342",
+        "name": "Technology of Fats and Oils",
+        "class": "FS F24 Sem 5 (BSFS-F24)",
+        "day": "Thursday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MF-02(Lab)"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Anwer Usmaa",
+    "id": "tch_dr_anwer_usmaa",
+    "gender": "Male",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BT F25 Sem 3 (BSBT-20A)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BT F25 Sem 3 (BSBT-20B)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BT F25 Sem 3 (BSBT-20A)",
+        "day": "Tuesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BT F25 Sem 3 (BSBT-20B)",
+        "day": "Tuesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-02"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Asia Noureen",
+    "id": "tch_dr_asia_noureen",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BTH-121",
+        "name": "Elementary Biology",
+        "class": "BT F26 Sem 1 (BSBT-21 A)",
+        "day": "Tuesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-10"
+      },
+      {
+        "code": "BTH-121",
+        "name": "Elementary Biology",
+        "class": "BT F26 Sem 1 (BSBT-21 B)",
+        "day": "Tuesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "SF-03"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Asma Rasheed",
+    "id": "tch_dr_asma_rasheed",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BIO-413",
+        "name": "Environmental Biology",
+        "class": "BI F23 Sem 7 (BSBIO-7A)",
+        "day": "Friday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "CF-37"
+      },
+      {
+        "code": "BIO-413",
+        "name": "Environmental Biology",
+        "class": "BI F23 Sem 7 (BSBIO-7B)",
+        "day": "Friday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-03"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Faiz Rasool",
+    "id": "tch_dr_faiz_rasool",
+    "gender": "Male",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "GEC-111",
+        "name": "Science of Global Challenges",
+        "class": "BI F26 Sem 1 (BSBIO-10A)",
+        "day": "Monday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "MG-08"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Faiza Arshad",
+    "id": "tch_dr_faiza_arshad",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18E)",
+        "day": "Tuesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MG-03"
+      },
+      {
+        "code": "FST-233",
+        "name": "Fruits and Vegetables Processing",
+        "class": "FS F25 Sem 3 (BSFS-F25)",
+        "day": "Tuesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-03"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Farhan",
+    "id": "tch_dr_farhan",
+    "gender": "Male",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BI S23 Sem 8 (BSBIO-6A)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BI S23 Sem 8 (BSBIO-6B)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BI S23 Sem 8 (BSBIO-6A)",
+        "day": "Friday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BI S23 Sem 8 (BSBIO-6B)",
+        "day": "Friday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-02"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Fozia Bibi",
+    "id": "tch_dr_fozia_bibi",
+    "gender": "Female",
+    "department": "BC",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Monday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Monday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Thursday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Thursday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BI F25 Sem 3 (BSBIO-9A)",
+        "day": "Monday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "FS F25 Sem 3 (BSFS-F25)",
+        "day": "Monday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "BI F25 Sem 3 (BSBIO-9A)",
+        "day": "Thursday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "FS F25 Sem 3 (BSFS-F25)",
+        "day": "Thursday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-02"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Hafiz Naseer",
+    "id": "tch_dr_hafiz_naseer",
+    "gender": "Male",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "GEC-111",
+        "name": "Science of Global Challenges",
+        "class": "BT F26 Sem 1 (BSBT-21 B)",
+        "day": "Wednesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "SF-04"
+      },
+      {
+        "code": "BT-400",
+        "name": "Environmental Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18E)",
+        "day": "Wednesday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-03"
+      },
+      {
+        "code": "GEC-111",
+        "name": "Science of Global Challenges",
+        "class": "MB F26 Sem 1 (BSMB-F26)",
+        "day": "Thursday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "SF-04"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Ibrar",
+    "id": "tch_dr_ibrar",
+    "gender": "Male",
+    "department": "MB",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "IDB-230",
+        "name": "Basics of Ecology",
+        "class": "MB F25 Sem 3 (BSMB-F25)",
+        "day": "Thursday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FF-08"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Ikram",
+    "id": "tch_dr_ikram",
+    "gender": "Male",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BT S23 Sem 8 (BSBT-17C)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "SF-03"
+      },
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BT S23 Sem 8 (BSBT-17D)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "SF-03"
+      },
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BT S23 Sem 8 (BSBT-17C)",
+        "day": "Friday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-03"
+      },
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BT S23 Sem 8 (BSBT-17D)",
+        "day": "Friday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-03"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Madiha Amin Malik",
+    "id": "tch_dr_madiha_amin_malik",
+    "gender": "Female",
+    "department": "BI / BC",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BIO-231f",
+        "name": "Biochemistry",
+        "class": "BI F25 Sem 3 (BSBIO-9A)",
+        "day": "Monday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "SF-03"
+      },
+      {
+        "code": "BCH-241",
+        "name": "Metabolism-I",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BCH-241",
+        "name": "Metabolism-I",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BCH-241",
+        "name": "Metabolism-I",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Tuesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-10"
+      },
+      {
+        "code": "BCH-241",
+        "name": "Metabolism-I",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Tuesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-10"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Maria Fazal Ul Haq",
+    "id": "tch_dr_maria_fazal_ul_haq",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BI F23 Sem 7 (BSBIO-7A)",
+        "day": "Tuesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "SF-03"
+      },
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BI F23 Sem 7 (BSBIO-7B)",
+        "day": "Monday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-02"
+      },
+      {
+        "code": "BI-455",
+        "name": "Cancer Genetics",
+        "class": "BT F23 Sem 7 (BSBT-18C)",
+        "day": "Tuesday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BI-455",
+        "name": "Cancer Genetics",
+        "class": "BT F23 Sem 7 (BSBT-18D)",
+        "day": "Tuesday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BI-455",
+        "name": "Cancer Genetics",
+        "class": "BT F23 Sem 7 (BSBT-18C)",
+        "day": "Thursday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "MG-02"
+      },
+      {
+        "code": "BI-455",
+        "name": "Cancer Genetics",
+        "class": "BT F23 Sem 7 (BSBT-18D)",
+        "day": "Thursday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "MG-02"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Masooma Abbass",
+    "id": "tch_dr_masooma_abbass",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BT-401",
+        "name": "Industrial Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18C)",
+        "day": "Tuesday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-08"
+      },
+      {
+        "code": "FST-323",
+        "name": "Community Nutrition",
+        "class": "FS F24 Sem 5 (BSFS-F24)",
+        "day": "Wednesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MF-02(Lab)"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Mehrosh Khalid",
+    "id": "tch_dr_mehrosh_khalid",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BTH-343",
+        "name": "Bioinformatics",
+        "class": "BT F24 Sem 5 (BSBT-19A)",
+        "day": "Monday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BTH-343",
+        "name": "Bioinformatics",
+        "class": "BT F24 Sem 5 (BSBT-19B)",
+        "day": "Monday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BTH-343",
+        "name": "Bioinformatics",
+        "class": "BT F24 Sem 5 (BSBT-19A)",
+        "day": "Monday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BTH-343",
+        "name": "Bioinformatics",
+        "class": "BT F24 Sem 5 (BSBT-19B)",
+        "day": "Monday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "FG-01"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Munazza Sultana",
+    "id": "tch_dr_munazza_sultana",
+    "gender": "Female",
+    "department": "MB",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "MIC-222",
+        "name": "General Virology",
+        "class": "MB F25 Sem 3 (BSMB-F25)",
+        "day": "Tuesday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "MIC-332",
+        "name": "Microbial Physiology",
+        "class": "MB F24 Sem 5 (BSMB-F24)",
+        "day": "Tuesday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "SF-03"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Naima",
+    "id": "tch_dr_naima",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BIO-255",
+        "name": "Developmental Biology",
+        "class": "BI F25 Sem 3 (BSBIO-9A)",
+        "day": "Tuesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MG-09"
+      },
+      {
+        "code": "BIO-357",
+        "name": "Animal Biology",
+        "class": "BI F24 Sem 5 (BSBIO-8A)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-10"
+      },
+      {
+        "code": "BIO-357",
+        "name": "Animal Biology",
+        "class": "BI F24 Sem 5 (BSBIO-8B)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-10"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Rabia Mufti",
+    "id": "tch_dr_rabia_mufti",
+    "gender": "Female",
+    "department": "BC",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BCH-355",
+        "name": "Plant Biochemistry",
+        "class": "BC F24 Sem 5 (BSBC-F24)",
+        "day": "Thursday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-02"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Robina Niazi",
+    "id": "tch_dr_robina_niazi",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "INT-399 / NT-399",
+        "name": "Field Experience/Internship",
+        "class": "BI F24 Sem 5 (BSBIO-8A)",
+        "day": "Monday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "INT-399 / NT-399",
+        "name": "Field Experience/Internship",
+        "class": "BI F24 Sem 5 (BSBIO-8B)",
+        "day": "Monday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "INT-399 / NT-399",
+        "name": "Field Experience/Internship",
+        "class": "MB F24 Sem 5 (BSMB-F24)",
+        "day": "Monday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "INT-399 / NT-399",
+        "name": "Field Experience/Internship",
+        "class": "BI F24 Sem 5 (BSBIO-8A)",
+        "day": "Wednesday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "INT-399 / NT-399",
+        "name": "Field Experience/Internship",
+        "class": "BI F24 Sem 5 (BSBIO-8B)",
+        "day": "Wednesday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "INT-399 / NT-399",
+        "name": "Field Experience/Internship",
+        "class": "MB F24 Sem 5 (BSMB-F24)",
+        "day": "Wednesday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-01"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Sadaf Anwar",
+    "id": "tch_dr_sadaf_anwar",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BIO-411",
+        "name": "Epidemiology",
+        "class": "BI F23 Sem 7 (BSBIO-7A)",
+        "day": "Tuesday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "SF-04"
+      },
+      {
+        "code": "BIO-411",
+        "name": "Epidemiology",
+        "class": "BI F23 Sem 7 (BSBIO-7B)",
+        "day": "Monday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FF-08"
+      },
+      {
+        "code": "BT-438",
+        "name": "Agricultural Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18A)",
+        "day": "Monday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "FG-10"
+      },
+      {
+        "code": "BT-438",
+        "name": "Agricultural Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18B)",
+        "day": "Monday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-02"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Sadaf Moeez",
+    "id": "tch_dr_sadaf_moeez",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BT-401",
+        "name": "Industrial Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18A)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-09"
+      },
+      {
+        "code": "BT-402",
+        "name": "Health Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18D)",
+        "day": "Tuesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "SF-04"
+      },
+      {
+        "code": "BT-402",
+        "name": "Health Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18E)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-09"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Sadia Aziz",
+    "id": "tch_dr_sadia_aziz",
+    "gender": "Female",
+    "department": "BC",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BCH-356",
+        "name": "Environmental Biochemistry",
+        "class": "BC F24 Sem 5 (BSBC-F24)",
+        "day": "Thursday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "SF-04"
+      },
+      {
+        "code": "BT-400",
+        "name": "Environmental Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18C)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-02"
+      },
+      {
+        "code": "BT-400",
+        "name": "Environmental Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18D)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-08"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Saira Dar",
+    "id": "tch_dr_saira_dar",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BTH-334",
+        "name": "Principles of Biochemical Engineering",
+        "class": "BT F24 Sem 5 (BSBT-19A)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MF-01(Lab)"
+      },
+      {
+        "code": "BTH-334",
+        "name": "Principles of Biochemical Engineering",
+        "class": "BT F24 Sem 5 (BSBT-19B)",
+        "day": "Tuesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "CF-37"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Sajida Naeem",
+    "id": "tch_dr_sajida_naeem",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BIO-356",
+        "name": "Environmental Biology",
+        "class": "BI F24 Sem 5 (BSBIO-8B)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-03"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Salma Saleha",
+    "id": "tch_dr_salma_saleha",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BIO-412",
+        "name": "Biosaftey & Bioethics / Biosaftey& Bioethics",
+        "class": "BI F23 Sem 7 (BSBIO-7A)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BIO-412",
+        "name": "Biosaftey & Bioethics / Biosaftey& Bioethics",
+        "class": "BI F23 Sem 7 (BSBIO-7B)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BIO-412",
+        "name": "Biosaftey & Bioethics / Biosaftey& Bioethics",
+        "class": "BI F23 Sem 7 (BSBIO-7A)",
+        "day": "Thursday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "SF-03"
+      },
+      {
+        "code": "BIO-412",
+        "name": "Biosaftey & Bioethics / Biosaftey& Bioethics",
+        "class": "BI F23 Sem 7 (BSBIO-7B)",
+        "day": "Thursday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "SF-03"
+      },
+      {
+        "code": "MIC-341",
+        "name": "Genetic Engineering",
+        "class": "MB F24 Sem 5 (BSMB-F24)",
+        "day": "Tuesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-01"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Sana Mehmood",
+    "id": "tch_dr_sana_mehmood",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BTH-344",
+        "name": "Method in Molecular Biology",
+        "class": "BT F24 Sem 5 (BSBT-19B)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "SF-04"
+      },
+      {
+        "code": "BT-401",
+        "name": "Industrial Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18D)",
+        "day": "Monday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BT-401",
+        "name": "Industrial Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18E)",
+        "day": "Monday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BT-401",
+        "name": "Industrial Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18D)",
+        "day": "Wednesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BT-401",
+        "name": "Industrial Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18E)",
+        "day": "Wednesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-02"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Sara Sadiq",
+    "id": "tch_dr_sara_sadiq",
+    "gender": "Female",
+    "department": "FS",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "FST-121",
+        "name": "Principles of Human Nutrition",
+        "class": "FS F26 Sem 1 (BSFS-F26)",
+        "day": "Tuesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MF-02(Lab)"
+      },
+      {
+        "code": "FST-231",
+        "name": "Unit Operation in Food Processing",
+        "class": "FS F25 Sem 3 (BSFS-F25)",
+        "day": "Monday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MF-02(Lab)"
+      },
+      {
+        "code": "FST-354",
+        "name": "Instrumental Techniques in Food Analysis",
+        "class": "FS F24 Sem 5 (BSFS-F24)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MF-01(Lab)"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Sumaira Naqvi",
+    "id": "tch_dr_sumaira_naqvi",
+    "gender": "Female",
+    "department": "BC",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "INT-399",
+        "name": "Field Experience/Internship",
+        "class": "BC F24 Sem 5 (BSBC-F24)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "SF-03"
+      },
+      {
+        "code": "BIO-121",
+        "name": "Microbiology and virology",
+        "class": "BI F26 Sem 1 (BSBIO-10A)",
+        "day": "Friday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FF-10"
+      },
+      {
+        "code": "INT-399",
+        "name": "Field Experience/Internship",
+        "class": "BT F24 Sem 5 (BSBT-19B)",
+        "day": "Wednesday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "SF-04"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Zaman Ul Haq",
+    "id": "tch_dr_zaman_ul_haq",
+    "gender": "Male",
+    "department": "BI",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "GEC-114",
+        "name": "Application of Information and Communication Technologies (ICT)",
+        "class": "BI F26 Sem 1 (BSBIO-10A)",
+        "day": "Wednesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-10"
+      },
+      {
+        "code": "GEC-114",
+        "name": "Application of Information and Communication Technologies (ICT)",
+        "class": "FS F26 Sem 1 (BSFS-F26)",
+        "day": "Wednesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-10"
+      },
+      {
+        "code": "GEC-114",
+        "name": "Application of Information and Communication Technologies (ICT)",
+        "class": "BI F26 Sem 1 (BSBIO-10A)",
+        "day": "Thursday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "MG-01"
+      },
+      {
+        "code": "GEC-114",
+        "name": "Application of Information and Communication Technologies (ICT)",
+        "class": "FS F26 Sem 1 (BSFS-F26)",
+        "day": "Thursday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "MG-01"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Zantasha Khalid",
+    "id": "tch_dr_zantasha_khalid",
+    "gender": "Female",
+    "department": "BC",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BCH-231",
+        "name": "Enzymology",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BCH-231",
+        "name": "Enzymology",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BCH-231",
+        "name": "Enzymology",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Thursday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BCH-231",
+        "name": "Enzymology",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Thursday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BIO-322",
+        "name": "Research Innovation and Entrepreneurship",
+        "class": "BI F24 Sem 5 (BSBIO-8A)",
+        "day": "Tuesday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-01"
+      },
+      {
+        "code": "BIO-322",
+        "name": "Research Innovation and Entrepreneurship",
+        "class": "BI F24 Sem 5 (BSBIO-8B)",
+        "day": "Tuesday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-01"
+      },
+      {
+        "code": "BIO-322",
+        "name": "Research Innovation and Entrepreneurship",
+        "class": "BI F24 Sem 5 (BSBIO-8A)",
+        "day": "Thursday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-08"
+      },
+      {
+        "code": "BIO-322",
+        "name": "Research Innovation and Entrepreneurship",
+        "class": "BI F24 Sem 5 (BSBIO-8B)",
+        "day": "Thursday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-08"
+      }
+    ]
+  },
+  {
+    "name": "Dr. Zarish",
+    "id": "tch_dr_zarish",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Assistant Professor",
+    "courses": [
+      {
+        "code": "BT-402",
+        "name": "Health Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18A)",
+        "day": "Thursday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "MG-02"
+      },
+      {
+        "code": "BT-402",
+        "name": "Health Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18B)",
+        "day": "Thursday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "MG-02"
+      },
+      {
+        "code": "BT-402",
+        "name": "Health Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18C)",
+        "day": "Wednesday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-02"
+      }
+    ]
+  },
+  {
+    "name": "Miss Afia Rafique",
+    "id": "tch_miss_afia_rafique",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BIO-151",
+        "name": "Basic Biology",
+        "class": "BI F26 Sem 1 (BSBIO-10A)",
+        "day": "Monday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-10"
+      },
+      {
+        "code": "GEC-111",
+        "name": "Science of Global Challenges",
+        "class": "BT F26 Sem 1 (BSBT-21 A)",
+        "day": "Thursday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "FG-10"
+      }
+    ]
+  },
+  {
+    "name": "Miss Amrah Inam",
+    "id": "tch_miss_amrah_inam",
+    "gender": "Female",
+    "department": "BC",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BCH-232",
+        "name": "Biosafety & Ethics",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Monday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BCH-232",
+        "name": "Biosafety & Ethics",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Monday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BCH-232",
+        "name": "Biosafety & Ethics",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Thursday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BCH-232",
+        "name": "Biosafety & Ethics",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Thursday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-02"
+      },
+      {
+        "code": "GEC-111",
+        "name": "Science of Global Challenges",
+        "class": "FS F26 Sem 1 (BSFS-F26)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MF-02(Lab)"
+      },
+      {
+        "code": "MIC-121",
+        "name": "Cellular Biology",
+        "class": "MB F26 Sem 1 (BSMB-F26)",
+        "day": "Thursday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MF-08"
+      }
+    ]
+  },
+  {
+    "name": "Miss Anum Hussain",
+    "id": "tch_miss_anum_hussain",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "GEC-113",
+        "name": "Quantitative Reasoning-I",
+        "class": "BI F26 Sem 1 (BSBIO-10A)",
+        "day": "Thursday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-113",
+        "name": "Quantitative Reasoning-I",
+        "class": "FS F26 Sem 1 (BSFS-F26)",
+        "day": "Thursday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-113",
+        "name": "Quantitative Reasoning-I",
+        "class": "BI F26 Sem 1 (BSBIO-10A)",
+        "day": "Friday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "MG-03"
+      },
+      {
+        "code": "GEC-113",
+        "name": "Quantitative Reasoning-I",
+        "class": "FS F26 Sem 1 (BSFS-F26)",
+        "day": "Friday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "MG-03"
+      }
+    ]
+  },
+  {
+    "name": "Miss Bareera Masood",
+    "id": "tch_miss_bareera_masood",
+    "gender": "Female",
+    "department": "MB",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "MIC-223",
+        "name": "Microbial Taxonomy",
+        "class": "MB F25 Sem 3 (BSMB-F25)",
+        "day": "Thursday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-03"
+      },
+      {
+        "code": "MIC-333",
+        "name": "Clinical Bacteriology",
+        "class": "MB F24 Sem 5 (BSMB-F24)",
+        "day": "Thursday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-10"
+      }
+    ]
+  },
+  {
+    "name": "Miss Hadia Waqar",
+    "id": "tch_miss_hadia_waqar",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "GEC-102",
+        "name": "Functional English",
+        "class": "BI F26 Sem 1 (BSBIO-10A)",
+        "day": "Monday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-102",
+        "name": "Functional English",
+        "class": "FS F26 Sem 1 (BSFS-F26)",
+        "day": "Monday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-102",
+        "name": "Functional English",
+        "class": "MB F26 Sem 1 (BSMB-F26)",
+        "day": "Monday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-102",
+        "name": "Functional English",
+        "class": "BI F26 Sem 1 (BSBIO-10A)",
+        "day": "Wednesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-102",
+        "name": "Functional English",
+        "class": "FS F26 Sem 1 (BSFS-F26)",
+        "day": "Wednesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-102",
+        "name": "Functional English",
+        "class": "MB F26 Sem 1 (BSMB-F26)",
+        "day": "Wednesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-102",
+        "name": "Functional English",
+        "class": "BT F26 Sem 1 (BSBT-21 A)",
+        "day": "Wednesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MG-03"
+      },
+      {
+        "code": "GEC-102",
+        "name": "Functional English",
+        "class": "BT F26 Sem 1 (BSBT-21 B)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-09"
+      }
+    ]
+  },
+  {
+    "name": "Miss Kanwal Tanveer",
+    "id": "tch_miss_kanwal_tanveer",
+    "gender": "Female",
+    "department": "BC",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BCH-333",
+        "name": "Immunology",
+        "class": "BC F24 Sem 5 (BSBC-F24)",
+        "day": "Friday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BT S23 Sem 8 (BSBT-17A)",
+        "day": "Friday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BT S23 Sem 8 (BSBT-17B)",
+        "day": "Friday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BT S23 Sem 8 (BSBT-17A)",
+        "day": "Monday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "MG-01"
+      },
+      {
+        "code": "BT-463",
+        "name": "Stem Cells & Therapeutic Cloning",
+        "class": "BT S23 Sem 8 (BSBT-17B)",
+        "day": "Monday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "MG-01"
+      }
+    ]
+  },
+  {
+    "name": "Miss Maryam Arshad",
+    "id": "tch_miss_maryam_arshad",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BI-455",
+        "name": "Cancer Genetics",
+        "class": "BT F23 Sem 7 (BSBT-18E)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "SC-38"
+      }
+    ]
+  },
+  {
+    "name": "Miss Maryam Gohar",
+    "id": "tch_miss_maryam_gohar",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18A)",
+        "day": "Wednesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "SF-03"
+      },
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18B)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-02"
+      }
+    ]
+  },
+  {
+    "name": "Miss Maryam Khan",
+    "id": "tch_miss_maryam_khan",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18C)",
+        "day": "Wednesday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18D)",
+        "day": "Wednesday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18C)",
+        "day": "Thursday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BT-461",
+        "name": "Nano Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18D)",
+        "day": "Thursday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "FG-02"
+      }
+    ]
+  },
+  {
+    "name": "Miss Memoona Rauf",
+    "id": "tch_miss_memoona_rauf",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BT-401",
+        "name": "Industrial Biotechnology",
+        "class": "BT F23 Sem 7 (BSBT-18B)",
+        "day": "Monday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-02"
+      }
+    ]
+  },
+  {
+    "name": "Miss Rabia Ahsan",
+    "id": "tch_miss_rabia_ahsan",
+    "gender": "Female",
+    "department": "BC",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Wednesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-10"
+      },
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Wednesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-10"
+      },
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Tuesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-02"
+      },
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Tuesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-02"
+      },
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "BI F25 Sem 3 (BSBIO-9A)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-08"
+      }
+    ]
+  },
+  {
+    "name": "Miss Rania Tabassum",
+    "id": "tch_miss_rania_tabassum",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "BT F25 Sem 3 (BSBT-20A)",
+        "day": "Monday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-09"
+      },
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "BT F25 Sem 3 (BSBT-20B)",
+        "day": "Monday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MG-08"
+      },
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "FS F25 Sem 3 (BSFS-F25)",
+        "day": "Friday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MG-01"
+      },
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "MB F25 Sem 3 (BSMB-F25)",
+        "day": "Friday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MG-01"
+      },
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "FS F25 Sem 3 (BSFS-F25)",
+        "day": "Monday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-01"
+      },
+      {
+        "code": "GEC-205",
+        "name": "Expository writing",
+        "class": "MB F25 Sem 3 (BSMB-F25)",
+        "day": "Monday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-01"
+      }
+    ]
+  },
+  {
+    "name": "Miss Sidra Saeed",
+    "id": "tch_miss_sidra_saeed",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BIO-254",
+        "name": "Anatomy",
+        "class": "BI F25 Sem 3 (BSBIO-9A)",
+        "day": "Thursday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BIO-356",
+        "name": "Environmental Biology",
+        "class": "BI F24 Sem 5 (BSBIO-8A)",
+        "day": "Thursday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "MG-10"
+      }
+    ]
+  },
+  {
+    "name": "Miss Tazeen",
+    "id": "tch_miss_tazeen",
+    "gender": "Female",
+    "department": "BT",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "GEC-113",
+        "name": "Quantitative Reasoning-I",
+        "class": "BT F26 Sem 1 (BSBT-21 A)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-09"
+      },
+      {
+        "code": "GEC-113",
+        "name": "Quantitative Reasoning-I",
+        "class": "BT F26 Sem 1 (BSBT-21 B)",
+        "day": "Tuesday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-09"
+      }
+    ]
+  },
+  {
+    "name": "Miss Tehreem",
+    "id": "tch_miss_tehreem",
+    "gender": "Female",
+    "department": "FS",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "FST-232",
+        "name": "Food Process Engineering",
+        "class": "FS F25 Sem 3 (BSFS-F25)",
+        "day": "Monday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "MF-02(Lab)"
+      }
+    ]
+  },
+  {
+    "name": "Miss Uzma Aziz",
+    "id": "tch_miss_uzma_aziz",
+    "gender": "Female",
+    "department": "MB",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "MIC-151",
+        "name": "Fundamental Microbiology-I",
+        "class": "MB F26 Sem 1 (BSMB-F26)",
+        "day": "Monday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-08"
+      }
+    ]
+  },
+  {
+    "name": "Miss Zukhra Abbasi",
+    "id": "tch_miss_zukhra_abbasi",
+    "gender": "Female",
+    "department": "FS",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "NT-399",
+        "name": "Field Experience/Internship",
+        "class": "FS F24 Sem 5 (BSFS-F24)",
+        "day": "Monday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-03"
+      },
+      {
+        "code": "MIC-355",
+        "name": "Soil Microbiology",
+        "class": "MB F24 Sem 5 (BSMB-F24)",
+        "day": "Monday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "MG-09"
+      }
+    ]
+  },
+  {
+    "name": "Mr Asadullah",
+    "id": "tch_mr_asadullah",
+    "gender": "Male",
+    "department": "BC",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "URC-302",
+        "name": "Understanding Quran",
+        "class": "BC F24 Sem 5 (BSBC-F24)",
+        "day": "Monday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "SF-03"
+      },
+      {
+        "code": "URC-302",
+        "name": "Understanding Quran",
+        "class": "BT F24 Sem 5 (BSBT-19B)",
+        "day": "Wednesday",
+        "time": "04:00 PM - 05:15 PM",
+        "room": "SF-03"
+      },
+      {
+        "code": "URC-302",
+        "name": "Understanding Quran",
+        "class": "MB F24 Sem 5 (BSMB-F24)",
+        "day": "Monday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "SF-03"
+      }
+    ]
+  },
+  {
+    "name": "Mr. Asim Masood",
+    "id": "tch_mr_asim_masood",
+    "gender": "Male",
+    "department": "BC",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "BC F26 Sem 1 (BSBC-F26)",
+        "day": "Thursday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "BC F25 Sem 3 (BSBC-F25)",
+        "day": "Thursday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "BI F25 Sem 3 (BSBIO-9A)",
+        "day": "Thursday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-03"
+      },
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "BT F25 Sem 3 (BSBT-20A)",
+        "day": "Wednesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MF-08"
+      }
+    ]
+  },
+  {
+    "name": "Mr. Jamshed Abbasi",
+    "id": "tch_mr_jamshed_abbasi",
+    "gender": "Male",
+    "department": "BT",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "BT F25 Sem 3 (BSBT-20B)",
+        "day": "Thursday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-03"
+      },
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "FS F25 Sem 3 (BSFS-F25)",
+        "day": "Thursday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-01"
+      },
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "MB F25 Sem 3 (BSMB-F25)",
+        "day": "Thursday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-01"
+      },
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "FS F25 Sem 3 (BSFS-F25)",
+        "day": "Friday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-215",
+        "name": "Quantitative Reasoning-II",
+        "class": "MB F25 Sem 3 (BSMB-F25)",
+        "day": "Friday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "FG-01"
+      },
+      {
+        "code": "GEC-113",
+        "name": "Quantitative Reasoning-I",
+        "class": "MB F26 Sem 1 (BSMB-F26)",
+        "day": "Thursday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "MG-03"
+      }
+    ]
+  },
+  {
+    "name": "Mr. Wajid Iqbal",
+    "id": "tch_mr_wajid_iqbal",
+    "gender": "Male",
+    "department": "BI",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BI-452",
+        "name": "Cell Signaling",
+        "class": "BI F23 Sem 7 (BSBIO-7A)",
+        "day": "Wednesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MG-02"
+      },
+      {
+        "code": "BI-452",
+        "name": "Cell Signaling",
+        "class": "BI F23 Sem 7 (BSBIO-7B)",
+        "day": "Wednesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MF-01(Lab)"
+      }
+    ]
+  },
+  {
+    "name": "Ms Lateefah Ayokoma",
+    "id": "tch_ms_lateefah_ayokoma",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "URC-302",
+        "name": "Understanding Quran",
+        "class": "BI F24 Sem 5 (BSBIO-8A)",
+        "day": "Monday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "MG-03"
+      },
+      {
+        "code": "URC-302",
+        "name": "Understanding Quran",
+        "class": "BI F24 Sem 5 (BSBIO-8B)",
+        "day": "Monday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MG-09"
+      },
+      {
+        "code": "URC-302",
+        "name": "Understanding Quran",
+        "class": "BT F24 Sem 5 (BSBT-19A)",
+        "day": "Monday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "SF-04"
+      }
+    ]
+  },
+  {
+    "name": "Ms Warda Gul",
+    "id": "tch_ms_warda_gul",
+    "gender": "Female",
+    "department": "BI",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "NA",
+        "name": "Clinical Biochemistry",
+        "class": "BI S23 Sem 8 (BSBIO-6A)",
+        "day": "Wednesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "NA",
+        "name": "Clinical Biochemistry",
+        "class": "BI S23 Sem 8 (BSBIO-6B)",
+        "day": "Wednesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "NA",
+        "name": "Clinical Biochemistry",
+        "class": "BI S23 Sem 8 (BSBIO-6A)",
+        "day": "Friday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-01"
+      },
+      {
+        "code": "NA",
+        "name": "Clinical Biochemistry",
+        "class": "BI S23 Sem 8 (BSBIO-6B)",
+        "day": "Friday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "FG-01"
+      }
+    ]
+  },
+  {
+    "name": "Sir Imran Saeed",
+    "id": "tch_sir_imran_saeed",
+    "gender": "Male",
+    "department": "BT",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "GEC-114",
+        "name": "Application of Information and Communication Technologies (ICT)",
+        "class": "BT F26 Sem 1 (BSBT-21 A)",
+        "day": "Tuesday",
+        "time": "08:30 AM - 09:45 AM",
+        "room": "MG-10"
+      },
+      {
+        "code": "GEC-114",
+        "name": "Application of Information and Communication Technologies (ICT)",
+        "class": "BT F26 Sem 1 (BSBT-21 B)",
+        "day": "Tuesday",
+        "time": "09:45 AM - 11:00 AM",
+        "room": "MG-10"
+      },
+      {
+        "code": "GEC-114",
+        "name": "Application of Information and Communication Technologies (ICT)",
+        "class": "MB F26 Sem 1 (BSMB-F26)",
+        "day": "Tuesday",
+        "time": "11:00 AM - 12:15 PM",
+        "room": "MG-10"
+      }
+    ]
+  },
+  {
+    "name": "Sir Mehtab Ullah",
+    "id": "tch_sir_mehtab_ullah",
+    "gender": "Male",
+    "department": "BC",
+    "designation": "Visiting Lecturer / Instructor",
+    "courses": [
+      {
+        "code": "BCH-342",
+        "name": "Metabolism -II",
+        "class": "BC F24 Sem 5 (BSBC-F24)",
+        "day": "Thursday",
+        "time": "01:30 PM - 02:45 PM",
+        "room": "FG-02"
+      },
+      {
+        "code": "BTH-232",
+        "name": "Cellular Metabolism",
+        "class": "BT F25 Sem 3 (BSBT-20A)",
+        "day": "Thursday",
+        "time": "12:15 PM - 01:30 PM",
+        "room": "MG-01"
+      },
+      {
+        "code": "BTH-232",
+        "name": "Cellular Metabolism",
+        "class": "BT F25 Sem 3 (BSBT-20B)",
+        "day": "Thursday",
+        "time": "02:45 PM - 04:00 PM",
+        "room": "MG-08"
+      }
+    ]
+  }
+]

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://science.iiu.edu.pk/sitemap-index.xml

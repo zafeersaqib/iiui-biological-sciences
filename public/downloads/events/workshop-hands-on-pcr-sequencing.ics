@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//IIUI Department of Biological Sciences//NONSGML Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:workshop-hands-on-pcr-sequencing@science.iiu.edu.pk
+DTSTAMP:20241120T090000Z
+DTSTART:20241120T090000Z
+DTEND:20241120T170000Z
+SUMMARY:Hands-on Workshop: Real-Time Quantitative PCR & NGS Workflow Design
+DESCRIPTION:An intensive full-day practical workshop for postgraduate scholars covering RNA extraction, cDNA synthesis, primer design, and SYBR Green RT-qPCR.
+LOCATION:Genomics Research Lab (Room 102), Science Block, IIUI Sector H-10, Islamabad
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

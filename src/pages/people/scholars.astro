@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const researchGroups = [
+  {
+    supervisor: "Prof. Dr. Asma Gul",
+    lab: "Molecular Oncology & Human Genetics Lab",
+    phdScholars: [
+      { name: "[PhD Scholar 1]", topic: "Exome sequencing in hereditary cancer susceptibility", year: "2022 – Present" },
+      { name: "[PhD Scholar 2]", topic: "Functionalized zinc oxide nanoparticles for targeted drug delivery", year: "2023 – Present" },
+    ],
+    msScholars: [
+      { name: "[MS Scholar 1]", topic: "Circulating cytokine profiles in chronic autoimmune diseases" },
+      { name: "[MS Scholar 2]", topic: "Antimicrobial evaluation of green-synthesized nanoparticles" },
+    ],
+  },
+  {
+    supervisor: "Dr. Shaheen Shahzad",
+    lab: "Genomics Research Laboratory",
+    phdScholars: [
+      { name: "[PhD Scholar 3]", topic: "Genome-wide association of risk loci in early-onset cardiovascular disease", year: "2021 – Present" },
+      { name: "[PhD Scholar 4]", topic: "Genetic polymorphisms in lipid metabolizing enzymes in metabolic syndrome", year: "2023 – Present" },
+    ],
+    msScholars: [
+      { name: "[MS Scholar 3]", topic: "Allelic frequency of TCF7L2 gene variants in Pakistani diabetics" },
+      { name: "[MS Scholar 4]", topic: "Sanger sequencing screening of PCSK9 regulatory elements" },
+    ],
+  },
+  {
+    supervisor: "Dr. Bashir Ahmad",
+    lab: "Applied Microbiology & Biotechnology Lab (AMBL)",
+    phdScholars: [
+      { name: "[PhD Scholar 5]", topic: "Bioprocess engineering for pilot-scale industrial alkaline protease production", year: "2022 – Present" },
+    ],
+    msScholars: [
+      { name: "[MS Scholar 5]", topic: "Optimization of agro-industrial residues for microbial cellulase titers" },
+      { name: "[MS Scholar 6]", topic: "Bioethanol generation from enzymatic hydrolysis of wheat straw" },
+    ],
+  },
+];
+---
+
+<Layout 
+  title="Postgraduate Research Scholars | Department of Biological Sciences, IIUI"
+  description="Directory of active PhD and MS Biotechnology research scholars organized by research laboratory and faculty supervisor at IIUI."
+>
+  <Breadcrumb items={[{ label: 'People', href: '/people/faculty' }, { label: 'Research Scholars' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Postgraduate Research Groups
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          PhD & MS Research Scholars
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          Our doctoral and master's candidates conduct original empirical investigations under the mentorship of HEC-approved doctoral supervisors.
+        </p>
+      </div>
+
+      <div class="space-y-10">
+        {researchGroups.map((group) => (
+          <div class="p-8 rounded-2xl bg-sand-50/50 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-6">
+            <div class="border-b border-sand-200 dark:border-night-800 pb-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <div>
+                <h2 class="text-xl font-display font-bold text-sand-900 dark:text-sand-100">{group.supervisor}</h2>
+                <p class="text-xs font-semibold text-forest-700 dark:text-gold-400">{group.lab}</p>
+              </div>
+              <span class="text-xs px-3 py-1 rounded-full bg-forest-100 dark:bg-night-800 text-forest-800 dark:text-gold-400 font-medium self-start sm:self-auto">
+                {group.phdScholars.length} PhD &bull; {group.msScholars.length} MS Scholars
+              </span>
+            </div>
+
+            <!-- PhD Table -->
+            <div class="space-y-2">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-sand-500">Doctoral Candidates (Ph.D.)</h3>
+              <div class="overflow-x-auto border border-sand-200 dark:border-night-800 rounded-xl bg-white dark:bg-night-850">
+                <table class="min-w-full divide-y divide-sand-200 dark:divide-night-800 text-left text-xs">
+                  <thead class="bg-sand-50 dark:bg-night-900 text-sand-500 text-[10px] uppercase font-semibold">
+                    <tr>
+                      <th class="px-6 py-2.5">Candidate Name</th>
+                      <th class="px-6 py-2.5">Dissertation Research Title</th>
+                      <th class="px-6 py-2.5 text-right">Tenure</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-sand-100 dark:divide-night-800 text-sand-800 dark:text-sand-200">
+                    {group.phdScholars.map((s) => (
+                      <tr class="hover:bg-sand-50/60 dark:hover:bg-night-800/40">
+                        <td class="px-6 py-3 font-semibold text-forest-900 dark:text-sand-100">{s.name}</td>
+                        <td class="px-6 py-3">{s.topic}</td>
+                        <td class="px-6 py-3 text-right font-mono text-sand-500">{s.year}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- MS Table -->
+            <div class="space-y-2 pt-2">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-sand-500">Master's Scholars (MSBT)</h3>
+              <div class="overflow-x-auto border border-sand-200 dark:border-night-800 rounded-xl bg-white dark:bg-night-850">
+                <table class="min-w-full divide-y divide-sand-200 dark:divide-night-800 text-left text-xs">
+                  <thead class="bg-sand-50 dark:bg-night-900 text-sand-500 text-[10px] uppercase font-semibold">
+                    <tr>
+                      <th class="px-6 py-2.5">Scholar Name</th>
+                      <th class="px-6 py-2.5">Thesis Research Topic</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-sand-100 dark:divide-night-800 text-sand-800 dark:text-sand-200">
+                    {group.msScholars.map((s) => (
+                      <tr class="hover:bg-sand-50/60 dark:hover:bg-night-800/40">
+                        <td class="px-6 py-3 font-semibold text-forest-900 dark:text-sand-100">{s.name}</td>
+                        <td class="px-6 py-3">{s.topic}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>

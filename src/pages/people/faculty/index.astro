@@ -1,0 +1,304 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+import visitingFaculty from '../../../data/visiting_faculty.json';
+
+const faculty = await getCollection('faculty');
+const sortedFaculty = faculty.sort((a, b) => (a.data.rank_order || 99) - (b.data.rank_order || 99));
+
+// Collect all unique research areas
+const allInterests = Array.from(new Set(faculty.flatMap(f => f.data.research_interests || [])));
+---
+
+<Layout 
+  title="Faculty Directory | Department of Biological Sciences, IIUI"
+  description="Meet the esteemed faculty members, professors, associate professors, and researchers in the Department of Biological Sciences at International Islamic University Islamabad."
+>
+  <Breadcrumb items={[{ label: 'People' }, { label: 'Faculty Directory' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <!-- Page Header -->
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Academic Scholars, Principal Investigators & Teaching Fellows
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Faculty Directory
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          Our distinguished faculty members lead pioneering laboratories, guide postgraduate doctoral theses, and instruct across undergraduate and advanced bioscience degree streams.
+        </p>
+      </div>
+
+      <!-- Tab Switcher: Regular Faculty vs Visiting / Timetable Roster -->
+      <div class="flex items-center gap-3 border-b border-sand-200 dark:border-night-800 pb-2">
+        <button 
+          id="tab-regular-btn" 
+          class="px-4 py-2 font-serif font-bold text-base sm:text-lg border-b-2 border-forest-800 dark:border-gold-400 text-forest-900 dark:text-sand-50 transition-colors"
+        >
+          Regular Faculty ({sortedFaculty.length})
+        </button>
+        <button 
+          id="tab-visiting-btn" 
+          class="px-4 py-2 font-serif font-bold text-base sm:text-lg border-b-2 border-transparent text-sand-500 hover:text-forest-800 dark:hover:text-gold-400 transition-colors"
+        >
+          Visiting & Adjunct Faculty ({visitingFaculty.length})
+        </button>
+      </div>
+
+      <!-- SECTION 1: REGULAR FACULTY -->
+      <div id="section-regular" class="space-y-8">
+        
+        <!-- Live Search & Filter Controls -->
+        <div class="p-6 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+            
+            <!-- Text Search -->
+            <div class="md:col-span-8">
+              <label for="faculty-search" class="block text-xs font-semibold uppercase tracking-wider text-sand-500 mb-1">Search Regular Faculty</label>
+              <div class="relative">
+                <input 
+                  type="text" 
+                  id="faculty-search" 
+                  placeholder="Search by name, research area, or title..." 
+                  class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-sand-300 dark:border-night-700 bg-white dark:bg-night-950 text-sand-900 dark:text-sand-100 text-sm focus:outline-none focus:ring-2 focus:ring-forest-700"
+                />
+                <svg class="w-4 h-4 text-sand-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Designation Filter -->
+            <div class="md:col-span-4">
+              <label for="designation-filter" class="block text-xs font-semibold uppercase tracking-wider text-sand-500 mb-1">Filter by Academic Rank</label>
+              <select 
+                id="designation-filter" 
+                class="w-full px-3 py-2.5 rounded-lg border border-sand-300 dark:border-night-700 bg-white dark:bg-night-950 text-sand-900 dark:text-sand-100 text-sm focus:outline-none focus:ring-2 focus:ring-forest-700"
+              >
+                <option value="all">All Academic Ranks</option>
+                <option value="Professor">Professors</option>
+                <option value="Associate Professor">Associate Professors</option>
+                <option value="Assistant Professor">Assistant Professors / IPFP</option>
+                <option value="Lecturer">Lecturers</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Research Domains Pills -->
+          <div class="pt-2 flex flex-wrap gap-1.5 items-center">
+            <span class="text-xs text-sand-500 mr-2">Quick filters:</span>
+            <button class="domain-tag active px-2.5 py-1 rounded-full text-xs font-medium bg-forest-800 text-white" data-tag="all">All Disciplines</button>
+            {allInterests.slice(0, 6).map((interest) => (
+              <button class="domain-tag px-2.5 py-1 rounded-full text-xs font-medium bg-sand-200 dark:bg-night-800 text-sand-700 dark:text-sand-300 hover:bg-forest-100 dark:hover:bg-night-700" data-tag={interest}>
+                {interest}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Faculty Cards Grid -->
+        <div id="faculty-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedFaculty.map((fac) => {
+            const cleanSlug = fac.slug.replace(/\/index$/, '');
+            return (
+              <article 
+                class="faculty-card rounded-2xl border border-sand-200 dark:border-night-800 bg-white dark:bg-night-900 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                data-name={fac.data.name.toLowerCase()}
+                data-designation={fac.data.designation}
+                data-interests={(fac.data.research_interests || []).join(' ').toLowerCase()}
+              >
+                <div>
+                  <!-- Card Header with Banner Texture -->
+                  <div class="h-28 bg-forest-900 relative">
+                    <div class="absolute inset-0 bg-bio-grid opacity-20"></div>
+                  </div>
+
+                  <!-- Avatar and Info -->
+                  <div class="px-6 -mt-14 relative z-10 space-y-4">
+                    <div class="w-24 h-24 rounded-full p-1 bg-white dark:bg-night-900 shadow-lg">
+                      <div class="w-full h-full rounded-full overflow-hidden bg-sand-200 dark:bg-night-800 flex items-center justify-center font-display font-bold text-xl text-forest-800 dark:text-gold-400">
+                        {fac.data.photo ? (
+                          <img src={fac.data.photo} alt={fac.data.name} class="w-full h-full object-cover" onerror="this.src='/assets/images/faculty-placeholder.svg'" />
+                        ) : (
+                          fac.data.name.split(' ').map((n: string) => n[0]).join('')
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h2 class="text-lg font-display font-bold text-sand-900 dark:text-sand-100 group-hover:text-forest-800 dark:group-hover:text-gold-400 transition-colors">
+                        <a href={`/people/faculty/${cleanSlug}`}>{fac.data.name}</a>
+                      </h2>
+                      <p class="text-xs font-semibold text-forest-700 dark:text-gold-400">{fac.data.designation}</p>
+                      <p class="text-[11px] text-sand-500">{fac.data.department || 'Department of Biological Sciences'}</p>
+                    </div>
+
+                    <p class="text-xs text-sand-600 dark:text-sand-400 line-clamp-2 leading-relaxed">
+                      {fac.data.short_summary}
+                    </p>
+
+                    <div class="pt-2 border-t border-sand-100 dark:border-night-800">
+                      <div class="flex flex-wrap gap-1">
+                        {(fac.data.research_interests || []).slice(0, 3).map((interest: string) => (
+                          <span class="px-2 py-0.5 rounded text-[10px] bg-sand-100 dark:bg-night-800 text-sand-700 dark:text-sand-300">
+                            {interest}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Footer with Valtorta Link -->
+                <div class="p-6 pt-4 mt-4 border-t border-sand-100 dark:border-night-800 flex items-center justify-between">
+                  <a 
+                    href={`/people/faculty/${cleanSlug}`}
+                    class="text-xs font-bold text-forest-800 dark:text-gold-400 hover:underline flex items-center gap-1"
+                  >
+                    <span>View Scholar Profile &rarr;</span>
+                  </a>
+                  <a href={`mailto:${fac.data.email}`} class="text-xs text-sand-400 hover:text-forest-800" title="Email Scholar">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- SECTION 2: VISITING & ADJUNCT FACULTY (TIMETABLE ROSTER) -->
+      <div id="section-visiting" class="hidden space-y-6">
+        <div class="p-4 rounded-xl bg-forest-50 dark:bg-night-900 border border-forest-200 dark:border-night-800 flex items-center justify-between">
+          <div>
+            <h3 class="text-sm font-bold text-forest-900 dark:text-sand-50">Active Semester Teaching Roster (Fall 2026)</h3>
+            <p class="text-xs text-sand-600 dark:text-sand-400">Synchronized directly with the Department Timetable Scheduler across Biochemistry (BC), Bioinformatics (BI), Biotechnology (BT), Food Science (FS), and Microbiology (MB).</p>
+          </div>
+          <span class="px-3 py-1 bg-forest-800 text-white rounded text-xs font-bold font-mono">56 Faculty</span>
+        </div>
+
+        <div class="overflow-x-auto rounded-xl border border-sand-200 dark:border-night-800 shadow-sm">
+          <table class="w-full text-left text-xs bg-white dark:bg-night-900">
+            <thead class="bg-sand-100 dark:bg-night-850 text-sand-700 dark:text-sand-300 uppercase tracking-wider font-semibold border-b border-sand-200 dark:border-night-800">
+              <tr>
+                <th class="px-4 py-3">Faculty Name</th>
+                <th class="px-4 py-3">Stream / Dept</th>
+                <th class="px-4 py-3">Campus Designation</th>
+                <th class="px-4 py-3">Allocated Courses (Fall 2026)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-sand-100 dark:divide-night-800">
+              {visitingFaculty.map((v) => (
+                <tr class="hover:bg-sand-50 dark:hover:bg-night-800/60 transition-colors">
+                  <td class="px-4 py-3 font-semibold text-sand-900 dark:text-sand-100 whitespace-nowrap">
+                    {v.name}
+                  </td>
+                  <td class="px-4 py-3">
+                    <span class="px-2 py-0.5 rounded font-mono text-[11px] font-bold bg-sand-200 dark:bg-night-800 text-forest-800 dark:text-gold-400">
+                      {v.department}
+                    </span>
+                  </td>
+                  <td class="px-4 py-3 text-sand-600 dark:text-sand-400">
+                    {v.designation}
+                  </td>
+                  <td class="px-4 py-3 space-y-1">
+                    {v.courses.map((c: any) => (
+                      <div class="text-[11px] flex flex-wrap items-center gap-1.5">
+                        <span class="font-bold text-forest-800 dark:text-gold-400">{c.code}</span>
+                        <span class="text-sand-800 dark:text-sand-200 font-medium">{c.name}</span>
+                        <span class="text-sand-500">({c.class})</span>
+                        <span class="text-[10px] text-sand-400 font-mono">[{c.day} · {c.time}]</span>
+                      </div>
+                    ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Tab Switching Logic
+  const tabRegularBtn = document.getElementById('tab-regular-btn');
+  const tabVisitingBtn = document.getElementById('tab-visiting-btn');
+  const sectionRegular = document.getElementById('section-regular');
+  const sectionVisiting = document.getElementById('section-visiting');
+
+  tabRegularBtn?.addEventListener('click', () => {
+    tabRegularBtn.classList.add('border-forest-800', 'dark:border-gold-400', 'text-forest-900', 'dark:text-sand-50');
+    tabRegularBtn.classList.remove('border-transparent', 'text-sand-500');
+    tabVisitingBtn?.classList.remove('border-forest-800', 'dark:border-gold-400', 'text-forest-900', 'dark:text-sand-50');
+    tabVisitingBtn?.classList.add('border-transparent', 'text-sand-500');
+
+    sectionRegular?.classList.remove('hidden');
+    sectionVisiting?.classList.add('hidden');
+  });
+
+  tabVisitingBtn?.addEventListener('click', () => {
+    tabVisitingBtn.classList.add('border-forest-800', 'dark:border-gold-400', 'text-forest-900', 'dark:text-sand-50');
+    tabVisitingBtn.classList.remove('border-transparent', 'text-sand-500');
+    tabRegularBtn?.classList.remove('border-forest-800', 'dark:border-gold-400', 'text-forest-900', 'dark:text-sand-50');
+    tabRegularBtn?.classList.add('border-transparent', 'text-sand-500');
+
+    sectionVisiting?.classList.remove('hidden');
+    sectionRegular?.classList.add('hidden');
+  });
+
+  // Regular Faculty Filter Logic
+  const searchInput = document.getElementById('faculty-search') as HTMLInputElement | null;
+  const rankSelect = document.getElementById('designation-filter') as HTMLSelectElement | null;
+  const domainTags = document.querySelectorAll('.domain-tag');
+  const facultyCards = document.querySelectorAll('.faculty-card');
+
+  let activeTag = 'all';
+
+  function filterCards() {
+    const query = searchInput?.value.toLowerCase().trim() || '';
+    const selectedRank = rankSelect?.value || 'all';
+
+    facultyCards.forEach(card => {
+      const name = card.getAttribute('data-name') || '';
+      const designation = card.getAttribute('data-designation') || '';
+      const interests = card.getAttribute('data-interests') || '';
+
+      const matchesQuery = !query || name.includes(query) || interests.includes(query) || designation.toLowerCase().includes(query);
+      const matchesRank = selectedRank === 'all' || designation.includes(selectedRank);
+      const matchesTag = activeTag === 'all' || interests.includes(activeTag.toLowerCase());
+
+      if (matchesQuery && matchesRank && matchesTag) {
+        (card as HTMLElement).style.display = 'flex';
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+  }
+
+  searchInput?.addEventListener('input', filterCards);
+  rankSelect?.addEventListener('change', filterCards);
+
+  domainTags.forEach(tagBtn => {
+    tagBtn.addEventListener('click', () => {
+      domainTags.forEach(b => {
+        b.classList.remove('bg-forest-800', 'text-white');
+        b.classList.add('bg-sand-200', 'text-sand-700', 'dark:bg-night-800', 'dark:text-sand-300');
+      });
+      tagBtn.classList.add('bg-forest-800', 'text-white');
+      tagBtn.classList.remove('bg-sand-200', 'text-sand-700', 'dark:bg-night-800', 'dark:text-sand-300');
+
+      activeTag = tagBtn.getAttribute('data-tag') || 'all';
+      filterCards();
+    });
+  });
+</script>

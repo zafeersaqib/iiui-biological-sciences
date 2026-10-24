@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+
+<Layout 
+  title="Thesis & Viva Guidelines | Department of Biological Sciences, IIUI"
+  description="Official formatting templates, plagiarism clearance guidelines (Turnitin), and oral defense (viva-voce) requirements for MS and PhD scholars at IIUI."
+>
+  <Breadcrumb items={[{ label: 'Students', href: '/students/admissions' }, { label: 'Thesis & Viva Guidelines' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Postgraduate Regulations
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Thesis Submission & Viva Guidelines
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          Standardized procedures governing MS and PhD thesis preparation, Turnitin similarity criteria, external review, and public oral examination.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="p-8 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-4">
+          <h2 class="text-xl font-display font-bold text-forest-800 dark:text-gold-400">1. Thesis Formatting & Typography</h2>
+          <ul class="space-y-2.5 text-xs text-sand-700 dark:text-sand-300 leading-relaxed">
+            <li>&bull; <strong>Font:</strong> Times New Roman (12pt for body text, 1.5 line spacing, 14pt bold for chapter titles).</li>
+            <li>&bull; <strong>Margins:</strong> Left: 1.5 inches (for hard binding), Right: 1.0 inch, Top: 1.0 inch, Bottom: 1.0 inch.</li>
+            <li>&bull; <strong>Citation Style:</strong> APA 7th Edition or Nature standard with DOI numbers for all referenced articles.</li>
+            <li>&bull; <strong>Chapter Order:</strong> Introduction & Review, Materials & Methods, Results, Discussion, Conclusion, References.</li>
+          </ul>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-4">
+          <h2 class="text-xl font-display font-bold text-forest-800 dark:text-gold-400">2. Plagiarism Clearance (Turnitin)</h2>
+          <ul class="space-y-2.5 text-xs text-sand-700 dark:text-sand-300 leading-relaxed">
+            <li>&bull; <strong>Maximum Permissible Similarity:</strong> Overall similarity index must be strictly below <strong>19%</strong>.</li>
+            <li>&bull; <strong>Single Source Limit:</strong> Similarity from any individual source must not exceed <strong>5%</strong>.</li>
+            <li>&bull; <strong>Clearance Authority:</strong> Plagiarism report must be certified by the IIUI Quality Assurance Directorate (QAD) and the research supervisor.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,422 @@
+---
+// Top Institutional Stripe + Hopkins Style Persistent 3-Line Menu Button + Slide-In Drawer
+---
+
+<!-- 1. Top Institutional Banner (Sticky white stripe with clean institutional branding & 3-line menu button) -->
+<header class="sticky top-0 z-50 bg-white text-[#23491E] border-b border-[#D0DEC0] shadow-sm select-none">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5">
+    
+    <!-- Left: IIUI Institutional Hierarchy -->
+    <div class="flex items-center space-x-2 sm:space-x-4 text-[10px] sm:text-xs font-sans font-bold tracking-wider">
+      <a href="https://www.iiu.edu.pk" target="_blank" rel="noopener" class="hover:underline flex items-center gap-2">
+        <img 
+          src="/assets/images/dept-logo.png" 
+          alt="IIUI Crest" 
+          class="h-7 sm:h-8 w-auto object-contain" 
+        />
+        <span class="hidden sm:inline">INTERNATIONAL ISLAMIC UNIVERSITY ISLAMABAD</span>
+        <span class="sm:hidden font-extrabold">IIUI</span>
+      </a>
+      <span class="text-[#A7B995]">|</span>
+      <span class="text-[#5F724C] font-sans font-medium text-[10px] sm:text-xs">EST. 1980</span>
+      <span class="text-[#A7B995] hidden md:inline">|</span>
+      <span class="text-[#23491E] font-sans font-medium hidden md:inline">FACULTY OF SCIENCES &bull; DEPARTMENT OF BIOLOGICAL SCIENCES</span>
+    </div>
+
+    <!-- Right: Hopkins-style Square 3-Line Hamburger Menu Button -->
+    <div class="flex items-center space-x-3">
+      <button 
+        id="top-hamburger-btn" 
+        type="button" 
+        class="w-9 h-9 sm:w-10 sm:h-10 bg-[#E6F0DC] hover:bg-[#D5ECC0] border border-[#A7B995] rounded flex items-center justify-center text-[#23491E] hover:text-[#0D1F0C] transition-colors focus:outline-none focus:ring-2 focus:ring-[#55883B] group shadow-sm" 
+        aria-label="Open Navigation Menu" 
+        title="Open Menu"
+      >
+        <svg class="w-5 h-5 stroke-[2.5] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- 2. SIDE MENU BACKDROP OVERLAY (Dimmed deep green background matching screenshot) -->
+<div 
+  id="side-menu-backdrop" 
+  class="fixed inset-0 z-50 bg-[#0D1F0C]/85 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" 
+  aria-hidden="true"
+></div>
+
+<!-- 3. SLIDE-IN SIDE MENU DRAWER (22% Total Width on Desktop with Attached Pushed Navigation Rail) -->
+<aside 
+  id="side-menu-drawer" 
+  class="fixed inset-y-0 right-0 z-50 w-[85vw] sm:w-[50vw] md:w-[32vw] lg:w-[22vw] min-w-[310px] max-w-[440px] bg-[#0D1F0C] text-white shadow-[-20px_0_50px_rgba(0,0,0,0.85)] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between border-l border-[#23491E]" 
+  role="dialog" 
+  aria-modal="true" 
+  aria-label="Site Navigation Drawer"
+>
+  <!-- THE NAVIGATION RAIL (Pushed to the left of the drawer when opened, docked at right edge when closed) -->
+  <nav 
+    id="hero-side-rail" 
+    class="hidden sm:flex absolute right-full top-20 mr-3 sm:mr-4 flex-col items-end space-y-2 pointer-events-auto select-none transition-all duration-300" 
+    aria-label="Quick Actions Navigation"
+  >
+    <!-- 1. Menu Button -->
+    <button 
+      id="hero-menu-btn" 
+      type="button" 
+      class="w-44 px-4 py-2.5 bg-[#163013] hover:bg-[#23491E] text-white border border-[#23491E] shadow-2xl text-xs font-sans font-bold uppercase tracking-wider flex items-center justify-start gap-2.5 rounded-sm transition-all focus:outline-none focus:ring-1 focus:ring-[#C1E899] group"
+    >
+      <svg class="w-4 h-4 text-[#C1E899] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <span>MENU</span>
+    </button>
+
+    <!-- 2. Search Button -->
+    <button 
+      id="hero-search-btn" 
+      type="button" 
+      class="w-44 px-4 py-2.5 bg-[#163013] hover:bg-[#23491E] text-white border border-[#23491E] shadow-2xl text-xs font-sans font-bold uppercase tracking-wider flex items-center justify-start gap-2.5 rounded-sm transition-all focus:outline-none focus:ring-1 focus:ring-[#C1E899] group"
+    >
+      <svg class="w-4 h-4 text-[#C1E899] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <span>SEARCH</span>
+    </button>
+
+    <!-- 3. News & Events Link -->
+    <a 
+      href="/news" 
+      class="w-44 px-4 py-2.5 bg-[#163013] hover:bg-[#23491E] text-white border border-[#23491E] shadow-2xl text-xs font-sans font-bold uppercase tracking-wider flex items-center justify-start gap-2.5 rounded-sm transition-all group"
+    >
+      <svg class="w-4 h-4 text-[#C1E899] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+      <span>NEWS &amp; EVENTS</span>
+    </a>
+
+    <!-- 4. White Rectangular Action Buttons (Exact Hopkins Layout from Screenshot) -->
+    <a 
+      href="/students/admissions" 
+      class="w-44 px-4 py-2.5 bg-white hover:bg-[#E6F0DC] text-[#23491E] shadow-2xl text-xs font-sans font-black uppercase tracking-wider text-center rounded-sm transition-colors block border border-white"
+    >
+      ADMISSIONS
+    </a>
+    <a 
+      href="/academics" 
+      class="w-44 px-4 py-2.5 bg-white hover:bg-[#E6F0DC] text-[#23491E] shadow-2xl text-xs font-sans font-black uppercase tracking-wider text-center rounded-sm transition-colors block border border-white"
+    >
+      PROGRAMS
+    </a>
+    <a 
+      href="/contact" 
+      class="w-44 px-4 py-2.5 bg-white hover:bg-[#E6F0DC] text-[#23491E] shadow-2xl text-xs font-sans font-black uppercase tracking-wider text-center rounded-sm transition-colors block border border-white"
+    >
+      CONTACT
+    </a>
+  </nav>
+
+  <!-- Top Bar of Drawer: Close Button (✕) on Top-Right (Matching Screenshot) -->
+  <div class="px-5 py-4 border-b border-[#23491E] flex items-center justify-end bg-[#163013] flex-shrink-0">
+    <!-- Square Close Button (✕) on Top-Right (Matching Screenshot) -->
+    <button 
+      id="side-menu-close-btn" 
+      type="button" 
+      class="w-9 h-9 flex items-center justify-center rounded-sm text-white bg-[#23491E] hover:bg-[#55883B] transition-colors focus:outline-none focus:ring-2 focus:ring-[#C1E899]" 
+      aria-label="Close navigation drawer" 
+      title="Close Menu (Esc)"
+    >
+      <svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Scrollable Drawer Body with Accordion & Secondary Links -->
+  <div class="p-5 overflow-y-auto flex-1 space-y-5">
+    
+    <!-- Primary Accordion Menu (Styled with outlined boxes and [+] indicators matching screenshot) -->
+    <div class="space-y-1.5 pt-1">
+      
+      <!-- 1. About Us -->
+      <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
+        <button 
+          type="button" 
+          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          aria-expanded="false"
+        >
+          <span>About Us</span>
+          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
+            +
+          </span>
+        </button>
+        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
+          <a href="/about" class="block hover:text-[#C1E899] hover:underline">Department Overview & History</a>
+          <a href="/about#chairperson" class="block hover:text-[#C1E899] hover:underline">Chairperson's Message (Prof. Dr. Asma Gul)</a>
+          <a href="/about#vision" class="block hover:text-[#C1E899] hover:underline">Vision, Mission & Quranic Verse</a>
+          <a href="/about#facilities" class="block hover:text-[#C1E899] hover:underline">Department Facilities & Science Block</a>
+          <a href="/contact" class="block hover:text-[#C1E899] hover:underline">Location, Office Hours & Contact</a>
+        </div>
+      </div>
+
+      <!-- 2. Academics -->
+      <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
+        <button 
+          type="button" 
+          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          aria-expanded="false"
+        >
+          <span>Academics</span>
+          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
+            +
+          </span>
+        </button>
+        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
+          <a href="/academics" class="block hover:text-[#C1E899] hover:underline">All Academic Programs Overview</a>
+          <a href="/academics/programs/bs-biology" class="block hover:text-[#C1E899] hover:underline">BS Biology (BSBIO) &bull; 4-Year</a>
+          <a href="/academics/programs/bs-biotechnology" class="block hover:text-[#C1E899] hover:underline">BS Biotechnology (BSBT) &bull; 4-Year</a>
+          <a href="/academics/programs/ms-biotechnology" class="block hover:text-[#C1E899] hover:underline">MS Biotechnology (MSBT) &bull; Graduate</a>
+          <a href="/academics/programs/phd-biotechnology" class="block hover:text-[#C1E899] hover:underline">PhD Biotechnology (PhDBT) &bull; Doctoral</a>
+          <a href="/academics/academic-calendar" class="block hover:text-[#C1E899] hover:underline">Academic Calendar & Timetables</a>
+        </div>
+      </div>
+
+      <!-- 3. Research Groups -->
+      <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
+        <button 
+          type="button" 
+          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          aria-expanded="false"
+        >
+          <span>Research Groups</span>
+          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
+            +
+          </span>
+        </button>
+        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
+          <a href="/research/areas" class="block hover:text-[#C1E899] hover:underline">6 Core Research Clusters</a>
+          <a href="/research/areas#genomics" class="block hover:text-[#C1E899] hover:underline">Molecular Diagnostics & Cancer Genetics</a>
+          <a href="/research/areas#ecology" class="block hover:text-[#C1E899] hover:underline">Landscape Ecology & Spatial Modeling</a>
+          <a href="/research/areas#microbiology" class="block hover:text-[#C1E899] hover:underline">Applied Microbiology & Antibiotic Resistance</a>
+          <a href="/research/areas#plant-biotech" class="block hover:text-[#C1E899] hover:underline">Plant Biotechnology & Tissue Culture</a>
+          <a href="/research/labs" class="block hover:text-[#C1E899] hover:underline">Core Research Laboratories & Instrumentation</a>
+        </div>
+      </div>
+
+      <!-- 4. Admissions & Aid -->
+      <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
+        <button 
+          type="button" 
+          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          aria-expanded="false"
+        >
+          <span>Admissions & Aid</span>
+          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
+            +
+          </span>
+        </button>
+        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
+          <a href="/students/admissions" class="block hover:text-[#C1E899] hover:underline">Admissions Criteria & Requirements</a>
+          <a href="/students/admissions#fees" class="block hover:text-[#C1E899] hover:underline">Fee Structure & HEC Quota Seats</a>
+          <a href="https://admission.iiu.edu.pk/" target="_blank" rel="noopener" class="block hover:text-[#C1E899] hover:underline">Online Admission Application Portal</a>
+          <a href="/students/guidelines" class="block hover:text-[#C1E899] hover:underline">HEC Scholarships & Need-Based Aid</a>
+        </div>
+      </div>
+
+      <!-- 5. Research & Faculty -->
+      <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
+        <button 
+          type="button" 
+          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          aria-expanded="false"
+        >
+          <span>Research & Faculty</span>
+          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
+            +
+          </span>
+        </button>
+        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
+          <a href="/people/faculty" class="block hover:text-[#C1E899] hover:underline">Full Faculty Directory (By Rank)</a>
+          <a href="/research/projects" class="block hover:text-[#C1E899] hover:underline">Funded Research Projects (HEC / PSF)</a>
+          <a href="/research/publications" class="block hover:text-[#C1E899] hover:underline">Scholarly Journal Publications</a>
+          <a href="/people/scholars" class="block hover:text-[#C1E899] hover:underline">Postgraduate Research Scholars</a>
+        </div>
+      </div>
+
+      <!-- 6. Campus Life -->
+      <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
+        <button 
+          type="button" 
+          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          aria-expanded="false"
+        >
+          <span>Campus Life</span>
+          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
+            +
+          </span>
+        </button>
+        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
+          <a href="/students/societies" class="block hover:text-[#C1E899] hover:underline">Biosciences Student Societies</a>
+          <a href="/gallery" class="block hover:text-[#C1E899] hover:underline">Campus & Lab Photo Gallery</a>
+          <a href="/about#facilities" class="block hover:text-[#C1E899] hover:underline">Hostel & Transport Information</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Secondary Links (Hopkins style vertical quick navigation) -->
+    <div class="pt-4 border-t border-[#23491E] space-y-2.5 text-xs text-[#E6F0DC]/80 font-sans">
+      <a href="/about#facilities" class="block hover:text-[#C1E899] transition-colors">Maps & Directions</a>
+      <a href="/contact" class="block hover:text-[#C1E899] transition-colors">Contact the Department</a>
+      <a href="https://www.iiu.edu.pk/index.php?page_id=2701" target="_blank" rel="noopener" class="block hover:text-[#C1E899] transition-colors">Employment Opportunities</a>
+      <a href="https://cms.iiu.edu.pk/" target="_blank" rel="noopener" class="block hover:text-[#C1E899] transition-colors">CMS Student Portal</a>
+      <a href="https://lms.iiu.edu.pk/" target="_blank" rel="noopener" class="block hover:text-[#C1E899] transition-colors">LMS Digital Classroom</a>
+      <a href="https://iiu.edu.pk/library/" target="_blank" rel="noopener" class="block hover:text-[#C1E899] transition-colors">Central Library Catalog</a>
+      <a href="/students/guidelines" class="block hover:text-[#C1E899] transition-colors">Guidelines & Regulations</a>
+      <a href="/students/downloads" class="block hover:text-[#C1E899] transition-colors">Downloads & Forms</a>
+    </div>
+
+    <!-- Close Menu Button (Matching Hopkins Bottom Button) -->
+    <div class="pt-3 border-t border-[#23491E]">
+      <button 
+        id="side-menu-bottom-close-btn" 
+        type="button" 
+        class="w-full py-2.5 bg-[#55883B] hover:bg-[#3D6F28] text-white font-sans font-black text-xs tracking-widest uppercase rounded-sm transition-colors shadow-lg block text-center" 
+        aria-label="Close navigation menu"
+      >
+        CLOSE MENU
+      </button>
+    </div>
+
+  </div>
+</aside>
+
+<script>
+  // 1. Transparent Header Becomes Solid Forest Green On Scroll
+  const mainHeader = document.getElementById('main-header');
+  const floatingMenuBtn = document.getElementById('floating-menu-btn');
+  
+  function handleScroll() {
+    const scrollY = window.scrollY;
+
+    // Header transparency / solid background transition
+    if (mainHeader) {
+      if (scrollY > 50) {
+        mainHeader.classList.remove('bg-transparent', 'py-3', 'sm:py-4', 'sm:top-8');
+        mainHeader.classList.add('bg-[#163013]/95', 'dark:bg-[#0D1F0C]/95', 'backdrop-blur-md', 'shadow-md', 'py-2.5', 'sm:py-3', 'top-0');
+      } else {
+        mainHeader.classList.add('bg-transparent', 'py-3', 'sm:py-4', 'sm:top-8');
+        mainHeader.classList.remove('bg-[#163013]/95', 'dark:bg-[#0D1F0C]/95', 'backdrop-blur-md', 'shadow-md', 'py-2.5', 'sm:py-3', 'top-0');
+      }
+    }
+
+    // Floating hamburger button visibility
+    if (floatingMenuBtn) {
+      if (scrollY > 160) {
+        floatingMenuBtn.classList.remove('opacity-0', 'pointer-events-none');
+        floatingMenuBtn.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        floatingMenuBtn.classList.add('opacity-0', 'pointer-events-none');
+        floatingMenuBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // run once on load
+
+  // 2. Side Menu Drawer Logic (Slide in from Right)
+  const topHamburgerBtn = document.getElementById('top-hamburger-btn');
+  const menuToggleBtn = document.getElementById('menu-toggle-btn');
+  const heroMenuBtn = document.getElementById('hero-menu-btn');
+  const sideMenuDrawer = document.getElementById('side-menu-drawer');
+  const sideMenuBackdrop = document.getElementById('side-menu-backdrop');
+  const sideMenuCloseBtn = document.getElementById('side-menu-close-btn');
+  const sideMenuBottomCloseBtn = document.getElementById('side-menu-bottom-close-btn');
+
+  function openSideMenu() {
+    if (!sideMenuDrawer || !sideMenuBackdrop) return;
+    
+    // Ensure rail is visible when drawer is open
+    const heroSideRail = document.getElementById('hero-side-rail');
+    heroSideRail?.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-6');
+
+    // Show backdrop
+    sideMenuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+    sideMenuBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+
+    // Slide in drawer
+    sideMenuDrawer.classList.remove('translate-x-full');
+    sideMenuDrawer.classList.add('translate-x-0');
+
+    document.body.style.overflow = 'hidden';
+    topHamburgerBtn?.setAttribute('aria-expanded', 'true');
+    menuToggleBtn?.setAttribute('aria-expanded', 'true');
+    heroMenuBtn?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeSideMenu() {
+    if (!sideMenuDrawer || !sideMenuBackdrop) return;
+
+    // Slide out drawer
+    sideMenuDrawer.classList.remove('translate-x-0');
+    sideMenuDrawer.classList.add('translate-x-full');
+
+    // Hide backdrop
+    sideMenuBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+    sideMenuBackdrop.classList.add('opacity-0', 'pointer-events-none');
+
+    document.body.style.overflow = '';
+    topHamburgerBtn?.setAttribute('aria-expanded', 'false');
+    menuToggleBtn?.setAttribute('aria-expanded', 'false');
+    heroMenuBtn?.setAttribute('aria-expanded', 'false');
+
+    // If scrolled past 100px on homepage, re-hide rail
+    if (window.scrollY > 100) {
+      const heroSideRail = document.getElementById('hero-side-rail');
+      heroSideRail?.classList.add('opacity-0', 'pointer-events-none', 'translate-x-6');
+    }
+  }
+
+  topHamburgerBtn?.addEventListener('click', openSideMenu);
+  menuToggleBtn?.addEventListener('click', openSideMenu);
+  heroMenuBtn?.addEventListener('click', openSideMenu);
+  floatingMenuBtn?.addEventListener('click', openSideMenu);
+  sideMenuCloseBtn?.addEventListener('click', closeSideMenu);
+  sideMenuBottomCloseBtn?.addEventListener('click', closeSideMenu);
+  sideMenuBackdrop?.addEventListener('click', closeSideMenu);
+
+  // Close on Escape Key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (sideMenuDrawer && !sideMenuDrawer.classList.contains('translate-x-full')) {
+        closeSideMenu();
+      }
+    }
+  });
+
+  // 3. Accordion Expand/Collapse Behavior with [+] and [-]
+  const accordions = document.querySelectorAll('#side-menu-drawer .accordion-item');
+  accordions.forEach(item => {
+    const toggleBtn = item.querySelector('.accordion-toggle');
+    const panel = item.querySelector('.accordion-panel');
+    const icon = item.querySelector('.accordion-icon');
+
+    toggleBtn?.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+
+      // Toggle current
+      if (isExpanded) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        panel?.classList.add('hidden');
+        if (icon) icon.textContent = '+';
+      } else {
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        panel?.classList.remove('hidden');
+        if (icon) icon.textContent = '-';
+      }
+    });
+  });
+</script>

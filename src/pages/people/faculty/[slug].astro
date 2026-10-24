@@ -1,0 +1,91 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import ValtortaProfile from '../../../components/ValtortaProfile.astro';
+import { getCollection } from 'astro:content';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+export async function getStaticPaths() {
+  const facultyEntries = await getCollection('faculty');
+  return facultyEntries.map((entry) => {
+    // entry.slug might be "asma-gul/index" or "asma-gul"
+    const cleanSlug = entry.slug.replace(/\/index$/, '');
+    return {
+      params: { slug: cleanSlug },
+      props: { entry, cleanSlug },
+    };
+  });
+}
+
+const { entry, cleanSlug } = Astro.props;
+const { Content } = await entry.render();
+
+// Helper to safely load companion yaml files
+function loadCompanionYaml(filename: string): any[] {
+  try {
+    const filePath = path.resolve(`src/content/faculty/${cleanSlug}/${filename}`);
+    const altPath = path.resolve(`src/content/faculty/${cleanSlug}/_${filename}`);
+    const target = fs.existsSync(filePath) ? filePath : fs.existsSync(altPath) ? altPath : null;
+    if (target) {
+      const fileContent = fs.readFileSync(target, 'utf8');
+      return (yaml.load(fileContent) as any[]) || [];
+    }
+  } catch (err) {
+    console.error(`Error loading ${filename} for ${cleanSlug}:`, err);
+  }
+  return [];
+}
+
+const publications = loadCompanionYaml('publications.yaml');
+const projects = loadCompanionYaml('projects.yaml');
+const teaching = loadCompanionYaml('teaching.yaml');
+
+// Schema.org Person JSON-LD
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": entry.data.name,
+  "jobTitle": entry.data.designation,
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "Department of Biological Sciences, International Islamic University Islamabad"
+  },
+  "email": entry.data.email,
+  "telephone": entry.data.phone,
+  "sameAs": [
+    entry.data.scholar_url,
+    entry.data.orcid_url,
+    entry.data.researchgate_url,
+    entry.data.linkedin_url,
+    entry.data.x_url,
+  ].filter(Boolean),
+};
+---
+
+<Layout 
+  title={`${entry.data.name} | Faculty Profile`}
+  description={entry.data.short_summary}
+  type="profile"
+  jsonLd={personJsonLd}
+>
+  <Breadcrumb 
+    items={[
+      { label: 'People', href: '/people/faculty' },
+      { label: 'Faculty Directory', href: '/people/faculty' },
+      { label: entry.data.name }
+    ]} 
+  />
+
+  <ValtortaProfile 
+    faculty={entry.data}
+    publications={publications}
+    projects={projects}
+    teaching={teaching}
+  >
+    <div slot="default">
+      <Content />
+    </div>
+  </ValtortaProfile>
+</Layout>

@@ -1,0 +1,78 @@
+department_name: "Department of Biological Sciences"
+faculty_name: "Faculty of Sciences"
+institution_name: "International Islamic University, Islamabad"
+institution_acronym: "IIUI"
+country: "Pakistan"
+tagline: "Say: 'Travel through the earth and see how Allah did originate creation...'"
+tagline_arabic: "قُلْ سِيرُوا فِي الْأَرْضِ فَانظُرُوا كَيْفَ بَدَأَ الْخَلْقَ ۚ"
+tagline_citation: "Surah Al-Ankabut 29:20"
+description: "The Department of Biological Sciences imparts world-class education and pioneering molecular research across biology, biotechnology, and biomedical sciences at the International Islamic University Islamabad."
+
+address:
+  building: "Faculty of Sciences, Science Block"
+  sector: "Sector H-10"
+  city: "Islamabad"
+  postal_code: "44000"
+  country: "Pakistan"
+
+contact:
+  phone: "+92 (51) 9019837"
+  fax: "+92 (51) 9257915"
+  email: "biological.sciences@iiu.edu.pk"
+  office_hours: "Monday – Friday: 08:30 AM – 03:30 PM PKT"
+
+chairperson:
+  name: "Prof. Dr. Asma Gul"
+  designation: "Chairperson / Tenured Professor"
+  qualification: "Ph.D. (QAU), Post-Doc (Univ. of Cambridge, UK)"
+  email: "gulasma@iiu.edu.pk"
+  message_summary: "Welcome to the Department of Biological Sciences. Our academic programs are formulated to bridge classical biological inquiry with contemporary genomic, biotechnological, and biomedical breakthroughs. Guided by high ethical values and global research benchmarks, our graduates and scholars are at the forefront of scientific innovation in Pakistan and worldwide."
+
+key_statistics:
+  - id: "programs"
+    label: "Accredited Degree Programs"
+    value: 4
+    suffix: ""
+    detail: "BSBIO, BSBT, MSBT, PhDBT"
+    is_placeholder: false
+  - id: "laboratories"
+    label: "Advanced Research Labs"
+    value: 7
+    suffix: "+"
+    detail: "[PLACEHOLDER: Verified number of departmental research laboratories]"
+    is_placeholder: true
+  - id: "grants"
+    label: "HEC & National Grants"
+    value: 14
+    suffix: "M+ PKR"
+    detail: "[PLACEHOLDER: Verified external grant funding total]"
+    is_placeholder: true
+  - id: "publications"
+    label: "Indexed Publications"
+    value: 280
+    suffix: "+"
+    detail: "[PLACEHOLDER: Verified peer-reviewed journal papers]"
+    is_placeholder: true
+  - id: "scholars"
+    label: "Postgraduate Scholars"
+    value: 120
+    suffix: "+"
+    detail: "[PLACEHOLDER: Active MS and PhD candidates]"
+    is_placeholder: true
+
+parent_links:
+  admission: "https://admission.iiu.edu.pk/"
+  lms: "https://dashboard.iiu.edu.pk"
+  cms: "https://cms.iiu.edu.pk"
+  sis: "https://sis.iiu.edu.pk"
+  email: "https://mail.google.com/a/iiu.edu.pk"
+  library: "https://www.iiu.edu.pk/?page_id=141"
+  oric: "https://www.iiu.edu.pk/oric/"
+  jobs: "https://www.iiu.edu.pk/index.php?page_id=2701"
+  home: "https://www.iiu.edu.pk"
+
+social_links:
+  twitter: "https://twitter.com/iiui_official"
+  facebook: "https://www.facebook.com/iiu.isbpk/"
+  linkedin: "https://www.linkedin.com/school/international-islamic-university-islamabad/"
+  youtube: "https://www.youtube.com/@iiuiofficial"

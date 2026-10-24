@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+
+<Layout 
+  title="Admissions & Application Guide | Department of Biological Sciences, IIUI"
+  description="Comprehensive guide for admission to BS Biology, BS Biotechnology, MS, and PhD degrees at the International Islamic University Islamabad."
+>
+  <Breadcrumb items={[{ label: 'Students', href: '/students/admissions' }, { label: 'Admissions Guide' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Admissions Portal & Guidelines
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Admissions Guide & Procedures
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          The Department of Biological Sciences conducts regular admissions twice annually for Fall and Spring semesters. Applications are processed through the centralized university portal.
+        </p>
+      </div>
+
+      <!-- Hero Callout -->
+      <div class="p-8 sm:p-10 rounded-2xl bg-forest-900 text-white flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl">
+        <div class="space-y-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gold-500 text-forest-950 uppercase tracking-wider">
+            Online Applications Open
+          </span>
+          <h2 class="text-2xl font-display font-bold text-white">Centralized IIUI Admissions Portal</h2>
+          <p class="text-xs sm:text-sm text-sand-200 max-w-xl">
+            All prospective applicants for undergraduate (BSBIO, BSBT) and postgraduate (MSBT, PhDBT) degrees must submit their electronic applications online.
+          </p>
+        </div>
+        <a 
+          href="https://admission.iiu.edu.pk/" 
+          target="_blank" 
+          rel="noopener"
+          class="px-6 py-3.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-forest-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-transform transform hover:-translate-y-0.5 shrink-0"
+        >
+          Access admission.iiu.edu.pk &rarr;
+        </a>
+      </div>
+
+      <!-- Eligibility Summary Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="p-6 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-4">
+          <h3 class="text-lg font-display font-bold text-forest-800 dark:text-gold-400">Undergraduate Admissions (BSBIO & BSBT)</h3>
+          <ul class="space-y-2.5 text-xs text-sand-700 dark:text-sand-300">
+            <li>&bull; <strong>Eligibility:</strong> HSSC / F.Sc (Pre-Medical) with at least 50% marks recognized by IBCC.</li>
+            <li>&bull; <strong>A-Level Students:</strong> Equivalence certificate from IBCC required.</li>
+            <li>&bull; <strong>Merit Calculation:</strong> 50% Matriculation + 50% Intermediate (Part-I/II) aggregate score.</li>
+            <li>&bull; <strong>Gender Wings:</strong> Dedicated Male and Female campuses with identical curricula and laboratory access.</li>
+          </ul>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-4">
+          <h3 class="text-lg font-display font-bold text-forest-800 dark:text-gold-400">Postgraduate Admissions (MSBT & PhDBT)</h3>
+          <ul class="space-y-2.5 text-xs text-sand-700 dark:text-sand-300">
+            <li>&bull; <strong>MS Eligibility:</strong> 16 years of education (BS/MSc in Biological Sciences / Biotech) with min 2.5/4.0 CGPA.</li>
+            <li>&bull; <strong>PhD Eligibility:</strong> 18 years of education (MS/MPhil) with min 3.0/4.0 CGPA.</li>
+            <li>&bull; <strong>Admission Testing:</strong> Departmental Subject Test / GAT qualifying cutoff required.</li>
+            <li>&bull; <strong>Supervisor Acceptance:</strong> Statement of research intent and interview with Departmental Graduate Committee.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</Layout>

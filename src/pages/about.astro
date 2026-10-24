@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<Layout 
+  title="About the Department | Department of Biological Sciences, IIUI"
+  description="Learn about the history, vision, mission, leadership, academic committees, research facilities, and campus map of the Department of Biological Sciences, IIUI."
+>
+  <Breadcrumb items={[{ label: 'About Us' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Page Header -->
+      <div class="max-w-3xl space-y-4">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Institutional Overview & Heritage
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          About the Department
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm sm:text-base leading-relaxed">
+          The Department of Biological Sciences, Faculty of Sciences at the International Islamic University Islamabad (IIUI) delivers advanced education and research in the fields of biology, biotechnology, and biomedical sciences.
+        </p>
+      </div>
+
+      <!-- Foundation & History Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-4 text-sm text-sand-700 dark:text-sand-300 leading-relaxed">
+          <h2 class="text-2xl font-display font-bold text-forest-900 dark:text-sand-100">
+            Historical Foundations & Mission
+          </h2>
+          <p>
+            The foundation of the International Islamic University, Islamabad was laid on the first day of the fifteenth century Hijrah i.e. <strong>Muharram 1, 1401 (November 11, 1980)</strong>. This landmark beginning of the new century symbolizes the aspirations and hopes of the Muslim Ummah for an intellectual and scientific renaissance.
+          </p>
+          <p>
+            The Department of Biological Sciences (formerly Department of Bioinformatics & Biotechnology) was instituted under the Faculty of Sciences (FBAS) to train researchers and practitioners imbued with Islamic ethics, who possess top-tier technical capability to cater to the technological, agricultural, and healthcare needs of the nation and the wider Muslim world.
+          </p>
+          <p>
+            Under the inspiring guidance of our signature Quranic injunction: <span class="font-arabic text-base text-[#55883B] dark:text-[#C1E899] font-bold">"قُلْ سِيرُوا فِي الْأَرْضِ فَانظُرُوا كَيْفَ بَدَأَ الْخَلْقَ ۚ"</span> — <em>"Say: 'Travel through the earth and see how Allah did originate creation...'" [Surah Al-Ankabut 29:20]</em>, our faculty and scholars explore the molecular architecture of life with humility and scientific excellence.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 p-6 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-4">
+          <h3 class="text-lg font-display font-bold text-forest-800 dark:text-gold-400">Department Features</h3>
+          <ul class="space-y-3 text-xs text-sand-700 dark:text-sand-300">
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-500 mt-1.5 shrink-0"></span>
+              <span><strong>Experienced Faculty:</strong> Highly qualified faculty with post-doctoral and doctoral qualifications from prestigious institutions in the UK, Canada, and Pakistan.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-500 mt-1.5 shrink-0"></span>
+              <span><strong>Quality Infrastructure:</strong> Modern classrooms equipped with smart audio-visual teaching aids and high-speed campus fiber connectivity.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-500 mt-1.5 shrink-0"></span>
+              <span><strong>Specialized Laboratories:</strong> Well-furnished research labs for molecular biology, genetics, microbiology, and plant tissue culture.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-500 mt-1.5 shrink-0"></span>
+              <span><strong>HEC Alignment:</strong> All undergraduate and graduate curricula strictly adhere to Higher Education Commission guidelines and international trends.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Vision & Mission Split -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 rounded-2xl bg-forest-900 text-white space-y-4">
+          <span class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Our Vision</span>
+          <h3 class="text-2xl font-display font-bold">Global Leadership in Life Sciences</h3>
+          <p class="text-xs sm:text-sm text-sand-200 leading-relaxed">
+            To emerge as an internationally recognized center of excellence in biological and biotechnological education and research, recognized for producing ethical leaders and pathbreaking scientific contributions to societal challenges.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-sand-100 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-4">
+          <span class="text-xs uppercase tracking-wider text-forest-800 dark:text-gold-400 font-semibold">Our Mission</span>
+          <h3 class="text-2xl font-display font-bold text-sand-900 dark:text-sand-100">Education, Discovery & Ethics</h3>
+          <p class="text-xs sm:text-sm text-sand-600 dark:text-sand-400 leading-relaxed">
+            To provide student-centered education integrating rigorous laboratory methodology with bioethical values, generate high-impact scholarly research, and foster industrial collaboration for socio-economic development in Pakistan.
+          </p>
+        </div>
+      </div>
+
+      <!-- Chairperson's Welcome Message Full Section -->
+      <div class="p-8 sm:p-12 rounded-2xl bg-white dark:bg-night-900 border border-sand-200 dark:border-night-800 shadow-xl space-y-6">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 border-b border-sand-200 dark:border-night-800 pb-6">
+          <div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-forest-800 to-gold-500 shrink-0">
+            <div class="w-full h-full rounded-full bg-forest-900 text-gold-300 font-display font-bold text-2xl flex items-center justify-center">
+              AG
+            </div>
+          </div>
+          <div class="text-center sm:text-left space-y-1">
+            <h2 class="text-2xl font-display font-bold text-sand-900 dark:text-sand-100">Prof. Dr. Asma Gul</h2>
+            <p class="text-xs font-semibold text-forest-800 dark:text-gold-400">Chairperson & Tenured Professor, Department of Biological Sciences</p>
+            <p class="text-xs text-sand-500">Post-Doc (University of Cambridge, UK) &bull; Ph.D. (Quaid-i-Azam University)</p>
+          </div>
+        </div>
+
+        <div class="prose dark:prose-invert max-w-none text-xs sm:text-sm text-sand-700 dark:text-sand-300 leading-relaxed space-y-4 font-sans">
+          <p>
+            On behalf of the faculty, researchers, and staff, I warmly welcome you to the Department of Biological Sciences at the International Islamic University Islamabad.
+          </p>
+          <p>
+            Biological sciences stand today at the vanguard of human progress. From deciphering the human genome and engineering precision immunotherapies to developing climate-resilient crops and sustainable industrial biocatalysts, the life sciences are revolutionizing our world. At IIUI, our academic programs are thoughtfully structured to bridge classical biological understanding with high-throughput molecular techniques.
+          </p>
+          <p>
+            Our faculty members are active investigators leading projects funded by the Higher Education Commission (HEC) of Pakistan, the Pakistan Science Foundation (PSF), and international bodies. We take immense pride in fostering an inclusive, intellectually stimulating environment where students are challenged to think critically, experiment fearlessly, and conduct science with moral rectitude.
+          </p>
+        </div>
+      </div>
+
+      <!-- Departmental Committees Table -->
+      <div class="space-y-4">
+        <h2 class="text-2xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Departmental Academic & Administrative Committees
+        </h2>
+        <div class="border border-sand-200 dark:border-night-800 rounded-xl overflow-hidden bg-sand-50/50 dark:bg-night-900">
+          <table class="min-w-full divide-y divide-sand-200 dark:divide-night-800 text-left text-xs">
+            <thead class="bg-sand-100/50 dark:bg-night-850 text-sand-500 text-[10px] uppercase font-semibold">
+              <tr>
+                <th class="px-6 py-3">Committee</th>
+                <th class="px-6 py-3">Chairperson / Convener</th>
+                <th class="px-6 py-3">Key Mandate</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-sand-100 dark:divide-night-800 text-sand-800 dark:text-sand-200">
+              <tr>
+                <td class="px-6 py-3.5 font-semibold">Board of Studies (BoS)</td>
+                <td class="px-6 py-3.5">Prof. Dr. Asma Gul</td>
+                <td class="px-6 py-3.5 text-sand-600 dark:text-sand-400">Curriculum formulation, scheme of studies revisions, course approval</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-3.5 font-semibold">Departmental Graduate Committee (DGC)</td>
+                <td class="px-6 py-3.5">Dr. Bashir Ahmad</td>
+                <td class="px-6 py-3.5 text-sand-600 dark:text-sand-400">MS and PhD thesis synopsis review, supervisor allocation, defense monitoring</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-3.5 font-semibold">Biosafety & Laboratory Ethics Committee</td>
+                <td class="px-6 py-3.5">Dr. Shaheen Shahzad</td>
+                <td class="px-6 py-3.5 text-sand-600 dark:text-sand-400">BSL-1/BSL-2 compliance, hazardous waste protocols, recombinant DNA oversight</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-3.5 font-semibold">Industrial Linkages & Commercialization</td>
+                <td class="px-6 py-3.5">Dr. Bashir Ahmad</td>
+                <td class="px-6 py-3.5 text-sand-600 dark:text-sand-400">Corporate partnerships, patent disclosures, incubator support with ORIC IIUI</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Campus Location & Map -->
+      <div class="space-y-4">
+        <h2 class="text-2xl font-display font-bold text-sand-900 dark:text-sand-100">Campus Location & Facilities</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-5 space-y-3 text-xs text-sand-700 dark:text-sand-300 leading-relaxed">
+            <p>
+              The Department of Biological Sciences is situated in the <strong>Faculty of Sciences (Science Block)</strong> at the scenic New Campus of IIUI in <strong>Sector H-10, Islamabad</strong>.
+            </p>
+            <div class="p-4 rounded-xl bg-sand-100 dark:bg-night-900 border border-sand-200 dark:border-night-800 space-y-1.5">
+              <p><strong>Address:</strong> Faculty of Sciences, Science Block, Sector H-10, Islamabad, 44000, Pakistan</p>
+              <p><strong>GPS Coordinates:</strong> 33.6593° N, 73.0238° E</p>
+              <p><strong>Office Hours:</strong> Monday – Friday: 08:30 AM – 03:30 PM PKT</p>
+              <p><strong>Email:</strong> biological.sciences@iiu.edu.pk</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 h-72 rounded-2xl overflow-hidden border border-sand-200 dark:border-night-800 shadow-md">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.8654813580554!2d73.02159187652702!3d33.65930067330761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df959779df5c49%3A0x6331b265d66cbeec!2sInternational%20Islamic%20University%2C%20Islamabad!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Google Map location of IIUI Sector H-10"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>

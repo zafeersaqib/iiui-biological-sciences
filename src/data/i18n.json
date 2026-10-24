@@ -1,0 +1,99 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "academics": "Academics",
+      "people": "People",
+      "research": "Research",
+      "students": "Students",
+      "newsEvents": "News & Events",
+      "gallery": "Gallery",
+      "contact": "Contact",
+      "applyNow": "Apply Now",
+      "search": "Search"
+    },
+    "hero": {
+      "tagline": "Say: 'Travel through the earth and see how Allah did originate creation...'",
+      "taglineRef": "Surah Al-Ankabut 29:20",
+      "title": "Department of Biological Sciences",
+      "subtitle": "Faculty of Sciences — International Islamic University Islamabad",
+      "lead": "Advancing frontiers in biology, biotechnology, and biomedical discovery with ethical excellence, world-class research facilities, and rigorous academic inquiry.",
+      "ctaPrograms": "Explore Academic Programs",
+      "ctaApply": "Apply for Admission",
+      "ctaResearch": "Discover Our Research"
+    },
+    "audiences": {
+      "title": "Information For",
+      "prospective": "Prospective Students",
+      "current": "Current Students",
+      "researchers": "Researchers & Partners",
+      "alumni": "Alumni Network"
+    },
+    "stats": {
+      "heading": "Department at a Glance",
+      "subheading": "Committed to scientific leadership, high-impact publications, and rigorous graduate mentorship."
+    },
+    "programs": {
+      "heading": "Degree Programs",
+      "subheading": "Comprehensive undergraduate and postgraduate programs designed inline with HEC benchmarks and international bioscience curricula.",
+      "duration": "Duration",
+      "creditHours": "Credit Hours",
+      "degree": "Degree Level",
+      "viewCurriculum": "View Curriculum & Scheme of Studies",
+      "applyOnline": "Apply Online via IIUI Portal"
+    },
+    "research": {
+      "heading": "Research That Matters",
+      "subheading": "Pioneering solutions to national and global health, agricultural, and environmental challenges.",
+      "exploreLabs": "Explore Laboratories & Core Facilities",
+      "viewPublications": "Departmental Publications Database"
+    },
+    "faculty": {
+      "heading": "Faculty Spotlight",
+      "subheading": "Distinguished scientists, principal investigators, and HEC-approved supervisors shaping the next generation of life scientists.",
+      "viewDirectory": "Complete Faculty Directory",
+      "viewProfile": "View Scholar Profile"
+    },
+    "newsEvents": {
+      "newsHeading": "Department Dispatches",
+      "eventsHeading": "Academic Calendar & Events",
+      "viewAllNews": "View All News",
+      "viewAllEvents": "View All Seminars & Conferences",
+      "exportCalendar": "Add to Calendar (.ics)"
+    },
+    "footer": {
+      "aboutText": "The Department of Biological Sciences at IIUI delivers innovative, research-driven education in biology, biotechnology, and biomedical disciplines aligned with global scientific frontiers.",
+      "quickLinks": "Quick Links",
+      "degreePrograms": "Academic Programs",
+      "portals": "IIUI Portals",
+      "contactInfo": "Contact Information",
+      "rights": "All Rights Reserved. Department of Biological Sciences, Faculty of Sciences, International Islamic University Islamabad."
+    }
+  },
+  "ur": {
+    "nav": {
+      "home": "صفحہ اول",
+      "about": "ہمارے بارے میں",
+      "academics": "تعلیمی شعبہ جات",
+      "people": "اساتذہ و محققین",
+      "research": "تحقیق و ترقی",
+      "students": "طلبہ و طالبات",
+      "newsEvents": "خبریں اور تقاریب",
+      "gallery": "تصاویر",
+      "contact": "رابطہ",
+      "applyNow": "داخلہ فارم",
+      "search": "تلاش کریں"
+    },
+    "hero": {
+      "tagline": "قُلْ سِيرُوا فِي الْأَرْضِ فَانظُرُوا كَيْفَ بَدَأَ الْخَلْقَ ۚ",
+      "taglineRef": "سورۃ العنکبوت 29:20",
+      "title": "شعبہ حیاتیاتی علوم",
+      "subtitle": "فیکلٹی آف سائنسز — بین الاقوامی اسلامی یونیورسٹی اسلام آباد",
+      "lead": "حیاتیات، بائیو ٹیکنالوجی اور بائیو میڈیکل سائنسز میں تحقیق و تدریس کے اعلیٰ ترین معیارات۔",
+      "ctaPrograms": "تعلیمی پروگرامز",
+      "ctaApply": "آن لائن داخلہ",
+      "ctaResearch": "تحقیقی منصوبے"
+    }
+  }
+}

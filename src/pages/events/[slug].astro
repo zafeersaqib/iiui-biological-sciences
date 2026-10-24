@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const { Content } = await event.render();
+
+// JSON-LD for Schema.org Event
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": event.data.title,
+  "startDate": event.data.date,
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": event.data.location,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Islamabad",
+      "addressCountry": "PK"
+    }
+  },
+  "performer": {
+    "@type": "Person",
+    "name": event.data.speaker
+  },
+  "description": event.data.summary,
+  "organizer": {
+    "@type": "CollegeOrUniversity",
+    "name": "Department of Biological Sciences, IIUI"
+  }
+};
+---
+
+<Layout 
+  title={`${event.data.title} | Academic Events`}
+  description={event.data.summary}
+  jsonLd={eventJsonLd}
+>
+  <Breadcrumb 
+    items={[
+      { label: 'News & Events', href: '/news' },
+      { label: event.data.title }
+    ]} 
+  />
+
+  <article class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <!-- Event Header -->
+      <header class="space-y-4 border-b border-sand-200 dark:border-night-800 pb-6">
+        <div class="flex flex-wrap items-center gap-3 text-xs">
+          <span class="px-2.5 py-0.5 rounded font-bold uppercase bg-gold-100 text-gold-800 dark:bg-gold-950 dark:text-gold-400">
+            {event.data.category}
+          </span>
+          <span class="text-sand-400">&bull;</span>
+          <time class="text-sand-500 font-mono font-semibold">
+            {new Date(event.data.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+          </time>
+          <span class="text-sand-400">&bull;</span>
+          <span class="text-sand-500">{event.data.time}</span>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl font-display font-bold text-sand-900 dark:text-sand-100 leading-tight">
+          {event.data.title}
+        </h1>
+
+        <!-- Details Card -->
+        <div class="p-6 rounded-2xl bg-sand-50 dark:bg-night-900 border border-sand-200 dark:border-night-800 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div>
+            <span class="block text-sand-400 uppercase font-semibold text-[10px]">Location</span>
+            <span class="font-medium text-sand-800 dark:text-sand-200 text-sm">{event.data.location}</span>
+          </div>
+          <div>
+            <span class="block text-sand-400 uppercase font-semibold text-[10px]">Distinguished Speaker</span>
+            <span class="font-medium text-sand-800 dark:text-sand-200 text-sm">{event.data.speaker}</span>
+            <p class="text-sand-500 text-[11px]">{event.data.speaker_title}</p>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          {event.data.registration_link && (
+            <a 
+              href={event.data.registration_link} 
+              target="_blank" 
+              rel="noopener"
+              class="px-5 py-2.5 rounded-lg bg-forest-800 hover:bg-forest-900 text-white font-semibold text-xs transition-colors shadow-sm"
+            >
+              Register for Event &rarr;
+            </a>
+          )}
+          <a 
+            href={`/downloads/events/${event.slug}.ics`} 
+            download
+            class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-sand-100 dark:bg-night-800 hover:bg-sand-200 dark:hover:bg-night-700 text-sand-800 dark:text-sand-200 text-xs font-semibold transition-colors border border-sand-200 dark:border-night-700"
+          >
+            <svg class="w-4 h-4 text-forest-700 dark:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <span>Add to Calendar (.ics)</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Event Body -->
+      <div class="prose dark:prose-invert max-w-none text-sand-800 dark:text-sand-200 leading-relaxed font-sans text-sm sm:text-base">
+        <Content />
+      </div>
+
+    </div>
+  </article>
+</Layout>

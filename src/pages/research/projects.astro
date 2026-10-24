@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+const facultyMembers = await getCollection('faculty');
+
+interface AggregatedProject {
+  title: string;
+  funding_agency: string;
+  grant_number?: string;
+  role: string;
+  duration: string;
+  amount: string;
+  status: string;
+  description?: string;
+  facultyName: string;
+  facultySlug: string;
+}
+
+const allProjects: AggregatedProject[] = [];
+
+for (const fac of facultyMembers) {
+  const cleanSlug = fac.slug.replace(/\/index$/, '');
+  const p1 = path.resolve(`src/content/faculty/${cleanSlug}/projects.yaml`);
+  const p2 = path.resolve(`src/content/faculty/${cleanSlug}/_projects.yaml`);
+  const projPath = fs.existsSync(p1) ? p1 : fs.existsSync(p2) ? p2 : null;
+  if (projPath) {
+    try {
+      const parsed = (yaml.load(fs.readFileSync(projPath, 'utf8')) as any[]) || [];
+      for (const p of parsed) {
+        allProjects.push({
+          ...p,
+          facultyName: fac.data.name,
+          facultySlug: cleanSlug,
+        });
+      }
+    } catch (e) {
+      console.error('Error reading projects for', cleanSlug, e);
+    }
+  }
+}
+---
+
+<Layout 
+  title="Funded Research Projects & Grants | Department of Biological Sciences, IIUI"
+  description="Explore active and completed externally funded research projects awarded by HEC NRPU, TDF, PSF, and international funding bodies to the Department of Biological Sciences, IIUI."
+>
+  <Breadcrumb items={[{ label: 'Research', href: '/research/areas' }, { label: 'Funded Projects' }]} />
+
+  <section class="py-12 bg-white dark:bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-forest-800 dark:text-gold-400 font-sans">
+          Competitive External Research Funding
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-display font-bold text-sand-900 dark:text-sand-100">
+          Funded Projects & Grants
+        </h1>
+        <p class="text-sand-600 dark:text-sand-400 text-sm leading-relaxed">
+          Our faculty actively secure competitive national and international research grants supporting postgraduate student stipends, analytical consumables, and laboratory infrastructure development.
+        </p>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {allProjects.map((proj) => (
+          <div class="p-8 rounded-2xl bg-sand-50/50 dark:bg-night-900 border border-sand-200 dark:border-night-800 shadow-sm flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class={`inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider ${proj.status === 'Active' ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-400' : 'bg-sand-200 text-sand-700 dark:bg-night-800 dark:text-sand-400'}`}>
+                  {proj.status}
+                </span>
+                <span class="font-mono text-xs text-sand-500">{proj.grant_number || 'HEC/PSF Grant'}</span>
+              </div>
+
+              <h2 class="text-lg sm:text-xl font-display font-bold text-sand-900 dark:text-sand-100 leading-snug">
+                {proj.title}
+              </h2>
+
+              <p class="text-xs text-sand-600 dark:text-sand-400 leading-relaxed">
+                {proj.description}
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 pt-3 border-t border-sand-200 dark:border-night-800 text-xs text-sand-600 dark:text-sand-400">
+                <div>
+                  <span class="block text-sand-400 text-[10px] uppercase font-semibold">Funding Body</span>
+                  <span class="font-medium text-sand-800 dark:text-sand-200">{proj.funding_agency}</span>
+                </div>
+                <div>
+                  <span class="block text-sand-400 text-[10px] uppercase font-semibold">Grant Value</span>
+                  <span class="font-mono font-semibold text-forest-800 dark:text-gold-400">{proj.amount}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-sand-200 dark:border-night-800 flex justify-between items-center text-xs">
+              <span class="text-sand-500">Duration: {proj.duration}</span>
+              <a href={`/people/faculty/${proj.facultySlug}`} class="font-bold text-forest-800 dark:text-gold-400 hover:underline">
+                PI: {proj.facultyName} &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>
