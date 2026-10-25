@@ -1,10 +1,12 @@
 ---
 // Top Institutional Stripe + Hopkins Style Persistent 3-Line Menu Button + Slide-In Drawer
+const pathname = Astro.url.pathname.replace(/\/$/, '');
+const isHomePage = pathname === '' || pathname === '/' || pathname.endsWith('/iiui-biological-sciences');
 ---
 
 <!-- 1. Top Institutional Banner (Sticky white stripe with clean institutional branding & 3-line menu button) -->
-<header class="sticky top-0 z-50 bg-white text-[#23491E] border-b border-[#D0DEC0] shadow-sm select-none">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5">
+<header class="sticky top-0 z-50 h-[48px] sm:h-[54px] bg-white text-[#23491E] border-b border-[#D0DEC0] shadow-sm select-none">
+  <div class="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
     
     <!-- Left: IIUI Institutional Hierarchy -->
     <div class="flex items-center space-x-2 sm:space-x-4 text-[10px] sm:text-xs font-sans font-bold tracking-wider">
@@ -28,7 +30,7 @@
       <button 
         id="top-hamburger-btn" 
         type="button" 
-        class="w-9 h-9 sm:w-10 sm:h-10 bg-[#E6F0DC] hover:bg-[#D5ECC0] border border-[#A7B995] rounded flex items-center justify-center text-[#23491E] hover:text-[#0D1F0C] transition-colors focus:outline-none focus:ring-2 focus:ring-[#55883B] group shadow-sm" 
+        class="w-8 h-8 sm:w-9 sm:h-9 bg-[#E6F0DC] hover:bg-[#D5ECC0] border border-[#A7B995] rounded flex items-center justify-center text-[#23491E] hover:text-[#0D1F0C] transition-colors focus:outline-none focus:ring-2 focus:ring-[#55883B] group shadow-sm" 
         aria-label="Open Navigation Menu" 
         title="Open Menu"
       >
@@ -56,67 +58,69 @@
   aria-modal="true" 
   aria-label="Site Navigation Drawer"
 >
-  <!-- THE NAVIGATION RAIL (Pushed to the left of the drawer when opened, docked at right edge when closed) -->
-  <nav 
-    id="hero-side-rail" 
-    class="hidden sm:flex absolute right-full top-20 mr-3 sm:mr-4 flex-col items-end space-y-2 pointer-events-auto select-none transition-all duration-300" 
-    aria-label="Quick Actions Navigation"
-  >
-    <!-- 1. Menu Button -->
-    <button 
-      id="hero-menu-btn" 
-      type="button" 
-      class="w-44 px-4 py-2.5 bg-[#163013] hover:bg-[#23491E] text-white border border-[#23491E] shadow-2xl text-xs font-sans font-bold uppercase tracking-wider flex items-center justify-start gap-2.5 rounded-sm transition-all focus:outline-none focus:ring-1 focus:ring-[#C1E899] group"
+  <!-- THE NAVIGATION RAIL (Pushed to the left of the drawer when opened, docked at right edge when closed on Homepage ONLY) -->
+  {isHomePage && (
+    <nav 
+      id="hero-side-rail" 
+      class="hidden sm:flex absolute right-full top-20 mr-3 sm:mr-4 flex-col items-end space-y-2 pointer-events-auto select-none transition-all duration-300" 
+      aria-label="Quick Actions Navigation"
     >
-      <svg class="w-4 h-4 text-[#C1E899] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <span>MENU</span>
-    </button>
+      <!-- 1. Menu Button -->
+      <button 
+        id="hero-menu-btn" 
+        type="button" 
+        class="w-44 px-4 py-2.5 bg-[#163013] hover:bg-[#23491E] text-white border border-[#23491E] shadow-2xl text-xs font-sans font-bold uppercase tracking-wider flex items-center justify-start gap-2.5 rounded-sm transition-all focus:outline-none focus:ring-1 focus:ring-[#C1E899] group"
+      >
+        <svg class="w-4 h-4 text-[#C1E899] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <span>MENU</span>
+      </button>
 
-    <!-- 2. Search Button -->
-    <button 
-      id="hero-search-btn" 
-      type="button" 
-      class="w-44 px-4 py-2.5 bg-[#163013] hover:bg-[#23491E] text-white border border-[#23491E] shadow-2xl text-xs font-sans font-bold uppercase tracking-wider flex items-center justify-start gap-2.5 rounded-sm transition-all focus:outline-none focus:ring-1 focus:ring-[#C1E899] group"
-    >
-      <svg class="w-4 h-4 text-[#C1E899] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-      <span>SEARCH</span>
-    </button>
+      <!-- 2. Search Button -->
+      <button 
+        id="hero-search-btn" 
+        type="button" 
+        class="w-44 px-4 py-2.5 bg-[#163013] hover:bg-[#23491E] text-white border border-[#23491E] shadow-2xl text-xs font-sans font-bold uppercase tracking-wider flex items-center justify-start gap-2.5 rounded-sm transition-all focus:outline-none focus:ring-1 focus:ring-[#C1E899] group"
+      >
+        <svg class="w-4 h-4 text-[#C1E899] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <span>SEARCH</span>
+      </button>
 
-    <!-- 3. News & Events Link -->
-    <a 
-      href="/news" 
-      class="w-44 px-4 py-2.5 bg-[#163013] hover:bg-[#23491E] text-white border border-[#23491E] shadow-2xl text-xs font-sans font-bold uppercase tracking-wider flex items-center justify-start gap-2.5 rounded-sm transition-all group"
-    >
-      <svg class="w-4 h-4 text-[#C1E899] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-      <span>NEWS &amp; EVENTS</span>
-    </a>
+      <!-- 3. News & Events Link -->
+      <a 
+        href="/news" 
+        class="w-44 px-4 py-2.5 bg-[#163013] hover:bg-[#23491E] text-white border border-[#23491E] shadow-2xl text-xs font-sans font-bold uppercase tracking-wider flex items-center justify-start gap-2.5 rounded-sm transition-all group"
+      >
+        <svg class="w-4 h-4 text-[#C1E899] transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span>NEWS &amp; EVENTS</span>
+      </a>
 
-    <!-- 4. White Rectangular Action Buttons (Exact Hopkins Layout from Screenshot) -->
-    <a 
-      href="/students/admissions" 
-      class="w-44 px-4 py-2.5 bg-white hover:bg-[#E6F0DC] text-[#23491E] shadow-2xl text-xs font-sans font-black uppercase tracking-wider text-center rounded-sm transition-colors block border border-white"
-    >
-      ADMISSIONS
-    </a>
-    <a 
-      href="/academics" 
-      class="w-44 px-4 py-2.5 bg-white hover:bg-[#E6F0DC] text-[#23491E] shadow-2xl text-xs font-sans font-black uppercase tracking-wider text-center rounded-sm transition-colors block border border-white"
-    >
-      PROGRAMS
-    </a>
-    <a 
-      href="/contact" 
-      class="w-44 px-4 py-2.5 bg-white hover:bg-[#E6F0DC] text-[#23491E] shadow-2xl text-xs font-sans font-black uppercase tracking-wider text-center rounded-sm transition-colors block border border-white"
-    >
-      CONTACT
-    </a>
-  </nav>
+      <!-- 4. White Rectangular Action Buttons (Exact Hopkins Layout from Screenshot) -->
+      <a 
+        href="/students/admissions" 
+        class="w-44 px-4 py-2.5 bg-white hover:bg-[#E6F0DC] text-[#23491E] shadow-2xl text-xs font-sans font-black uppercase tracking-wider text-center rounded-sm transition-colors block border border-white"
+      >
+        ADMISSIONS
+      </a>
+      <a 
+        href="/academics" 
+        class="w-44 px-4 py-2.5 bg-white hover:bg-[#E6F0DC] text-[#23491E] shadow-2xl text-xs font-sans font-black uppercase tracking-wider text-center rounded-sm transition-colors block border border-white"
+      >
+        PROGRAMS
+      </a>
+      <a 
+        href="/contact" 
+        class="w-44 px-4 py-2.5 bg-white hover:bg-[#E6F0DC] text-[#23491E] shadow-2xl text-xs font-sans font-black uppercase tracking-wider text-center rounded-sm transition-colors block border border-white"
+      >
+        CONTACT
+      </a>
+    </nav>
+  )}
 
   <!-- Top Bar of Drawer: Close Button (✕) on Top-Right (Matching Screenshot) -->
   <div class="px-5 py-4 border-b border-[#23491E] flex items-center justify-end bg-[#163013] flex-shrink-0">
@@ -137,27 +141,29 @@
   <!-- Scrollable Drawer Body with Accordion & Secondary Links -->
   <div class="p-5 overflow-y-auto flex-1 space-y-5">
     
-    <!-- Primary Accordion Menu (Styled with outlined boxes and [+] indicators matching screenshot) -->
+    <!-- Primary Accordion Menu (Styled with outlined boxes, divider lines, and smooth [+] / [-] transitions) -->
     <div class="space-y-1.5 pt-1">
       
       <!-- 1. About Us -->
       <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
         <button 
           type="button" 
-          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          class="accordion-toggle w-full flex items-center justify-between p-3.5 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] bg-[#163013]/90 hover:bg-[#23491E]/60 transition-colors border-b border-[#23491E]" 
           aria-expanded="false"
         >
-          <span>About Us</span>
-          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
-            +
+          <span class="tracking-wide">About Us</span>
+          <span class="accordion-icon w-7 h-7 rounded-sm border border-[#55883B] bg-[#23491E] flex items-center justify-center text-[#C1E899] transition-all">
+            <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
           </span>
         </button>
-        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
-          <a href="/about" class="block hover:text-[#C1E899] hover:underline">Department Overview & History</a>
-          <a href="/about#chairperson" class="block hover:text-[#C1E899] hover:underline">Chairperson's Message (Prof. Dr. Asma Gul)</a>
-          <a href="/about#vision" class="block hover:text-[#C1E899] hover:underline">Vision, Mission & Quranic Verse</a>
-          <a href="/about#facilities" class="block hover:text-[#C1E899] hover:underline">Department Facilities & Science Block</a>
-          <a href="/contact" class="block hover:text-[#C1E899] hover:underline">Location, Office Hours & Contact</a>
+        <div class="accordion-panel max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out bg-[#0D1F0C]/90 text-xs font-sans">
+          <a href="/about" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Department Overview & History</a>
+          <a href="/about#chairperson" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Chairperson's Message (Prof. Dr. Asma Gul)</a>
+          <a href="/about#vision" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Vision, Mission & Quranic Verse</a>
+          <a href="/about#facilities" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Department Facilities & Science Block</a>
+          <a href="/contact" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Location, Office Hours & Contact</a>
         </div>
       </div>
 
@@ -165,21 +171,23 @@
       <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
         <button 
           type="button" 
-          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          class="accordion-toggle w-full flex items-center justify-between p-3.5 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] bg-[#163013]/90 hover:bg-[#23491E]/60 transition-colors border-b border-[#23491E]" 
           aria-expanded="false"
         >
-          <span>Academics</span>
-          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
-            +
+          <span class="tracking-wide">Academics</span>
+          <span class="accordion-icon w-7 h-7 rounded-sm border border-[#55883B] bg-[#23491E] flex items-center justify-center text-[#C1E899] transition-all">
+            <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
           </span>
         </button>
-        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
-          <a href="/academics" class="block hover:text-[#C1E899] hover:underline">All Academic Programs Overview</a>
-          <a href="/academics/programs/bs-biology" class="block hover:text-[#C1E899] hover:underline">BS Biology (BSBIO) &bull; 4-Year</a>
-          <a href="/academics/programs/bs-biotechnology" class="block hover:text-[#C1E899] hover:underline">BS Biotechnology (BSBT) &bull; 4-Year</a>
-          <a href="/academics/programs/ms-biotechnology" class="block hover:text-[#C1E899] hover:underline">MS Biotechnology (MSBT) &bull; Graduate</a>
-          <a href="/academics/programs/phd-biotechnology" class="block hover:text-[#C1E899] hover:underline">PhD Biotechnology (PhDBT) &bull; Doctoral</a>
-          <a href="/academics/academic-calendar" class="block hover:text-[#C1E899] hover:underline">Academic Calendar & Timetables</a>
+        <div class="accordion-panel max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out bg-[#0D1F0C]/90 text-xs font-sans">
+          <a href="/academics" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">All Academic Programs Overview</a>
+          <a href="/academics/programs/bs-biology" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">BS Biology (BSBIO) &bull; 4-Year</a>
+          <a href="/academics/programs/bs-biotechnology" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">BS Biotechnology (BSBT) &bull; 4-Year</a>
+          <a href="/academics/programs/ms-biotechnology" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">MS Biotechnology (MSBT) &bull; Graduate</a>
+          <a href="/academics/programs/phd-biotechnology" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">PhD Biotechnology (PhDBT) &bull; Doctoral</a>
+          <a href="/academics/academic-calendar" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Academic Calendar & Timetables</a>
         </div>
       </div>
 
@@ -187,21 +195,23 @@
       <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
         <button 
           type="button" 
-          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          class="accordion-toggle w-full flex items-center justify-between p-3.5 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] bg-[#163013]/90 hover:bg-[#23491E]/60 transition-colors border-b border-[#23491E]" 
           aria-expanded="false"
         >
-          <span>Research Groups</span>
-          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
-            +
+          <span class="tracking-wide">Research Groups</span>
+          <span class="accordion-icon w-7 h-7 rounded-sm border border-[#55883B] bg-[#23491E] flex items-center justify-center text-[#C1E899] transition-all">
+            <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
           </span>
         </button>
-        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
-          <a href="/research/areas" class="block hover:text-[#C1E899] hover:underline">6 Core Research Clusters</a>
-          <a href="/research/areas#genomics" class="block hover:text-[#C1E899] hover:underline">Molecular Diagnostics & Cancer Genetics</a>
-          <a href="/research/areas#ecology" class="block hover:text-[#C1E899] hover:underline">Landscape Ecology & Spatial Modeling</a>
-          <a href="/research/areas#microbiology" class="block hover:text-[#C1E899] hover:underline">Applied Microbiology & Antibiotic Resistance</a>
-          <a href="/research/areas#plant-biotech" class="block hover:text-[#C1E899] hover:underline">Plant Biotechnology & Tissue Culture</a>
-          <a href="/research/labs" class="block hover:text-[#C1E899] hover:underline">Core Research Laboratories & Instrumentation</a>
+        <div class="accordion-panel max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out bg-[#0D1F0C]/90 text-xs font-sans">
+          <a href="/research/areas" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">6 Core Research Clusters</a>
+          <a href="/research/areas#genomics" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Molecular Diagnostics & Cancer Genetics</a>
+          <a href="/research/areas#ecology" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Landscape Ecology & Spatial Modeling</a>
+          <a href="/research/areas#microbiology" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Applied Microbiology & Antibiotic Resistance</a>
+          <a href="/research/areas#plant-biotech" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Plant Biotechnology & Tissue Culture</a>
+          <a href="/research/labs" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Core Research Laboratories & Instrumentation</a>
         </div>
       </div>
 
@@ -209,19 +219,21 @@
       <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
         <button 
           type="button" 
-          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          class="accordion-toggle w-full flex items-center justify-between p-3.5 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] bg-[#163013]/90 hover:bg-[#23491E]/60 transition-colors border-b border-[#23491E]" 
           aria-expanded="false"
         >
-          <span>Admissions & Aid</span>
-          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
-            +
+          <span class="tracking-wide">Admissions & Aid</span>
+          <span class="accordion-icon w-7 h-7 rounded-sm border border-[#55883B] bg-[#23491E] flex items-center justify-center text-[#C1E899] transition-all">
+            <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
           </span>
         </button>
-        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
-          <a href="/students/admissions" class="block hover:text-[#C1E899] hover:underline">Admissions Criteria & Requirements</a>
-          <a href="/students/admissions#fees" class="block hover:text-[#C1E899] hover:underline">Fee Structure & HEC Quota Seats</a>
-          <a href="https://admission.iiu.edu.pk/" target="_blank" rel="noopener" class="block hover:text-[#C1E899] hover:underline">Online Admission Application Portal</a>
-          <a href="/students/guidelines" class="block hover:text-[#C1E899] hover:underline">HEC Scholarships & Need-Based Aid</a>
+        <div class="accordion-panel max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out bg-[#0D1F0C]/90 text-xs font-sans">
+          <a href="/students/admissions" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Admissions Criteria & Requirements</a>
+          <a href="/students/admissions#fees" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Fee Structure & HEC Quota Seats</a>
+          <a href="https://admission.iiu.edu.pk/" target="_blank" rel="noopener" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Online Admission Application Portal</a>
+          <a href="/students/guidelines" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">HEC Scholarships & Need-Based Aid</a>
         </div>
       </div>
 
@@ -229,19 +241,21 @@
       <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
         <button 
           type="button" 
-          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          class="accordion-toggle w-full flex items-center justify-between p-3.5 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] bg-[#163013]/90 hover:bg-[#23491E]/60 transition-colors border-b border-[#23491E]" 
           aria-expanded="false"
         >
-          <span>Research & Faculty</span>
-          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
-            +
+          <span class="tracking-wide">Research & Faculty</span>
+          <span class="accordion-icon w-7 h-7 rounded-sm border border-[#55883B] bg-[#23491E] flex items-center justify-center text-[#C1E899] transition-all">
+            <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
           </span>
         </button>
-        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
-          <a href="/people/faculty" class="block hover:text-[#C1E899] hover:underline">Full Faculty Directory (By Rank)</a>
-          <a href="/research/projects" class="block hover:text-[#C1E899] hover:underline">Funded Research Projects (HEC / PSF)</a>
-          <a href="/research/publications" class="block hover:text-[#C1E899] hover:underline">Scholarly Journal Publications</a>
-          <a href="/people/scholars" class="block hover:text-[#C1E899] hover:underline">Postgraduate Research Scholars</a>
+        <div class="accordion-panel max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out bg-[#0D1F0C]/90 text-xs font-sans">
+          <a href="/people/faculty" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Full Faculty Directory (By Rank)</a>
+          <a href="/research/projects" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Funded Research Projects (HEC / PSF)</a>
+          <a href="/research/publications" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Scholarly Journal Publications</a>
+          <a href="/people/scholars" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Postgraduate Research Scholars</a>
         </div>
       </div>
 
@@ -249,18 +263,20 @@
       <div class="accordion-item border border-[#23491E] rounded-sm bg-[#163013]/60 overflow-hidden">
         <button 
           type="button" 
-          class="accordion-toggle w-full flex items-center justify-between p-3 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] transition-colors group" 
+          class="accordion-toggle w-full flex items-center justify-between p-3.5 text-left text-sm font-sans font-bold text-white hover:text-[#C1E899] bg-[#163013]/90 hover:bg-[#23491E]/60 transition-colors border-b border-[#23491E]" 
           aria-expanded="false"
         >
-          <span>Campus Life</span>
-          <span class="accordion-icon w-5 h-5 rounded-xs border border-[#55883B] flex items-center justify-center text-xs font-mono font-bold text-[#C1E899] group-hover:bg-[#55883B] group-hover:text-white transition-colors">
-            +
+          <span class="tracking-wide">Campus Life</span>
+          <span class="accordion-icon w-7 h-7 rounded-sm border border-[#55883B] bg-[#23491E] flex items-center justify-center text-[#C1E899] transition-all">
+            <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
           </span>
         </button>
-        <div class="accordion-panel hidden px-4 pt-2 pb-3 space-y-2 border-t border-[#23491E] bg-[#0D1F0C]/80 text-xs text-[#E6F0DC] font-sans">
-          <a href="/students/societies" class="block hover:text-[#C1E899] hover:underline">Biosciences Student Societies</a>
-          <a href="/gallery" class="block hover:text-[#C1E899] hover:underline">Campus & Lab Photo Gallery</a>
-          <a href="/about#facilities" class="block hover:text-[#C1E899] hover:underline">Hostel & Transport Information</a>
+        <div class="accordion-panel max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out bg-[#0D1F0C]/90 text-xs font-sans">
+          <a href="/students/societies" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Biosciences Student Societies</a>
+          <a href="/gallery" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Campus & Lab Photo Gallery</a>
+          <a href="/about#facilities" class="block py-2.5 pl-5 pr-3 text-[#E6F0DC]/90 hover:text-white hover:bg-[#23491E]/30 border-b border-[#23491E]/70 transition-colors">Hostel & Transport Information</a>
         </div>
       </div>
 
@@ -397,25 +413,43 @@
     }
   });
 
-  // 3. Accordion Expand/Collapse Behavior with [+] and [-]
+  // 3. Accordion Expand/Collapse Behavior with Smooth Slide Transition and [+] / [-]
   const accordions = document.querySelectorAll('#side-menu-drawer .accordion-item');
+  const plusIconSvg = '<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>';
+  const minusIconSvg = '<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16"/></svg>';
+
   accordions.forEach(item => {
     const toggleBtn = item.querySelector('.accordion-toggle');
-    const panel = item.querySelector('.accordion-panel');
+    const panel = item.querySelector('.accordion-panel') as HTMLElement | null;
     const icon = item.querySelector('.accordion-icon');
 
     toggleBtn?.addEventListener('click', () => {
       const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
 
-      // Toggle current
       if (isExpanded) {
         toggleBtn.setAttribute('aria-expanded', 'false');
-        panel?.classList.add('hidden');
-        if (icon) icon.textContent = '+';
+        if (panel) {
+          panel.style.maxHeight = '0px';
+          panel.classList.remove('opacity-100');
+          panel.classList.add('opacity-0');
+        }
+        if (icon) {
+          icon.innerHTML = plusIconSvg;
+          icon.classList.remove('bg-[#55883B]', 'text-white');
+          icon.classList.add('bg-[#23491E]', 'text-[#C1E899]');
+        }
       } else {
         toggleBtn.setAttribute('aria-expanded', 'true');
-        panel?.classList.remove('hidden');
-        if (icon) icon.textContent = '-';
+        if (panel) {
+          panel.classList.remove('opacity-0');
+          panel.classList.add('opacity-100');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+        if (icon) {
+          icon.innerHTML = minusIconSvg;
+          icon.classList.remove('bg-[#23491E]', 'text-[#C1E899]');
+          icon.classList.add('bg-[#55883B]', 'text-white');
+        }
       }
     });
   });

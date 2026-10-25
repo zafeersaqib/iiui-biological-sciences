@@ -27,26 +27,60 @@ const profileUrl = Astro.url.href;
 
 <div class="relative bg-sand-50 dark:bg-night-950 pb-20">
   
-  <!-- 1. Top Banner Strip -->
-  <div class="relative h-64 sm:h-80 w-full overflow-hidden bg-forest-900">
-    <div class="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-overlay" style={`background-image: url('${faculty.banner || '/assets/images/bio_home.png'}');`}></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-    <div class="absolute bottom-4 left-4 sm:left-8 max-w-7xl text-white">
-      <span class="inline-block px-3 py-1 rounded-full bg-gold-500/90 text-forest-950 font-semibold text-xs tracking-wider uppercase mb-2">
-        {faculty.role || "Faculty Scholar"}
-      </span>
-      <h1 class="text-2xl sm:text-4xl font-display font-bold">{faculty.name}</h1>
-      <p class="text-sm text-sand-200 mt-1">{faculty.designation} &bull; Department of Biological Sciences</p>
+  <!-- 1. Frozen Green Faculty Banner (Sticky, always visible on scroll) -->
+  <div class="sticky top-[86px] sm:top-[94px] z-30 bg-[#163013] text-white border-b border-[#23491E] shadow-md transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 flex flex-col md:flex-row md:items-center justify-between gap-2 sm:gap-4">
+      <div class="min-w-0">
+        <div class="flex items-center gap-2">
+          <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#C1E899] text-[#0D1F0C] font-sans font-bold text-[10px] tracking-wider uppercase">
+            {faculty.role || "Faculty Scholar"}
+          </span>
+          <span class="text-xs text-[#C1E899]/80 font-sans hidden sm:inline">&bull; Department of Biological Sciences</span>
+        </div>
+        <h1 class="text-lg sm:text-xl md:text-2xl font-serif font-bold text-white tracking-tight truncate mt-0.5">
+          {faculty.name}
+        </h1>
+        <p class="text-xs text-[#E6F0DC]/90 font-sans truncate">
+          {faculty.designation} &bull; Faculty of Sciences, IIUI
+        </p>
+      </div>
+
+      <!-- Quick Action Badges -->
+      <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        {faculty.email && (
+          <a 
+            href={`mailto:${faculty.email}`} 
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#23491E] hover:bg-[#55883B] text-white text-xs font-sans font-medium transition-colors border border-[#55883B]/40"
+            title={`Email ${faculty.name}`}
+          >
+            <svg class="w-3.5 h-3.5 text-[#C1E899]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span class="hidden sm:inline">Email</span>
+          </a>
+        )}
+        <a 
+          href={faculty.cv_pdf || `/downloads/cv/cv-${faculty.slug}.pdf`} 
+          download 
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white hover:bg-[#E6F0DC] text-[#163013] text-xs font-sans font-bold transition-colors shadow-sm"
+          title="Download Curriculum Vitae"
+        >
+          <svg class="w-3.5 h-3.5 text-[#55883B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Download CV</span>
+        </a>
+      </div>
     </div>
   </div>
 
   <!-- Main Container: Sticky Sidebar + Content Area -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
       
       <!-- 2. Sticky Left Sidebar (Desktop Sticky) -->
-      <aside class="lg:col-span-4 lg:sticky lg:top-24 space-y-6">
-        <div class="bg-white dark:bg-night-900 rounded-2xl shadow-xl border border-sand-200 dark:border-night-800 p-6 sm:p-8 text-center relative overflow-hidden">
+      <aside class="lg:col-span-4 self-start lg:sticky lg:top-[178px] z-20 space-y-6">
+        <div class="bg-white dark:bg-night-900 rounded-2xl shadow-xl border border-sand-200 dark:border-night-800 p-6 sm:p-8 text-center relative max-h-[calc(100vh-195px)] overflow-y-auto">
           
           <!-- Subtle Accent Ring behind Avatar -->
           <div class="mx-auto w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 bg-gradient-to-tr from-forest-800 via-gold-500 to-forest-600 shadow-lg">
@@ -167,26 +201,29 @@ const profileUrl = Astro.url.href;
       </aside>
 
       <!-- 3. Right Content Area: Profile Tabs -->
-      <section class="lg:col-span-8 bg-white dark:bg-night-900 rounded-2xl shadow-xl border border-sand-200 dark:border-night-800 overflow-hidden">
+      <section class="lg:col-span-8 bg-white dark:bg-night-900 rounded-2xl shadow-xl border border-sand-200 dark:border-night-800">
         
-        <!-- Tab Navigation Bar (Roberta Valtorta Style) -->
-        <nav aria-label="Profile Sections" class="flex border-b border-sand-200 dark:border-night-800 overflow-x-auto bg-sand-50/50 dark:bg-night-850/50">
-          <button class="profile-tab-btn active px-5 py-4 text-sm font-semibold border-b-2 border-forest-800 text-forest-800 dark:text-gold-400 dark:border-gold-400 whitespace-nowrap focus:outline-none" data-tab="about">
+        <!-- Tab Navigation Bar: Sticky Floating below Frozen Name Banner -->
+        <nav 
+          aria-label="Profile Sections" 
+          class="sticky top-[178px] z-20 flex border-b border-sand-200 dark:border-night-800 overflow-x-auto bg-white/95 dark:bg-night-900/95 backdrop-blur-md shadow-sm rounded-t-2xl"
+        >
+          <button class="profile-tab-btn active px-5 py-3.5 text-xs sm:text-sm font-semibold border-b-2 border-[#23491E] text-[#163013] dark:text-[#C1E899] dark:border-[#C1E899] whitespace-nowrap focus:outline-none" data-tab="about">
             About
           </button>
-          <button class="profile-tab-btn px-5 py-4 text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-forest-800 dark:hover:text-gold-400 whitespace-nowrap focus:outline-none" data-tab="publications">
+          <button class="profile-tab-btn px-5 py-3.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-[#163013] dark:hover:text-[#C1E899] whitespace-nowrap focus:outline-none" data-tab="publications">
             Publications ({publications.length})
           </button>
-          <button class="profile-tab-btn px-5 py-4 text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-forest-800 dark:hover:text-gold-400 whitespace-nowrap focus:outline-none" data-tab="projects">
+          <button class="profile-tab-btn px-5 py-3.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-[#163013] dark:hover:text-[#C1E899] whitespace-nowrap focus:outline-none" data-tab="projects">
             Projects ({projects.length})
           </button>
-          <button class="profile-tab-btn px-5 py-4 text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-forest-800 dark:hover:text-gold-400 whitespace-nowrap focus:outline-none" data-tab="teaching">
+          <button class="profile-tab-btn px-5 py-3.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-[#163013] dark:hover:text-[#C1E899] whitespace-nowrap focus:outline-none" data-tab="teaching">
             Teaching ({teaching.length})
           </button>
-          <button class="profile-tab-btn px-5 py-4 text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-forest-800 dark:hover:text-gold-400 whitespace-nowrap focus:outline-none" data-tab="cv">
+          <button class="profile-tab-btn px-5 py-3.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-[#163013] dark:hover:text-[#C1E899] whitespace-nowrap focus:outline-none" data-tab="cv">
             CV & Career
           </button>
-          <button class="profile-tab-btn px-5 py-4 text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-forest-800 dark:hover:text-gold-400 whitespace-nowrap focus:outline-none" data-tab="contact">
+          <button class="profile-tab-btn px-5 py-3.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-sand-600 dark:text-sand-400 hover:text-[#163013] dark:hover:text-[#C1E899] whitespace-nowrap focus:outline-none" data-tab="contact">
             Contact
           </button>
         </nav>
@@ -237,7 +274,7 @@ const profileUrl = Astro.url.href;
             <!-- Publications list grouped by year -->
             {sortedYears.map((year) => (
               <div class="space-y-4">
-                <div class="sticky top-20 bg-white/95 dark:bg-night-900/95 py-1 border-b border-sand-200 dark:border-night-800 flex items-center gap-3">
+                <div class="py-1.5 border-b border-sand-200 dark:border-night-800 flex items-center gap-3">
                   <span class="text-lg font-display font-bold text-forest-800 dark:text-gold-400">{year}</span>
                   <span class="text-xs text-sand-400">({publicationsByYear[year].length} publications)</span>
                 </div>

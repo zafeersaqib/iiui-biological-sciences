@@ -18,7 +18,7 @@ const latestNews = news.sort((a, b) => new Date(b.data.date).getTime() - new Dat
 >
 
   <!-- 1. FROZEN HERO SLIDESHOW VIEWPORT (Sticky under top bar, covered by curtain on scroll) -->
-  <section id="hero-slideshow" class="sticky top-[41px] sm:top-[45px] h-[calc(100vh-45px)] w-full z-0 flex items-center justify-center overflow-hidden bg-[#0D1F0C] text-white">
+  <section id="hero-slideshow" class="sticky top-[48px] sm:top-[54px] h-[calc(100vh-48px)] sm:h-[calc(100vh-54px)] w-full z-0 flex items-center justify-center overflow-hidden bg-[#0D1F0C] text-white">
     
     <!-- Slides Container -->
     <div id="slides-wrapper" class="absolute inset-0 z-0">
@@ -75,37 +75,40 @@ const latestNews = news.sort((a, b) => new Date(b.data.date).getTime() - new Dat
 
     </div>
 
-    <!-- Center Monumental Lockup (Matching Hopkins 150 In Middle of Slideshow) -->
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center space-y-6">
+    <!-- Center Monumental Lockup: Compact Side-by-side Emblem + Centered Titles -->
+    <div class="relative z-10 max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto px-4 sm:px-8 py-4 sm:py-6 flex flex-col items-center justify-center space-y-3 sm:space-y-4 text-center select-none">
       
-      <!-- Transparent Department Emblem in Center -->
-      <div class="flex justify-center">
-        <img 
-          src="/assets/images/dept-logo.png" 
-          alt="Department of Biological Sciences Crest" 
-          class="h-32 sm:h-44 md:h-52 w-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] filter brightness-110 animate-fade-in"
-        />
+      <!-- Side-by-Side: Emblem on Left, Centered Sabon Titles on Right -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-7 text-center">
+        <!-- Transparent Department Emblem on Left -->
+        <div class="flex-shrink-0">
+          <img 
+            src="/assets/images/dept-logo.png" 
+            alt="Department of Biological Sciences Crest" 
+            class="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.85)] filter brightness-110 animate-fade-in"
+          />
+        </div>
+
+        <!-- University & Department Titles: Centered Sabon Serif (Enhanced visibility & contrast) -->
+        <div class="space-y-1.5 text-center">
+          <div class="text-xs sm:text-sm md:text-base font-sans font-bold uppercase tracking-[0.2em] text-[#C1E899] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            International Islamic University Islamabad
+          </div>
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-serif font-normal tracking-wide text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]" style="font-family: 'Sabon', 'Sabon Next LT Pro', 'Source Serif 4', 'Garamond', 'Georgia', serif; font-weight: 400;">
+            Department of Biological Sciences
+          </h1>
+          <div class="text-sm sm:text-base md:text-lg font-serif italic text-[#E6F0DC] font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            Faculty of Sciences
+          </div>
+        </div>
       </div>
 
-      <!-- University & Department Titles in Work Sans -->
-      <div class="space-y-2">
-        <div class="text-xs sm:text-sm font-sans font-bold uppercase tracking-[0.3em] text-[#C1E899] drop-shadow-md">
-          International Islamic University Islamabad
-        </div>
-        <h1 class="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-sans font-black tracking-tight text-white leading-none uppercase drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]">
-          Department of<br class="hidden sm:inline" /> Biological Sciences
-        </h1>
-        <div class="text-sm sm:text-base md:text-lg font-serif italic text-[#E6F0DC] font-medium drop-shadow-md">
-          Faculty of Sciences &middot; Sector H-10 Campus
-        </div>
-      </div>
-
-      <!-- Quranic Tagline (Surah Al-Ankabut 29:20) -->
-      <div class="pt-2 inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-6 py-2.5 rounded-full bg-[#0D1F0C]/85 border border-[#C1E899]/60 backdrop-blur-md shadow-2xl">
+      <!-- Quranic Tagline (Surah Al-Ankabut 29:20) Compact Pill (Clear of slider fingers) -->
+      <div class="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-[#0D1F0C]/90 border border-[#C1E899]/70 backdrop-blur-md shadow-2xl text-center">
         <span class="font-arabic text-[#C1E899] text-base sm:text-lg font-bold">قُلْ سِيرُوا فِي الْأَرْضِ فَانظُرُوا كَيْفَ بَدَأَ الْخَلْقَ ۚ</span>
         <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-[#9A6735]"></span>
-        <span class="text-xs sm:text-sm font-sans font-medium text-white">
-          "Say: 'Travel through the earth and see how Allah did originate creation...'" <span class="text-[#C1E899] font-bold">(29:20)</span>
+        <span class="text-xs sm:text-sm font-sans font-normal text-white">
+          "Say: 'Travel through the earth and see how Allah did originate creation...'" <span class="text-[#C1E899] font-semibold">(29:20)</span>
         </span>
       </div>
 
