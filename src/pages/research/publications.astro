@@ -1,4 +1,5 @@
 ---
+import { isRealUrl } from '../../utils/links';
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection } from 'astro:content';
@@ -173,7 +174,7 @@ const uniqueFaculty = Array.from(new Set(allPublications.map(p => p.facultyName)
               </p>
             )}
 
-            {pub.doi && (
+            {isRealUrl(pub.doi) && (
               <div class="pt-2 border-t border-sand-100 dark:border-night-800 flex justify-end">
                 <a 
                   href={pub.doi} 

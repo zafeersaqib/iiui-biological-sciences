@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import basePath from './src/integrations/base-path.mjs';
 
 const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
 
@@ -13,5 +14,6 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
+    basePath(),
   ],
 });

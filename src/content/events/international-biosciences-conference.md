@@ -7,7 +7,7 @@ category: "Conference"
 speaker: "Prof. Dr. Asma Gul (Patron) & International Keynote Dignitaries"
 speaker_title: "Dean / Chairperson, Department of Biological Sciences, IIUI"
 featured_image: "/assets/images/events/conference-hall.jpg"
-registration_link: "https://science.iiu.edu.pk/icambb-registration"
+registration_link: "[TODO: conference registration URL]"
 summary: "A premier international gathering bringing together academic scientists, researchers, clinicians, and industrial innovators to exchange breakthroughs across molecular biology, biomedical technology, environmental biosciences, and nanobiotechnology."
 ---
 
